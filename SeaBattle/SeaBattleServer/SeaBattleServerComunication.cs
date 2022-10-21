@@ -21,6 +21,7 @@ namespace SeaBattleServerComunication
         }
     }
 
+
     public enum RequestType
     {
         Register, Login, GetRewards, BattleRequest, BattleConfirm, BattleEnded, Fire, Exception
