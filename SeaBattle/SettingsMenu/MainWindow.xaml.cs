@@ -63,8 +63,16 @@ namespace SettingsMenu
         private MainWindow SettingsMenu = new MainWindow();
         public Settings(string path = "config.txt")
         {
-            string text = File.ReadAllText(path);
-            config = JsonSerializer.Deserialize<Config>(text);
+            if (File.Exists(path))
+            {
+                string text = File.ReadAllText(path);
+                config = JsonSerializer.Deserialize<Config>(text);
+            }
+            else
+            {
+                File.Create(path);
+                config = new Config(); 
+            }
             if(config == null)
             {
                 config = new Config();
