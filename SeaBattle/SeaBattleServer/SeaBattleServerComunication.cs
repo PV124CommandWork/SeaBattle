@@ -17,7 +17,7 @@ namespace SeaBattleServerComunication
 
         public void Execute()
         {
-
+            //
         }
     }
 
