@@ -1,0 +1,15 @@
+C:\Users\seniv\source\repos\RegistrationLib\RegistrationLib\bin\Debug\net6.0\RegistrationLib.deps.json
+C:\Users\seniv\source\repos\RegistrationLib\RegistrationLib\bin\Debug\net6.0\RegistrationLib.dll
+C:\Users\seniv\source\repos\RegistrationLib\RegistrationLib\bin\Debug\net6.0\RegistrationLib.pdb
+C:\Users\seniv\source\repos\RegistrationLib\RegistrationLib\obj\Debug\net6.0\RegistrationLib.csproj.AssemblyReference.cache
+C:\Users\seniv\source\repos\RegistrationLib\RegistrationLib\obj\Debug\net6.0\RegistrationLib.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\seniv\source\repos\RegistrationLib\RegistrationLib\obj\Debug\net6.0\RegistrationLib.AssemblyInfoInputs.cache
+C:\Users\seniv\source\repos\RegistrationLib\RegistrationLib\obj\Debug\net6.0\RegistrationLib.AssemblyInfo.cs
+C:\Users\seniv\source\repos\RegistrationLib\RegistrationLib\obj\Debug\net6.0\RegistrationLib.csproj.CoreCompileInputs.cache
+C:\Users\seniv\source\repos\RegistrationLib\RegistrationLib\obj\Debug\net6.0\RegistrationLib.dll
+C:\Users\seniv\source\repos\RegistrationLib\RegistrationLib\obj\Debug\net6.0\refint\RegistrationLib.dll
+C:\Users\seniv\source\repos\RegistrationLib\RegistrationLib\obj\Debug\net6.0\RegistrationLib.pdb
+C:\Users\seniv\source\repos\RegistrationLib\RegistrationLib\obj\Debug\net6.0\ref\RegistrationLib.dll
+C:\Users\seniv\source\repos\RegistrationLib\RegistrationLib\bin\Debug\net6.0\GameDBContext.dll
+C:\Users\seniv\source\repos\RegistrationLib\RegistrationLib\bin\Debug\net6.0\GameDBContext.pdb
+C:\Users\seniv\source\repos\RegistrationLib\RegistrationLib\obj\Debug\net6.0\RegistrationLib.csproj.CopyComplete

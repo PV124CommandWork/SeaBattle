@@ -5,14 +5,10 @@
       "Newtonsoft.Json/13.0.1": {
         "type": "package",
         "compile": {
-          "lib/netstandard2.0/Newtonsoft.Json.dll": {
-            "related": ".xml"
-          }
+          "lib/netstandard2.0/Newtonsoft.Json.dll": {}
         },
         "runtime": {
-          "lib/netstandard2.0/Newtonsoft.Json.dll": {
-            "related": ".xml"
-          }
+          "lib/netstandard2.0/Newtonsoft.Json.dll": {}
         }
       }
     }
@@ -52,19 +48,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\User\\.nuget\\packages\\": {}
+    "C:\\Users\\seniv\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\дз\\ШАГ\\SeaBattle\\SeaBattle\\SeaBattleServer\\SeaBattleServer.csproj",
+      "projectUniqueName": "C:\\Users\\seniv\\source\\repos\\SeaBattle\\SeaBattle\\SeaBattleServer\\SeaBattleServer.csproj",
       "projectName": "SeaBattleServer",
-      "projectPath": "E:\\дз\\ШАГ\\SeaBattle\\SeaBattle\\SeaBattleServer\\SeaBattleServer.csproj",
-      "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-      "outputPath": "E:\\дз\\ШАГ\\SeaBattle\\SeaBattle\\SeaBattleServer\\obj\\",
+      "projectPath": "C:\\Users\\seniv\\source\\repos\\SeaBattle\\SeaBattle\\SeaBattleServer\\SeaBattleServer.csproj",
+      "packagesPath": "C:\\Users\\seniv\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\seniv\\source\\repos\\SeaBattle\\SeaBattle\\SeaBattleServer\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\seniv\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
