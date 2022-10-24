@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\seniv\\source\\repos\\SeaBattle\\SeaBattle\\SeaBattleServer\\SeaBattleServer.csproj": {}
+    "C:\\Users\\seniv\\source\\repos\\SeaBattle\\SeaBattle\\RegistrationLib\\RegistrationLib.csproj": {}
   },
   "projects": {
-    "C:\\Users\\seniv\\source\\repos\\SeaBattle\\SeaBattle\\SeaBattleServer\\SeaBattleServer.csproj": {
+    "C:\\Users\\seniv\\source\\repos\\SeaBattle\\SeaBattle\\RegistrationLib\\RegistrationLib.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\seniv\\source\\repos\\SeaBattle\\SeaBattle\\SeaBattleServer\\SeaBattleServer.csproj",
-        "projectName": "SeaBattleServer",
-        "projectPath": "C:\\Users\\seniv\\source\\repos\\SeaBattle\\SeaBattle\\SeaBattleServer\\SeaBattleServer.csproj",
+        "projectUniqueName": "C:\\Users\\seniv\\source\\repos\\SeaBattle\\SeaBattle\\RegistrationLib\\RegistrationLib.csproj",
+        "projectName": "RegistrationLib",
+        "projectPath": "C:\\Users\\seniv\\source\\repos\\SeaBattle\\SeaBattle\\RegistrationLib\\RegistrationLib.csproj",
         "packagesPath": "C:\\Users\\seniv\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\seniv\\source\\repos\\SeaBattle\\SeaBattle\\SeaBattleServer\\obj\\",
+        "outputPath": "C:\\Users\\seniv\\source\\repos\\SeaBattle\\SeaBattle\\RegistrationLib\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -31,7 +31,11 @@
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "C:\\Users\\seniv\\source\\repos\\SeaBattle\\SeaBattle\\GameDBContext\\GameDBContext.csproj": {
+                "projectPath": "C:\\Users\\seniv\\source\\repos\\SeaBattle\\SeaBattle\\GameDBContext\\GameDBContext.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
@@ -43,12 +47,6 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-          "dependencies": {
-            "Newtonsoft.Json": {
-              "target": "Package",
-              "version": "[13.0.1, )"
-            }
-          },
           "imports": [
             "net461",
             "net462",
