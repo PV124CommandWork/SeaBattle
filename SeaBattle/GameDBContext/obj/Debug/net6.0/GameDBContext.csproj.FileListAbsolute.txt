@@ -10,3 +10,17 @@ C:\Users\seniv\source\repos\GameDBContext\GameDBContext\obj\Debug\net6.0\GameDBC
 C:\Users\seniv\source\repos\GameDBContext\GameDBContext\obj\Debug\net6.0\refint\GameDBContext.dll
 C:\Users\seniv\source\repos\GameDBContext\GameDBContext\obj\Debug\net6.0\GameDBContext.pdb
 C:\Users\seniv\source\repos\GameDBContext\GameDBContext\obj\Debug\net6.0\ref\GameDBContext.dll
+E:\дз\ШАГ\!git\SeaBattle\SeaBattle\GameDBContext\bin\Debug\net6.0\GameDBContext.deps.json
+E:\дз\ШАГ\!git\SeaBattle\SeaBattle\GameDBContext\bin\Debug\net6.0\GameDBContext.runtimeconfig.json
+E:\дз\ШАГ\!git\SeaBattle\SeaBattle\GameDBContext\bin\Debug\net6.0\GameDBContext.dll
+E:\дз\ШАГ\!git\SeaBattle\SeaBattle\GameDBContext\bin\Debug\net6.0\GameDBContext.pdb
+E:\дз\ШАГ\!git\SeaBattle\SeaBattle\GameDBContext\obj\Debug\net6.0\GameDBContext.csproj.AssemblyReference.cache
+E:\дз\ШАГ\!git\SeaBattle\SeaBattle\GameDBContext\obj\Debug\net6.0\GameDBContext.GeneratedMSBuildEditorConfig.editorconfig
+E:\дз\ШАГ\!git\SeaBattle\SeaBattle\GameDBContext\obj\Debug\net6.0\GameDBContext.AssemblyInfoInputs.cache
+E:\дз\ШАГ\!git\SeaBattle\SeaBattle\GameDBContext\obj\Debug\net6.0\GameDBContext.AssemblyInfo.cs
+E:\дз\ШАГ\!git\SeaBattle\SeaBattle\GameDBContext\obj\Debug\net6.0\GameDBContext.csproj.CoreCompileInputs.cache
+E:\дз\ШАГ\!git\SeaBattle\SeaBattle\GameDBContext\obj\Debug\net6.0\GameDBContext.dll
+E:\дз\ШАГ\!git\SeaBattle\SeaBattle\GameDBContext\obj\Debug\net6.0\refint\GameDBContext.dll
+E:\дз\ШАГ\!git\SeaBattle\SeaBattle\GameDBContext\obj\Debug\net6.0\GameDBContext.pdb
+E:\дз\ШАГ\!git\SeaBattle\SeaBattle\GameDBContext\obj\Debug\net6.0\GameDBContext.genruntimeconfig.cache
+E:\дз\ШАГ\!git\SeaBattle\SeaBattle\GameDBContext\obj\Debug\net6.0\ref\GameDBContext.dll
