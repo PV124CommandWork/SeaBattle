@@ -23,6 +23,36 @@ namespace SeaBattle.UserControls
         public UC_LoginPage()
         {
             InitializeComponent();
+            TeamAvatar.Source = new BitmapImage(new Uri(System.IO.Directory.GetCurrentDirectory() + @"\Images\TeamAvatar.png"));
+        }
+
+        private void FieldText_Changed(object sender, TextChangedEventArgs e)
+        {
+            if ((sender as TextBox).Text == "")
+            {
+                UsernameLabel.Content = "Username";
+            }
+            else
+            {
+                UsernameLabel.Content = "";
+            }
+        }
+
+        private void FieldText_Changed(object sender, RoutedEventArgs e)
+        {
+            if ((sender as PasswordBox).Password == "")
+            {
+                PasswordLabel.Content = "Password";
+            }
+            else
+            {
+                PasswordLabel.Content = "";
+            }
+        }
+
+        private void Login_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

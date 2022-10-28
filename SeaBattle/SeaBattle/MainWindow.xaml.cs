@@ -40,11 +40,7 @@ namespace SeaBattle
             }
             #endregion
 
-        }
-
-        private void SendRequest_Click(object sender, RoutedEventArgs e)
-        {
-            SendToServer.SendLoginData("Toha229", "123456");
+            MainGrid.Children.Add(new UserControls.UC_LoginPage());
         }
     }
 }
