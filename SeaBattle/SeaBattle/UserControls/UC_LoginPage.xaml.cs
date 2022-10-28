@@ -52,7 +52,7 @@ namespace SeaBattle.UserControls
 
         private void Login_Click(object sender, RoutedEventArgs e)
         {
-
+            SeaBattleServerComunication.SendToServer.SendLoginData(Username_TB.Text, Password_PB.Password);
         }
     }
 }
