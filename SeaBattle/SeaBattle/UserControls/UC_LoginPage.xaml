@@ -15,7 +15,7 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
 
-            <Border CornerRadius="10" Grid.RowSpan="2">
+            <Border CornerRadius="0" Grid.RowSpan="2">
                 <Border.Background>
                     <LinearGradientBrush>
                         <GradientStop Color="#f083da" Offset="0.0"/>
@@ -26,67 +26,100 @@
 
             <StackPanel VerticalAlignment="Center">
 
-                <TextBlock Text="Modern Design"
+                <TextBlock Text="Battle Sea"
                            FontWeight="Light"
                            FontFamily="helvetica"
-                           FontSize="22"
+                           FontSize="40"
                            Foreground="White"
                            HorizontalAlignment="Center"/>
+
+                <TextBlock Text="by Clash of Clans team"
+                           FontWeight="Light"
+                           FontFamily="helvetica"
+                           FontSize="15"
+                           Opacity="0.5"
+                           Foreground="White"
+                           HorizontalAlignment="Center"/>
+
+                    <Image x:Name="TeamAvatar" Width="50" Height="50"></Image>
+                    <TextBlock Text="Login"
+                           FontWeight="Light"
+                           FontFamily="helvetica"
+                           FontSize="30"
+                           Foreground="White"
+                           HorizontalAlignment="Center"
+                           Margin="5"/>
             </StackPanel>
 
             <StackPanel Grid.Row="1" >
-                <StackPanel Orientation="Horizontal">
-                    <TextBox FontFamily="Helvetica"
+                <Grid>
+                    <Label Name="UsernameLabel"
+                             FontFamily="Helvetica"
                              FontWeight="Light"
-                             Text="Username"
+                             FontSize="20"
+                             HorizontalAlignment="Center"
+                             Width="235"
+                             Opacity="0.5"
+                             Foreground="White"
+                             Background="Transparent">Username</Label>
+                    <TextBox x:Name="Username_TB"
+                             FontFamily="Helvetica"
+                             FontWeight="Light"
                              FontSize="20"
                              HorizontalAlignment="Center"
                              Foreground="White"
                              Background="Transparent"
                              BorderThickness="0"
                              Width="235"
-                             HorizontalContentAlignment="Left"
-                             Opacity="0.5"
                              Height="25"
-                             Margin="63,0,0,0"/>
-                    <!--<iconPacks:PackIconMaterial Kind="Account" 
+                             TextChanged="FieldText_Changed"/>
+                </Grid>
+                <!--<iconPacks:PackIconMaterial Kind="Account" 
                                                 VerticalAlignment="Center" 
                                                 HorizontalAlignment="Center" 
                                                 Foreground="White"/>-->
-                </StackPanel>
+
                 <Border Width="250"
                         Height="2"
                         Background="White"
                         Opacity="0.5"/>
 
-                <StackPanel Orientation="Horizontal" Margin="0,20,0,0">
-                    <PasswordBox FontFamily="Helvetica"
+
+                <Grid>
+                    <Label Name="PasswordLabel"
+                             FontFamily="Helvetica"
                              FontWeight="Light"
-                             Password="Password"
+                             FontSize="20"
+                             HorizontalAlignment="Center"
+                             Width="235"
+                             Opacity="0.5"
+                             Foreground="White"
+                             Background="Transparent">Password</Label>
+                    <PasswordBox x:Name="Password_PB"
+                             FontFamily="Helvetica"
+                             FontWeight="Light"
                              FontSize="20"
                              HorizontalAlignment="Center"
                              Foreground="White"
                              Background="Transparent"
                              BorderThickness="0"
                              Width="235"
-                             HorizontalContentAlignment="Left"
-                             Opacity="0.5"
                              Height="25"
-                             Margin="63,0,0,0"/>
+                             PasswordChanged="FieldText_Changed"/>
                     <!--<iconPacks:PackIconMaterial Kind="TextboxPassword" 
                                                 VerticalAlignment="Center" 
                                                 HorizontalAlignment="Center" 
                                                 Foreground="White"/>-->
-                </StackPanel>
+                </Grid>
                 <Border Width="250"
                         Height="2"
                         Background="White"
                         Opacity="0.5"/>
 
-                <StackPanel Orientation="Horizontal" Margin="0,50,0,0">
-                    <Button Width="100" Height="40" Content="LOGIN" Margin="60,0,60,0"/>
+                <UniformGrid Margin="0,50,0,0" Grid.Row="1" Width="320">
+                    <Button Width="100" Height="40" Content="LOGIN" Click="Login_Click"/>
                     <Button Width="100" Height="40" Content="REGISTER"/>
-                </StackPanel>
+                </UniformGrid>
 
             </StackPanel>
         </Grid>

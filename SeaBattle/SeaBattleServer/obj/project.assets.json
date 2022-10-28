@@ -5,10 +5,14 @@
       "Newtonsoft.Json/13.0.1": {
         "type": "package",
         "compile": {
-          "lib/netstandard2.0/Newtonsoft.Json.dll": {}
+          "lib/netstandard2.0/Newtonsoft.Json.dll": {
+            "related": ".xml"
+          }
         },
         "runtime": {
-          "lib/netstandard2.0/Newtonsoft.Json.dll": {}
+          "lib/netstandard2.0/Newtonsoft.Json.dll": {
+            "related": ".xml"
+          }
         }
       }
     }
@@ -48,24 +52,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\38098\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\User\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\38098\\Source\\Repos\\SeaBattle\\SeaBattle\\SeaBattleServer\\SeaBattleServer.csproj",
+      "projectUniqueName": "E:\\дз\\ШАГ\\!git\\SeaBattle\\SeaBattle\\SeaBattleServer\\SeaBattleServer.csproj",
       "projectName": "SeaBattleServer",
-      "projectPath": "C:\\Users\\38098\\Source\\Repos\\SeaBattle\\SeaBattle\\SeaBattleServer\\SeaBattleServer.csproj",
-      "packagesPath": "C:\\Users\\38098\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\38098\\Source\\Repos\\SeaBattle\\SeaBattle\\SeaBattleServer\\obj\\",
+      "projectPath": "E:\\дз\\ШАГ\\!git\\SeaBattle\\SeaBattle\\SeaBattleServer\\SeaBattleServer.csproj",
+      "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
+      "outputPath": "E:\\дз\\ШАГ\\!git\\SeaBattle\\SeaBattle\\SeaBattleServer\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\38098\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -102,7 +101,8 @@
           "net47",
           "net471",
           "net472",
-          "net48"
+          "net48",
+          "net481"
         ],
         "assetTargetFallback": true,
         "warn": true,
@@ -111,7 +111,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.202\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.402\\RuntimeIdentifierGraph.json"
       }
     }
   }

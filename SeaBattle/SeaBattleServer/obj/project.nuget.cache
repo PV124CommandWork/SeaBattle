@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "rzmBYh7xcGhgF5YAR/QVrMyFcpPjihSbzvTmzFfhcQmF4FUHl5Imv87xznQvBds5Gv+/n+uiNbtkmL9PjuvbjA==",
+  "dgSpecHash": "3qoQM3l4j5yqvC8JmlThE/lJkEtufMEJOTufh4eJBZmXqFLOEJQWyxBx8J0ag0Kku2rzt4teQBPUVxzMQsOYRg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\38098\\Source\\Repos\\SeaBattle\\SeaBattle\\SeaBattleServer\\SeaBattleServer.csproj",
+  "projectFilePath": "E:\\дз\\ШАГ\\!git\\SeaBattle\\SeaBattle\\SeaBattleServer\\SeaBattleServer.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\38098\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512"
+    "C:\\Users\\User\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512"
   ],
   "logs": []
 }
