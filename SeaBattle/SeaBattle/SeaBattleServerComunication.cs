@@ -71,7 +71,7 @@ namespace SeaBattleServerComunication
                         {
                             if (request.Data[0] == true.ToString())
                             {
-                                MessageBox.Show("Congratulation! Successfully registered!");
+                                MessageBox.Show("Congratulation! Successfully logined!");
                             }
                             else
                             {
