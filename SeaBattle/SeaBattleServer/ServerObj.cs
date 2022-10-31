@@ -5,6 +5,7 @@ using System.Net;
 using System;
 using System.Threading.Tasks;
 using System.Text;
+using Newtonsoft.Json;
 
 namespace SeaBattleServer
 {
@@ -54,6 +55,19 @@ namespace SeaBattleServer
                 catch (Exception ex)
                 {
                     Disconnect();
+                }
+            }
+        }
+
+        public static void SendToClientByLogin(string login, SeaBattleServerComunication.Request request)
+        {
+            foreach (var user in clients)
+            {
+                if (user.UserName == login)
+                {
+                    byte[] data = Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(request));
+                    user.Stream.Write(data, 0, data.Length);
+                    break;
                 }
             }
         }

@@ -18,12 +18,15 @@ namespace SeaBattle.UserControls
     /// <summary>
     /// Interaction logic for UC_LoginPage.xaml
     /// </summary>
+    public delegate void ShowExceptionDelegate(string ex);
     public partial class UC_LoginPage : UserControl
     {
+        public static ShowExceptionDelegate showException;
         public UC_LoginPage()
         {
             InitializeComponent();
             TeamAvatar.Source = new BitmapImage(new Uri(System.IO.Directory.GetCurrentDirectory() + @"\Images\TeamAvatar.png"));
+            showException = new ShowExceptionDelegate(ShowException);
         }
 
         private void FieldText_Changed(object sender, TextChangedEventArgs e)
@@ -52,7 +55,27 @@ namespace SeaBattle.UserControls
 
         private void Login_Click(object sender, RoutedEventArgs e)
         {
+            SeaBattleServerComunication.SendToServer.SendLoginData(Username_TB.Text, Password_PB.Password);
+        }
+        public void ShowException(string ex)
+        {
+            this.Dispatcher.Invoke(() =>
+            {
+                UsernameLabel.Foreground = new SolidColorBrush(Colors.Red);
+                UsernameHighlight.Background = new SolidColorBrush(Colors.Red);
+            });
+            this.Dispatcher.Invoke(() =>
+            {
+                Password_PB.Foreground = new SolidColorBrush(Colors.Red);
+                PasswordHighlight.Background = new SolidColorBrush(Colors.Red);
+                Password_PB.Password = "";
+            });
+            MessageBox.Show(ex);
+        }
 
+        private void Register_Click(object sender, RoutedEventArgs e)
+        {
+            SeaBattleServerComunication.SendToServer.SendRegisterData("Toha229", "Toha229", "123", "toha229orig@gmail.com", "217245");
         }
     }
 }

@@ -8,28 +8,23 @@
     "net6.0-windows7.0": []
   },
   "packageFolders": {
-    "C:\\Users\\seniv\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\User\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\seniv\\source\\repos\\WpfApp5\\SettingsMenu\\SettingsMenu.csproj",
+      "projectUniqueName": "E:\\дз\\ШАГ\\!git\\SeaBattle\\SeaBattle\\SettingsMenu\\SettingsMenu.csproj",
       "projectName": "SettingsMenu",
-      "projectPath": "C:\\Users\\seniv\\source\\repos\\WpfApp5\\SettingsMenu\\SettingsMenu.csproj",
-      "packagesPath": "C:\\Users\\seniv\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\seniv\\source\\repos\\WpfApp5\\SettingsMenu\\obj\\",
+      "projectPath": "E:\\дз\\ШАГ\\!git\\SeaBattle\\SeaBattle\\SettingsMenu\\SettingsMenu.csproj",
+      "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
+      "outputPath": "E:\\дз\\ШАГ\\!git\\SeaBattle\\SeaBattle\\SettingsMenu\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\seniv\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
-        "net6.0-windows7.0"
+        "net6.0-windows"
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
