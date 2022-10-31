@@ -33,7 +33,7 @@ namespace SeaBattleServer
                 {
                     string message = GetMessage();
                     Request request = JsonConvert.DeserializeObject<Request>(message);
-                    if (request.ReqType == RequestType.Login && request.ReqType == RequestType.Register)
+                    if (request.ReqType == RequestType.Login || request.ReqType == RequestType.Register)
                     {
                         UserName = request.Login;
                     }
