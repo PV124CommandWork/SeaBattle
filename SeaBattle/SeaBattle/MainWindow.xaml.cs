@@ -22,6 +22,8 @@ namespace SeaBattle
     /// </summary>
     public partial class MainWindow : Window
     {
+        public delegate void ChangeUcDelegate(UserControl userControl);
+        public static ChangeUcDelegate ChangeUc;
         public MainWindow()
         {
             InitializeComponent();
@@ -40,7 +42,16 @@ namespace SeaBattle
             }
             #endregion
 
-            MainGrid.Children.Add(new UserControls.UC_LoginPage());
+            ChangeUc += ChangeUC;
+            ChangeUc.Invoke(new UserControls.UC_LoginPage());
+        }
+        public void ChangeUC(UserControl userControl)
+        {
+            this.Dispatcher.Invoke(() =>
+            {
+                MainGrid.Children.Clear();
+                MainGrid.Children.Add(userControl);
+            });
         }
     }
 }

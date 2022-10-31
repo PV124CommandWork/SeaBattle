@@ -6,6 +6,11 @@ using System.Threading.Tasks;
 using Newtonsoft.Json;
 using SeaBattle;
 using System.Windows;
+using System.Windows.Automation.Peers;
+using System.Windows.Media;
+using System.Windows.Controls;
+using SeaBattle.UserControls;
+using System.Windows.Threading;
 
 namespace SeaBattleServerComunication
 {
@@ -41,66 +46,74 @@ namespace SeaBattleServerComunication
     {
         public static void Listen()
         {
-            try
+            //try
+            //{
+            while (true)
             {
-                while (true)
+                StringBuilder builder = new StringBuilder();
+
+                byte[] data = new byte[256];
+                do
                 {
-                    StringBuilder builder = new StringBuilder();
+                    int bytes = ServerConnection.NetStream.Read(data, 0, data.Length);
+                    builder.Append(Encoding.UTF8.GetString(data, 0, bytes));
+                }
+                while (ServerConnection.NetStream.DataAvailable);
 
-                    byte[] data = new byte[256];
-                    do
-                    {
-                        int bytes = ServerConnection.NetStream.Read(data, 0, data.Length);
-                        builder.Append(Encoding.UTF8.GetString(data, 0, bytes));
-                    }
-                    while (ServerConnection.NetStream.DataAvailable);
-
-                    Request request = JsonConvert.DeserializeObject<Request>(builder.ToString());
-                    if (request == null)
-                    {
-                        continue;
-                    }
-                    switch (request.ReqType)
-                    {
-                        case RequestType.Login:
+                Request request = JsonConvert.DeserializeObject<Request>(builder.ToString());
+                if (request == null)
+                {
+                    continue;
+                }
+                switch (request.ReqType)
+                {
+                    case RequestType.Login:
+                        {
+                            if (request.Data[0] == true.ToString())
                             {
-                                //MessageBox.Show($"Register is {(request.Data as List<string>)[0]}");
-                                break;
+                                MessageBox.Show("Congratulation! Successfully registered!");
                             }
-                        case RequestType.Register:
+                            else
                             {
-                                break;
+                                UC_LoginPage.showException.Invoke("Wrong login or password!");
                             }
-                        case RequestType.GetRewards:
-                            {
-                                break;
-                            }
-                        case RequestType.BattleRequest:
-                            {
-                                break;
-                            }
-                        case RequestType.BattleConfirm:
-                            {
-                                break;
-                            }
-                        case RequestType.BattleEnded:
-                            {
-                                break;
-                            }
-                        case RequestType.Fire:
-                            {
-                                break;
-                            }
-                        default: throw new Exception();
-                    }
+                            break;
+                        }
+                    case RequestType.Register:
+                        {
+                            MessageBox.Show(request.Data[0]);
+                            break;
+                        }
+                    case RequestType.GetRewards:
+                        {
+                            break;
+                        }
+                    case RequestType.BattleRequest:
+                        {
+                            break;
+                        }
+                    case RequestType.BattleConfirm:
+                        {
+                            break;
+                        }
+                    case RequestType.BattleEnded:
+                        {
+                            break;
+                        }
+                    case RequestType.Fire:
+                        {
+                            break;
+                        }
+                    default: throw new Exception();
                 }
             }
-            catch (Exception ex)
-            {
-                ServerConnection.NetStream?.Close();
-                ServerConnection.client?.Close();
-                Environment.Exit(0);
-            }
+            //}
+            //catch (Exception ex)
+            //{
+            //    ServerConnection.NetStream?.Close();
+            //    ServerConnection.client?.Close();
+            //    Environment.Exit(0);
+            //}
         }
     }
 
@@ -110,11 +123,15 @@ namespace SeaBattleServerComunication
         {
             Request request = new Request()
             {
-                Login = login,
+                Login = login, 
                 Password = password,
-                Data = new List<string>() { userName, email, registerCode },
+                Data = new List<string>() { userName, email },
                 ReqType = RequestType.Register
             };
+            if(registerCode != "")
+            {
+                request.Data.Add(registerCode);
+            }
 
             SendRequestToServer(request);
         }

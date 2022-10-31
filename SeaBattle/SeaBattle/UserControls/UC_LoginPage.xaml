@@ -79,7 +79,8 @@
                                                 HorizontalAlignment="Center" 
                                                 Foreground="White"/>-->
 
-                <Border Width="250"
+                <Border x:Name="UsernameHighlight"
+                        Width="250"
                         Height="2"
                         Background="White"
                         Opacity="0.5"/>
@@ -111,14 +112,15 @@
                                                 HorizontalAlignment="Center" 
                                                 Foreground="White"/>-->
                 </Grid>
-                <Border Width="250"
+                <Border x:Name="PasswordHighlight"
+                        Width="250"
                         Height="2"
                         Background="White"
                         Opacity="0.5"/>
 
                 <UniformGrid Margin="0,50,0,0" Grid.Row="1" Width="320">
                     <Button Width="100" Height="40" Content="LOGIN" Click="Login_Click"/>
-                    <Button Width="100" Height="40" Content="REGISTER"/>
+                    <Button Width="100" Height="40" Content="REGISTER" Click="Register_Click"/>
                 </UniformGrid>
 
             </StackPanel>
