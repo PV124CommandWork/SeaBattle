@@ -12,7 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-
+using SeaBattle.UserControls;
 using SeaBattleServerComunication;
 
 namespace SeaBattle
@@ -43,7 +43,7 @@ namespace SeaBattle
             #endregion
 
             ChangeUc += ChangeUC;
-            ChangeUc.Invoke(new UserControls.UC_LoginPage());
+            ChangeUc.Invoke(new UC_LoginPage());
         }
         public void ChangeUC(UserControl userControl)
         {

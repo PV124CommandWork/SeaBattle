@@ -10,7 +10,8 @@
         "dependencies": {
           "DAL": "1.0.0",
           "Microsoft.EntityFrameworkCore.Design": "6.0.10",
-          "Newtonsoft.Json": "13.0.1"
+          "Newtonsoft.Json": "13.0.1",
+          "ShipsClass": "1.0.0"
         },
         "runtime": {
           "SeaBattleServer.dll": {}
@@ -494,6 +495,11 @@
         "runtime": {
           "DAL.dll": {}
         }
+      },
+      "ShipsClass/1.0.0": {
+        "runtime": {
+          "ShipsClass.dll": {}
+        }
       }
     }
   },
@@ -805,6 +811,11 @@
       "hashPath": "system.windows.extensions.4.7.0.nupkg.sha512"
     },
     "DAL/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "ShipsClass/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
