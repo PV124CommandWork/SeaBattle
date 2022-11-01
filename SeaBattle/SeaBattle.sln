@@ -11,6 +11,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SettingsMenu", "SettingsMen
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DAL", "DAL\DAL.csproj", "{C75382CC-1434-4CC7-8CD2-FC4CF7CEE111}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Register Page", "Register Page\Register Page.csproj", "{366F962C-44D2-48C4-9CBE-E17E9B8F0CE6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShipsClass", "ShipsClass\ShipsClass.csproj", "{A1F99842-9377-45CA-AB3D-1713EE011E67}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +37,14 @@ Global
 		{C75382CC-1434-4CC7-8CD2-FC4CF7CEE111}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C75382CC-1434-4CC7-8CD2-FC4CF7CEE111}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C75382CC-1434-4CC7-8CD2-FC4CF7CEE111}.Release|Any CPU.Build.0 = Release|Any CPU
+		{366F962C-44D2-48C4-9CBE-E17E9B8F0CE6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{366F962C-44D2-48C4-9CBE-E17E9B8F0CE6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{366F962C-44D2-48C4-9CBE-E17E9B8F0CE6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{366F962C-44D2-48C4-9CBE-E17E9B8F0CE6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A1F99842-9377-45CA-AB3D-1713EE011E67}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A1F99842-9377-45CA-AB3D-1713EE011E67}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A1F99842-9377-45CA-AB3D-1713EE011E67}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A1F99842-9377-45CA-AB3D-1713EE011E67}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
