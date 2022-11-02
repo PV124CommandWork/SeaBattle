@@ -129,6 +129,10 @@
       <Project>{366f962c-44d2-48c4-9cbe-e17e9b8f0ce6}</Project>
       <Name>Register Page</Name>
     </ProjectReference>
+    <ProjectReference Include="..\ShipsClass\ShipsClass.csproj">
+      <Project>{a1f99842-9377-45ca-ab3d-1713ee011e67}</Project>
+      <Name>ShipsClass</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\MaterialDesignThemes.4.6.1\build\MaterialDesignThemes.targets" Condition="Exists('..\packages\MaterialDesignThemes.4.6.1\build\MaterialDesignThemes.targets')" />

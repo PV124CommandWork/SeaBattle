@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -14,6 +15,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using ShipsClass;
 
 namespace SeaBattle.UserControls
 {
@@ -22,9 +24,13 @@ namespace SeaBattle.UserControls
     /// </summary>
     public partial class UC_Battlefield : UserControl
     {
+        public static List<Ship> Ships;
         public UC_Battlefield()
         {
             InitializeComponent();
+
+            Ships = new List<Ship>();
+
             for (int i = 0; i < 10; i++)
             {
                 Player1Field.ColumnDefinitions.Add(new ColumnDefinition());
@@ -69,7 +75,8 @@ namespace SeaBattle.UserControls
             {
                 for (int i = 1, col = 0; i <= 4; i++, col += i - 1)
                 {
-                    Dispatcher.Invoke(() => AddShip(col, 0, i));
+                    Ships.Add(new Ship(new Deck(col, 0), i));
+                    Dispatcher.Invoke(() => AddShip(Ships[Ships.Count - 1]));
                     Thread.Sleep(200);
                 }
             });
@@ -79,15 +86,16 @@ namespace SeaBattle.UserControls
                 th.Join();
                 for (int i = 1; i <= 4; i++)
                 {
-                    Dispatcher.Invoke(() => AddShip(0, i, i));
+                    Ships.Add(new Ship(new Deck(0, i), i));
+                    Dispatcher.Invoke(() => AddShip(Ships[Ships.Count - 1]));
                     Thread.Sleep(200);
                 }
             });
             th2.Start();
-            AddShip(5, 5, 3, true);
-            AddShip(6, 5, 4, true);
-            AddShip(7, 5, 1, true);
-            AddShip(8, 5, 2, true);
+            //AddShip(5, 5, 3, true);
+            //AddShip(6, 5, 4, true);
+            //AddShip(7, 5, 1, true);
+            //AddShip(8, 5, 2, true);
         }
 
         private void Cacel_Click(object sender, RoutedEventArgs e)
@@ -95,29 +103,29 @@ namespace SeaBattle.UserControls
 
         }
 
-        public void AddShip(int col, int row, int decks, bool isVertical = false)
+        public void AddShip(Ship ship)
         {
             Image img = new Image();
             BitmapImage bitmapImage = new BitmapImage();
             bitmapImage.BeginInit();
-            if (isVertical && decks != 1)
+            if (!(ship.IsHorisontal) && ship.DecksCount != 1)
             {
                 bitmapImage.Rotation = Rotation.Rotate90;
             }
-            bitmapImage.UriSource = new Uri(@"E:\дз\ШАГ\SeaBattle\SeaBattle\SeaBattle\bin\Debug\Images\" + decks + "deck.png");
+            bitmapImage.UriSource = new Uri(Directory.GetCurrentDirectory() + @"\Images\" + ship.DecksCount + "deck.png");
             bitmapImage.EndInit();
             img.Source = bitmapImage;
-            Grid.SetColumn(img, col);
-            Grid.SetRow(img, row);
-            if (decks != 1)
+            Grid.SetColumn(img, ship.Decks[0].Coords.X);
+            Grid.SetRow(img, ship.Decks[0].Coords.Y);
+            if (ship.DecksCount != 1)
             {
-                if (isVertical)
+                if (ship.IsHorisontal)
                 {
-                    Grid.SetRowSpan(img, decks);
+                    Grid.SetColumnSpan(img, ship.DecksCount);
                 }
                 else
                 {
-                    Grid.SetColumnSpan(img, decks);
+                    Grid.SetRowSpan(img, ship.DecksCount);
                 }
             }
             Player1FieldShips.Children.Add(img);
