@@ -75,7 +75,10 @@ namespace SeaBattle.UserControls
 
         private void Register_Click(object sender, RoutedEventArgs e)
         {
-            SeaBattleServerComunication.SendToServer.SendRegisterData("Toha229", "Toha229", "123", "toha229orig@gmail.com", "217245");
+            //MainWindow.MainWindowInstance.Dispatcher.Invoke(() => {
+            //    MainWindow.MainWindowInstance.MainGrid.Children.Clear();
+            //    MainWindow.MainWindowInstance.MainGrid.Children.Add(new Register.MainWindow());
+            //});
         }
     }
 }

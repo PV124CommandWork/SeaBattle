@@ -74,3 +74,5 @@ E:\дз\ШАГ\!git\tmp\SeaBattle\SeaBattle\SeaBattle\bin\Debug\Register Page.ex
 E:\дз\ШАГ\!git\tmp\SeaBattle\SeaBattle\SeaBattle\bin\Debug\MaterialDesignColors.pdb
 E:\дз\ШАГ\!git\tmp\SeaBattle\SeaBattle\SeaBattle\bin\Debug\MaterialDesignThemes.Wpf.pdb
 E:\дз\ШАГ\!git\tmp\SeaBattle\SeaBattle\SeaBattle\bin\Debug\MaterialDesignThemes.Wpf.xml
+E:\дз\ШАГ\!git\tmp\SeaBattle\SeaBattle\SeaBattle\bin\Debug\ShipsClass.dll
+E:\дз\ШАГ\!git\tmp\SeaBattle\SeaBattle\SeaBattle\bin\Debug\ShipsClass.pdb
