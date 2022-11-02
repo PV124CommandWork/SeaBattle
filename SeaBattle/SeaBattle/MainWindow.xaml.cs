@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Microsoft.SqlServer.Server;
 using SeaBattle.UserControls;
 using SeaBattleServerComunication;
 
@@ -22,11 +23,25 @@ namespace SeaBattle
     /// </summary>
     public partial class MainWindow : Window
     {
-        public delegate void ChangeUcDelegate(UserControl userControl);
-        public static ChangeUcDelegate ChangeUc;
+
+        static MainWindow _obj;
+        public static MainWindow MainWindowInstance
+        {
+            get
+            {
+                if (_obj == null)
+                {
+                    _obj = new MainWindow();
+                }
+                return _obj;
+            }
+        }
+
         public MainWindow()
         {
             InitializeComponent();
+
+            _obj = this;
 
             //btw here should be a method to read the config
 
@@ -42,16 +57,7 @@ namespace SeaBattle
             }
             #endregion
 
-            ChangeUc += ChangeUC;
-            ChangeUc.Invoke(new UC_LoginPage());
-        }
-        public void ChangeUC(UserControl userControl)
-        {
-            this.Dispatcher.Invoke(() =>
-            {
-                MainGrid.Children.Clear();
-                MainGrid.Children.Add(userControl);
-            });
+            MainGrid.Children.Add(new UC_LoginPage());
         }
     }
 }

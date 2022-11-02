@@ -11,6 +11,7 @@ using System.Windows.Media;
 using System.Windows.Controls;
 using SeaBattle.UserControls;
 using System.Windows.Threading;
+using System.Runtime.CompilerServices;
 
 namespace SeaBattleServerComunication
 {
@@ -71,7 +72,10 @@ namespace SeaBattleServerComunication
                         {
                             if (request.Data[0] == true.ToString())
                             {
-                                MessageBox.Show("Congratulation! Successfully logined!");
+                                MainWindow.MainWindowInstance.Dispatcher.Invoke(() => { 
+                                    MainWindow.MainWindowInstance.MainGrid.Children.Clear();
+                                    MainWindow.MainWindowInstance.MainGrid.Children.Add(new UC_Battlefield());
+                                });
                             }
                             else
                             {
@@ -125,7 +129,7 @@ namespace SeaBattleServerComunication
             {
                 Login = login, 
                 Password = password,
-                Data = new List<string>() { userName, email },
+                Data = new List<string>() { userName, email },  
                 ReqType = RequestType.Register
             };
             if(registerCode != "")
