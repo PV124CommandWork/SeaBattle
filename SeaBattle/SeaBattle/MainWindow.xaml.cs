@@ -45,19 +45,19 @@ namespace SeaBattle
 
             //btw here should be a method to read the config
 
-            #region Connecting To The Server
-            try
-            {
-                ServerConnection.Connect();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-                Application.Current.Shutdown();
-            }
-            #endregion
-
-            MainGrid.Children.Add(new UC_LoginPage());
+            //#region Connecting To The Server
+            //try
+            //{
+            //    ServerConnection.Connect();
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show(ex.Message);
+            //    Application.Current.Shutdown();
+            //}
+            //#endregion
+            
+            MainGrid.Children.Add(new UC_AcceptBattle("Toha229"));
         }
     }
 }
