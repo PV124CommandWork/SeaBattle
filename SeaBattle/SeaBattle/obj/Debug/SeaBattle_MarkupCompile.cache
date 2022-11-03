@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-E:\дз\ШАГ\!git\tmp\SeaBattle\SeaBattle\SeaBattle\obj\Debug\
+E:\WAG\SeaBattle\SeaBattle\SeaBattle\obj\Debug\
 SeaBattle
 none
 false
 DEBUG;TRACE
-E:\дз\ШАГ\!git\tmp\SeaBattle\SeaBattle\SeaBattle\App.xaml
-5608336114
+E:\WAG\SeaBattle\SeaBattle\SeaBattle\App.xaml
+6-772621850
 
-10-293129305
-17877648265
-MainWindow.xaml;UserControls\UC_Battlefield.xaml;UserControls\UC_FillBattlefield.xaml;UserControls\UC_LoginPage.xaml;UserControls\UC_RegisterPage.xaml;
+11-899791770
+17349825487
+MainWindow.xaml;UserControls\UC_AcceptBattle.xaml;UserControls\UC_Battlefield.xaml;UserControls\UC_FillBattlefield.xaml;UserControls\UC_LoginPage.xaml;UserControls\UC_RegisterPage.xaml;
 
 False
 
