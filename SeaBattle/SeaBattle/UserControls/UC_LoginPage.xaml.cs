@@ -75,10 +75,10 @@ namespace SeaBattle.UserControls
 
         private void Register_Click(object sender, RoutedEventArgs e)
         {
-            //MainWindow.MainWindowInstance.Dispatcher.Invoke(() => {
-            //    MainWindow.MainWindowInstance.MainGrid.Children.Clear();
-            //    MainWindow.MainWindowInstance.MainGrid.Children.Add(new Register.MainWindow());
-            //});
+            MainWindow.MainWindowInstance.Dispatcher.Invoke(() => {
+                MainWindow.MainWindowInstance.MainGrid.Children.Clear();
+                MainWindow.MainWindowInstance.MainGrid.Children.Add(new UC_RegisterPage());
+            });
         }
     }
 }
