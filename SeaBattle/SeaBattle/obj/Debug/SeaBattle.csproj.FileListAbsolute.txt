@@ -76,3 +76,5 @@ E:\дз\ШАГ\!git\tmp\SeaBattle\SeaBattle\SeaBattle\bin\Debug\MaterialDesignTh
 E:\дз\ШАГ\!git\tmp\SeaBattle\SeaBattle\SeaBattle\bin\Debug\MaterialDesignThemes.Wpf.xml
 E:\дз\ШАГ\!git\tmp\SeaBattle\SeaBattle\SeaBattle\bin\Debug\ShipsClass.dll
 E:\дз\ШАГ\!git\tmp\SeaBattle\SeaBattle\SeaBattle\bin\Debug\ShipsClass.pdb
+E:\дз\ШАГ\!git\tmp\SeaBattle\SeaBattle\SeaBattle\obj\Debug\UserControls\UC_FillBattlefield.g.cs
+E:\дз\ШАГ\!git\tmp\SeaBattle\SeaBattle\SeaBattle\obj\Debug\UserControls\UC_FillBattlefield.baml
