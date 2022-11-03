@@ -8,30 +8,35 @@
              Background="White"
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition Height="0.25*"/>
-        </Grid.RowDefinitions>
-
         <Viewbox Stretch="Uniform">
-            <Border BorderThickness="1" BorderBrush="Gray">
-                <Grid x:Name="Player1Field" MinWidth="300" MinHeight="300">
-                </Grid>
-            </Border>
+            <Image x:Name="Img_BG"></Image>
         </Viewbox>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition Height="0.25*"/>
+            </Grid.RowDefinitions>
 
-        <StackPanel Grid.Column="1">
-            <Label HorizontalContentAlignment="Right">Waiting for another player...</Label>
-            <StackPanel x:Name="ShipsList_SP">
-                
+            <Viewbox Stretch="Uniform">
+                <Border BorderThickness="1" BorderBrush="Gray">
+                    <Grid x:Name="Player1Field" MinWidth="300" MinHeight="300">
+                    </Grid>
+                </Border>
+            </Viewbox>
+
+            <StackPanel Grid.Column="1">
+                <Label HorizontalContentAlignment="Right">Waiting for another player...</Label>
+                <StackPanel x:Name="ShipsList_SP">
+
+                </StackPanel>
             </StackPanel>
-        </StackPanel>
 
-        <Button x:Name="ConfirmButton" Grid.Row="1" MaxHeight="75" MaxWidth="300" FontSize="30" IsEnabled="False">Confirm Field</Button>
-        <CheckBox x:Name="IsHorisontalCB" Grid.Row="1" Grid.Column="1" IsChecked="True" FontSize="20" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Center" >Horisotal ships</CheckBox>
+            <Button x:Name="ConfirmButton" Grid.Row="1" MaxHeight="75" MaxWidth="300" FontSize="30" IsEnabled="False">Confirm Field</Button>
+            <CheckBox x:Name="IsHorisontalCB" Grid.Row="1" Grid.Column="1" IsChecked="True" FontSize="20" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Center">Horisotal ships</CheckBox>
+        </Grid>
     </Grid>
 </UserControl>

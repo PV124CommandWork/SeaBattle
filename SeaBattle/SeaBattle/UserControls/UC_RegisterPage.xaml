@@ -16,31 +16,31 @@
             <Label  Background ="BlueViolet" Content="Registration" FontWeight="DemiBold" FontSize="22"
                  RenderTransformOrigin="0.931,0.552"  Height="45"  />
 
-            <Button DockPanel.Dock="Right"  Background ="BlueViolet" Content="Login"  Width="123" FontWeight="DemiBold" Height="45" FontSize="22"/>
+            <Button DockPanel.Dock="Right"  Background="BlueViolet" Content="Login"  Width="123" FontWeight="DemiBold" Height="45" FontSize="22" Click="Login_Click"/>
         </DockPanel>
         <DockPanel>
-            <Label Content ="UserName: " FontSize="15" />
+            <Label Content ="UserName: " FontSize="15"  Width="150"/>
             <TextBox x:Name="UserNameTB"    TextWrapping="Wrap"  VerticalContentAlignment="Center"  FontSize="15"/>
         </DockPanel>
         <DockPanel  Margin="0,6">
-            <Label Content ="Login: " FontSize="15" />
+            <Label Content ="Login: " FontSize="15"  Width="150"/>
             <TextBox x:Name="LoginTB"    TextWrapping="Wrap"    RenderTransformOrigin="0.496,4.013" FontSize="15"/>
         </DockPanel>
         <DockPanel  Margin="0,6">
-            <Label Content ="Password: " FontSize="15" />
+            <Label Content ="Password: " FontSize="15"  Width="150"/>
             <PasswordBox x:Name="PasswordPB"       RenderTransformOrigin="0.497,5.726" FontSize="15"/>
         </DockPanel>
         <DockPanel Margin="0,6">
-            <Label Content ="Confirm Password: " FontSize="15" DockPanel.Dock="Left" />
+            <Label Content ="Confirm Password:" FontSize="15" Width="150"/>
             <PasswordBox x:Name="ConfirmPasswordPB"   FontSize="15" DockPanel.Dock="Right"/>
         </DockPanel>
         <DockPanel  Margin="0,6">
-            <Label Content ="Email: " FontSize="15" />
+            <Label Content ="Email: " FontSize="15"  Width="150"/>
             <TextBox x:Name="EmailTB"    TextWrapping="Wrap"   FontSize="15"/>
         </DockPanel>
-        <DockPanel  Margin="0,6">
-            <Label  Content ="Code: " FontSize="15" />
-            <TextBox x:Name="CodeTB"  IsEnabled="False"  TextWrapping="Wrap"   FontSize="15"/>
+        <DockPanel  Margin="0,6" LastChildFill="False">
+            <Label  Content ="Code: " FontSize="15"  Width="150"/>
+            <TextBox x:Name="CodeTB"  IsEnabled="False"  TextWrapping="Wrap"   FontSize="15" Width="200" DockPanel.Dock="Left"/>
         </DockPanel>
         <Button  Click="Register_Click" Background ="BlueViolet" FontWeight="DemiBold" Content="Register" FontSize="25" HorizontalAlignment="Center"   Width="250" Height="50" RenderTransformOrigin="-0.032,0.085" />
 

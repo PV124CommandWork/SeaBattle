@@ -57,7 +57,7 @@ namespace SeaBattle.UserControls
                 MessageBox.Show("Некоректний email");
                 return;
             }
-            if (CodeTB.Text.Length != 6)
+            if (CodeTB.IsEnabled == true && CodeTB.Text.Length != 6)
             {
                 MessageBox.Show("Невірний код!");
                 return;
@@ -85,6 +85,14 @@ namespace SeaBattle.UserControls
                 PasswordPB.Password = "";
                 ConfirmPasswordPB.Password = "";
             }
+        }
+
+        private void Login_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow.MainWindowInstance.Dispatcher.Invoke(() => {
+                MainWindow.MainWindowInstance.MainGrid.Children.Clear();
+                MainWindow.MainWindowInstance.MainGrid.Children.Add(new UC_LoginPage());
+            });
         }
     }
 }

@@ -33,6 +33,7 @@ namespace SeaBattle.UserControls
             InitializeComponent();
 
             Ships = new List<Ship>();
+            Img_BG.Source = new BitmapImage(new Uri(Directory.GetCurrentDirectory() + @"\Images\FillBG.png"));
 
             for (int i = 0; i < 10; i++)        //Задаємо розмір сітки
             {

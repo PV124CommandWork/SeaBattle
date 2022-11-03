@@ -139,10 +139,6 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Register Page\Register Page.csproj">
-      <Project>{366f962c-44d2-48c4-9cbe-e17e9b8f0ce6}</Project>
-      <Name>Register Page</Name>
-    </ProjectReference>
     <ProjectReference Include="..\ShipsClass\ShipsClass.csproj">
       <Project>{a1f99842-9377-45ca-ab3d-1713ee011e67}</Project>
       <Name>ShipsClass</Name>

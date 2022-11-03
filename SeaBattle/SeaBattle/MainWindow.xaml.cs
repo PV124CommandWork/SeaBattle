@@ -57,7 +57,7 @@ namespace SeaBattle
             }
             #endregion
 
-            MainGrid.Children.Add(new UC_FillBattlefield());
+            MainGrid.Children.Add(new UC_LoginPage());
         }
     }
 }
