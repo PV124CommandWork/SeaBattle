@@ -85,7 +85,37 @@ namespace SeaBattleServerComunication
                         }
                     case RequestType.Register:
                         {
-                            MessageBox.Show(request.Data[0]);
+                            if (request.Data[0] != true.ToString())
+                            {
+                                MessageBox.Show(request.Data[0]);
+                            }
+                            else
+                            {
+                                if (request.Data.Count != 1)
+                                {
+                                    if (request.Data[1] == true.ToString())
+                                    {
+                                        MessageBox.Show("Successfully registered!");
+                                        MainWindow.MainWindowInstance.Dispatcher.Invoke(() =>
+                                        {
+                                            MainWindow.MainWindowInstance.MainGrid.Children.Clear();
+                                            MainWindow.MainWindowInstance.MainGrid.Children.Add(new UC_LoginPage());
+                                        });
+                                    }
+                                    else
+                                    {
+                                        MessageBox.Show(request.Data[1]);
+                                    }
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Code sended on your email!");
+                                    MainWindow.MainWindowInstance.Dispatcher.Invoke(() =>
+                                    {
+                                        (MainWindow.MainWindowInstance.MainGrid.Children[0] as UC_RegisterPage).CodeTB.IsEnabled = true;
+                                    });
+                                }
+                            }
                             break;
                         }
                     case RequestType.GetRewards:
