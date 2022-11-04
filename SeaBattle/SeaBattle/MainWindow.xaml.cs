@@ -57,7 +57,8 @@ namespace SeaBattle
             //}
             //#endregion
             
-            MainGrid.Children.Add(new UC_AcceptBattle("Toha229"));
+            MainGrid.Children.Add(new UC_Rewards(1124123,244343466));
+
         }
     }
 }
