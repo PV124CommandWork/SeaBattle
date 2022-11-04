@@ -1,4 +1,5 @@
 ﻿
+<<<<<<< HEAD
 FD:\Sea_B\SeaBattle\SeaBattle\App.xaml;;
 FD:\Sea_B\SeaBattle\SeaBattle\MainWindow.xaml;;
 FD:\Sea_B\SeaBattle\SeaBattle\UserControls\UC_AcceptBattle.xaml;;
@@ -7,4 +8,14 @@ FD:\Sea_B\SeaBattle\SeaBattle\UserControls\UC_FillBattlefield.xaml;;
 FD:\Sea_B\SeaBattle\SeaBattle\UserControls\UC_LoginPage.xaml;;
 FD:\Sea_B\SeaBattle\SeaBattle\UserControls\UC_RegisterPage.xaml;;
 FD:\Sea_B\SeaBattle\SeaBattle\UserControls\UC_Rewards.xaml;;
+=======
+FE:\WAG\SeaBattle\SeaBattle\SeaBattle\App.xaml;;
+FE:\WAG\SeaBattle\SeaBattle\SeaBattle\MainWindow.xaml;;
+FE:\WAG\SeaBattle\SeaBattle\SeaBattle\UserControls\UC_AcceptBattle.xaml;;
+FE:\WAG\SeaBattle\SeaBattle\SeaBattle\UserControls\UC_Battlefield.xaml;;
+FE:\WAG\SeaBattle\SeaBattle\SeaBattle\UserControls\UC_FillBattlefield.xaml;;
+FE:\WAG\SeaBattle\SeaBattle\SeaBattle\UserControls\UC_LoginPage.xaml;;
+FE:\WAG\SeaBattle\SeaBattle\SeaBattle\UserControls\UC_RegisterPage.xaml;;
+FE:\WAG\SeaBattle\SeaBattle\SeaBattle\UserControls\UC_WaitForPlayer.xaml;;
+>>>>>>> ebdd62bd698d8b81f8dab35ac6332fc0aef12d1e
 

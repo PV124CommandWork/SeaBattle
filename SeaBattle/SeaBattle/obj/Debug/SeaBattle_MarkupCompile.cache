@@ -9,12 +9,21 @@ SeaBattle
 none
 false
 DEBUG;TRACE
+<<<<<<< HEAD
 D:\Sea_B\SeaBattle\SeaBattle\App.xaml
 7-2017127404
 
 121342096265
 17-337469379
 MainWindow.xaml;UserControls\UC_AcceptBattle.xaml;UserControls\UC_Battlefield.xaml;UserControls\UC_FillBattlefield.xaml;UserControls\UC_LoginPage.xaml;UserControls\UC_RegisterPage.xaml;UserControls\UC_Rewards.xaml;
+=======
+E:\WAG\SeaBattle\SeaBattle\SeaBattle\App.xaml
+7-622862149
+
+12-1811500324
+17349825487
+MainWindow.xaml;UserControls\UC_AcceptBattle.xaml;UserControls\UC_Battlefield.xaml;UserControls\UC_FillBattlefield.xaml;UserControls\UC_LoginPage.xaml;UserControls\UC_RegisterPage.xaml;UserControls\UC_WaitForPlayer.xaml;
+>>>>>>> ebdd62bd698d8b81f8dab35ac6332fc0aef12d1e
 
 False
 

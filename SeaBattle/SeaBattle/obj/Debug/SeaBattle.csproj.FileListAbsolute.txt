@@ -69,6 +69,7 @@ E:\WAG\SeaBattle\SeaBattle\SeaBattle\obj\Debug\SeaBattle.Properties.Resources.re
 E:\WAG\SeaBattle\SeaBattle\SeaBattle\obj\Debug\SeaBattle.csproj.GenerateResource.cache
 E:\WAG\SeaBattle\SeaBattle\SeaBattle\obj\Debug\SeaBattle.csproj.CoreCompileInputs.cache
 E:\WAG\SeaBattle\SeaBattle\SeaBattle\obj\Debug\SeaBattle.csproj.CopyComplete
+<<<<<<< HEAD
 D:\Sea_B\SeaBattle\SeaBattle\bin\Debug\SeaBattle.exe.config
 D:\Sea_B\SeaBattle\SeaBattle\bin\Debug\SeaBattle.exe
 D:\Sea_B\SeaBattle\SeaBattle\bin\Debug\SeaBattle.pdb
@@ -108,3 +109,7 @@ D:\Sea_B\SeaBattle\SeaBattle\obj\Debug\SeaBattle.csproj.CoreCompileInputs.cache
 D:\Sea_B\SeaBattle\SeaBattle\obj\Debug\SeaBattle.csproj.CopyComplete
 D:\Sea_B\SeaBattle\SeaBattle\obj\Debug\SeaBattle.exe
 D:\Sea_B\SeaBattle\SeaBattle\obj\Debug\SeaBattle.pdb
+=======
+E:\WAG\SeaBattle\SeaBattle\SeaBattle\obj\Debug\UserControls\UC_WaitForPlayer.g.cs
+E:\WAG\SeaBattle\SeaBattle\SeaBattle\obj\Debug\UserControls\UC_WaitForPlayer.baml
+>>>>>>> ebdd62bd698d8b81f8dab35ac6332fc0aef12d1e

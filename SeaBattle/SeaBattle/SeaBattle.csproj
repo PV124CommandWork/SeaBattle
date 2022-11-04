@@ -84,6 +84,10 @@
     </Compile>
     <Compile Include="UserControls\UC_Rewards.xaml.cs">
       <DependentUpon>UC_Rewards.xaml</DependentUpon>
+=======
+    <Compile Include="UserControls\UC_WaitForPlayer.xaml.cs">
+      <DependentUpon>UC_WaitForPlayer.xaml</DependentUpon>
+>>>>>>> ebdd62bd698d8b81f8dab35ac6332fc0aef12d1e
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -117,7 +121,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+<<<<<<< HEAD
     <Page Include="UserControls\UC_Rewards.xaml">
+=======
+    <Page Include="UserControls\UC_WaitForPlayer.xaml">
+>>>>>>> ebdd62bd698d8b81f8dab35ac6332fc0aef12d1e
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

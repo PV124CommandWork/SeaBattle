@@ -56,9 +56,14 @@ namespace SeaBattle
             //    Application.Current.Shutdown();
             //}
             //#endregion
+<<<<<<< HEAD
             
             MainGrid.Children.Add(new UC_Rewards(1124123,244343466));
 
+=======
+
+            MainGrid.Children.Add(new UC_WaitForPlayer());
+>>>>>>> ebdd62bd698d8b81f8dab35ac6332fc0aef12d1e
         }
     }
 }
