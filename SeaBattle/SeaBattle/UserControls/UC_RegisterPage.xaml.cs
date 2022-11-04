@@ -69,14 +69,13 @@ namespace SeaBattle.UserControls
 
             if (PasswordPB.Password == ConfirmPasswordPB.Password)
             {
-               if(CodeTB.IsEnabled == true)
+                if (CodeTB.IsEnabled == true)
                 {
                     SeaBattleServerComunication.SendToServer.SendRegisterData(UserNameTB.Text, LoginTB.Text, PasswordPB.Password, EmailTB.Text, CodeTB.Text);
                 }
-               else
+                else
                 {
                     SeaBattleServerComunication.SendToServer.SendRegisterData(UserNameTB.Text, LoginTB.Text, PasswordPB.Password, EmailTB.Text);
-                    CodeTB.IsEnabled = true;
                 }
             }
             else
@@ -89,7 +88,8 @@ namespace SeaBattle.UserControls
 
         private void Login_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow.MainWindowInstance.Dispatcher.Invoke(() => {
+            MainWindow.MainWindowInstance.Dispatcher.Invoke(() =>
+            {
                 MainWindow.MainWindowInstance.MainGrid.Children.Clear();
                 MainWindow.MainWindowInstance.MainGrid.Children.Add(new UC_LoginPage());
             });
