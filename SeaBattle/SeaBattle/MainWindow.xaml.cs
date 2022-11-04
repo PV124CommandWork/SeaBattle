@@ -56,8 +56,8 @@ namespace SeaBattle
             //    Application.Current.Shutdown();
             //}
             //#endregion
-            
-            MainGrid.Children.Add(new UC_AcceptBattle("Toha229"));
+
+            MainGrid.Children.Add(new UC_WaitForPlayer());
         }
     }
 }
