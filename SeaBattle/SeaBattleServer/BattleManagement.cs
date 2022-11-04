@@ -41,5 +41,16 @@ namespace SeaBattleServer
             DataBaseAccess.DbContext.Update(secondUser);
             DataBaseAccess.DbContext.SaveChanges();
         }
+
+        public static void deleteBattle(int battleId)
+        {
+            CurrentBattle temp = (from b in DataBaseAccess.DbContext.CurrentBattles where b.Id == battleId select b) as CurrentBattle;
+            if(temp == null)
+            {
+                throw new Exception();
+            }
+            DataBaseAccess.DbContext.CurrentBattles.Remove(temp);
+            DataBaseAccess.DbContext.SaveChanges();
+        }
     }
 }
