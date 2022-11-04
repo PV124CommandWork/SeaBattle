@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 E:\WAG\SeaBattle\SeaBattle\SeaBattle\App.xaml
-6-772621850
+7-622862149
 
-11-899791770
+12-1811500324
 17349825487
-MainWindow.xaml;UserControls\UC_AcceptBattle.xaml;UserControls\UC_Battlefield.xaml;UserControls\UC_FillBattlefield.xaml;UserControls\UC_LoginPage.xaml;UserControls\UC_RegisterPage.xaml;
+MainWindow.xaml;UserControls\UC_AcceptBattle.xaml;UserControls\UC_Battlefield.xaml;UserControls\UC_FillBattlefield.xaml;UserControls\UC_LoginPage.xaml;UserControls\UC_RegisterPage.xaml;UserControls\UC_WaitForPlayer.xaml;
 
 False
 

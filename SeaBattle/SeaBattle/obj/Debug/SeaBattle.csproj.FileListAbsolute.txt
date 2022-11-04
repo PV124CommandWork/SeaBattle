@@ -69,3 +69,5 @@ E:\WAG\SeaBattle\SeaBattle\SeaBattle\obj\Debug\SeaBattle.Properties.Resources.re
 E:\WAG\SeaBattle\SeaBattle\SeaBattle\obj\Debug\SeaBattle.csproj.GenerateResource.cache
 E:\WAG\SeaBattle\SeaBattle\SeaBattle\obj\Debug\SeaBattle.csproj.CoreCompileInputs.cache
 E:\WAG\SeaBattle\SeaBattle\SeaBattle\obj\Debug\SeaBattle.csproj.CopyComplete
+E:\WAG\SeaBattle\SeaBattle\SeaBattle\obj\Debug\UserControls\UC_WaitForPlayer.g.cs
+E:\WAG\SeaBattle\SeaBattle\SeaBattle\obj\Debug\UserControls\UC_WaitForPlayer.baml
