@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\дз\\ШАГ\\!git\\tmp\\SeaBattle\\SeaBattle\\SettingsMenu\\SettingsMenu.csproj",
+      "projectUniqueName": "E:\\дз\\ШАГ\\!git\\SeaBattle\\SeaBattle\\SettingsMenu\\SettingsMenu.csproj",
       "projectName": "SettingsMenu",
-      "projectPath": "E:\\дз\\ШАГ\\!git\\tmp\\SeaBattle\\SeaBattle\\SettingsMenu\\SettingsMenu.csproj",
+      "projectPath": "E:\\дз\\ШАГ\\!git\\SeaBattle\\SeaBattle\\SettingsMenu\\SettingsMenu.csproj",
       "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-      "outputPath": "E:\\дз\\ШАГ\\!git\\tmp\\SeaBattle\\SeaBattle\\SettingsMenu\\obj\\",
+      "outputPath": "E:\\дз\\ШАГ\\!git\\SeaBattle\\SeaBattle\\SettingsMenu\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
