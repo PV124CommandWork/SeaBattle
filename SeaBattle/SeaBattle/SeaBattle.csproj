@@ -48,6 +48,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -70,6 +71,9 @@
     <Compile Include="UserControls\UC_Battlefield.xaml.cs">
       <DependentUpon>UC_Battlefield.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\UC_FriendList.xaml.cs">
+      <DependentUpon>UC_FriendList.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\UC_LoginPage.xaml.cs">
       <DependentUpon>UC_LoginPage.xaml</DependentUpon>
     </Compile>
@@ -88,6 +92,10 @@
     <Page Include="UserControls\UC_Battlefield.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\UC_FriendList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControls\UC_LoginPage.xaml">
       <SubType>Designer</SubType>
