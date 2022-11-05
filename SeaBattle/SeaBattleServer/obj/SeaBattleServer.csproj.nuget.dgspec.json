@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "E:\\WAG\\SeaBattle\\SeaBattle\\SeaBattleServer\\SeaBattleServer.csproj": {}
+    "E:\\дз\\ШАГ\\!git\\tmp\\SeaBattle\\SeaBattle\\SeaBattleServer\\SeaBattleServer.csproj": {}
   },
   "projects": {
-    "E:\\WAG\\SeaBattle\\SeaBattle\\DAL\\DAL.csproj": {
+    "E:\\дз\\ШАГ\\!git\\tmp\\SeaBattle\\SeaBattle\\DAL\\DAL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\WAG\\SeaBattle\\SeaBattle\\DAL\\DAL.csproj",
+        "projectUniqueName": "E:\\дз\\ШАГ\\!git\\tmp\\SeaBattle\\SeaBattle\\DAL\\DAL.csproj",
         "projectName": "DAL",
-        "projectPath": "E:\\WAG\\SeaBattle\\SeaBattle\\DAL\\DAL.csproj",
-        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-        "outputPath": "E:\\WAG\\SeaBattle\\SeaBattle\\DAL\\obj\\",
+        "projectPath": "E:\\дз\\ШАГ\\!git\\tmp\\SeaBattle\\SeaBattle\\DAL\\DAL.csproj",
+        "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
+        "outputPath": "E:\\дз\\ШАГ\\!git\\tmp\\SeaBattle\\SeaBattle\\DAL\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -39,31 +39,59 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[6.0.10, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[6.0.10, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[6.0.10, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[6.0.10, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
             "net47",
             "net471",
             "net472",
-            "net48"
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.300\\RuntimeIdentifierGraph.json"
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.402\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "E:\\WAG\\SeaBattle\\SeaBattle\\SeaBattleServer\\SeaBattleServer.csproj": {
+    "E:\\дз\\ШАГ\\!git\\tmp\\SeaBattle\\SeaBattle\\SeaBattleServer\\SeaBattleServer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\WAG\\SeaBattle\\SeaBattle\\SeaBattleServer\\SeaBattleServer.csproj",
+        "projectUniqueName": "E:\\дз\\ШАГ\\!git\\tmp\\SeaBattle\\SeaBattle\\SeaBattleServer\\SeaBattleServer.csproj",
         "projectName": "SeaBattleServer",
-        "projectPath": "E:\\WAG\\SeaBattle\\SeaBattle\\SeaBattleServer\\SeaBattleServer.csproj",
-        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-        "outputPath": "E:\\WAG\\SeaBattle\\SeaBattle\\SeaBattleServer\\obj\\",
+        "projectPath": "E:\\дз\\ШАГ\\!git\\tmp\\SeaBattle\\SeaBattle\\SeaBattleServer\\SeaBattleServer.csproj",
+        "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
+        "outputPath": "E:\\дз\\ШАГ\\!git\\tmp\\SeaBattle\\SeaBattle\\SeaBattleServer\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -77,11 +105,11 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "E:\\WAG\\SeaBattle\\SeaBattle\\DAL\\DAL.csproj": {
-                "projectPath": "E:\\WAG\\SeaBattle\\SeaBattle\\DAL\\DAL.csproj"
+              "E:\\дз\\ШАГ\\!git\\tmp\\SeaBattle\\SeaBattle\\DAL\\DAL.csproj": {
+                "projectPath": "E:\\дз\\ШАГ\\!git\\tmp\\SeaBattle\\SeaBattle\\DAL\\DAL.csproj"
               },
-              "E:\\WAG\\SeaBattle\\SeaBattle\\ShipsClass\\ShipsClass.csproj": {
-                "projectPath": "E:\\WAG\\SeaBattle\\SeaBattle\\ShipsClass\\ShipsClass.csproj"
+              "E:\\дз\\ШАГ\\!git\\tmp\\SeaBattle\\SeaBattle\\ShipsClass\\ShipsClass.csproj": {
+                "projectPath": "E:\\дз\\ШАГ\\!git\\tmp\\SeaBattle\\SeaBattle\\ShipsClass\\ShipsClass.csproj"
               }
             }
           }
@@ -95,25 +123,48 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[6.0.10, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.1, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
             "net47",
             "net471",
             "net472",
-            "net48"
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.300\\RuntimeIdentifierGraph.json"
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.402\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "E:\\WAG\\SeaBattle\\SeaBattle\\ShipsClass\\ShipsClass.csproj": {
+    "E:\\дз\\ШАГ\\!git\\tmp\\SeaBattle\\SeaBattle\\ShipsClass\\ShipsClass.csproj": {
       "restore": {
-        "projectUniqueName": "E:\\WAG\\SeaBattle\\SeaBattle\\ShipsClass\\ShipsClass.csproj",
+        "projectUniqueName": "E:\\дз\\ШАГ\\!git\\tmp\\SeaBattle\\SeaBattle\\ShipsClass\\ShipsClass.csproj",
         "projectName": "ShipsClass",
-        "projectPath": "E:\\WAG\\SeaBattle\\SeaBattle\\ShipsClass\\ShipsClass.csproj"
+        "projectPath": "E:\\дз\\ШАГ\\!git\\tmp\\SeaBattle\\SeaBattle\\ShipsClass\\ShipsClass.csproj",
+        "frameworks": {
+          "net472": {
+            "projectReferences": {}
+          }
+        }
       },
       "frameworks": {
         "net472": {}
