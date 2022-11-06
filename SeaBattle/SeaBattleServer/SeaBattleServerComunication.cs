@@ -31,6 +31,7 @@ namespace SeaBattleServerComunication
                             ((from users in DAL.DataBaseAccess.DbContext.Users 
                              where users.Login == Login 
                              && users.Password == Password 
+                             && users.Registration == null
                              select users).FirstOrDefault() != null).ToString());
                         break;
                     }
@@ -41,7 +42,7 @@ namespace SeaBattleServerComunication
                         {
                             bool isLoginExist = (from u in DAL.DataBaseAccess.DbContext.Users
                                                  where u.Login == Login && u.Registration == null
-                                                 select u) == null;
+                                                 select u).FirstOrDefault() == null;
                             if (isLoginExist)
                             {
                                 request.Data.Add("This login already exists!");

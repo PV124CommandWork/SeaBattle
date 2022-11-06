@@ -59,7 +59,7 @@ namespace SeaBattle
 
             Settings.Init();
 
-            MainGrid.Children.Add(new UC_Settings());
+            MainGrid.Children.Add(new UC_LoginPage());
         }
     }
 }
