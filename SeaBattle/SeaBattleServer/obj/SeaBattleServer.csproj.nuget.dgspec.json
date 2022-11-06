@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\User\\source\\repos\\SeaBattle\\SeaBattle\\SeaBattleServer\\SeaBattleServer.csproj": {}
+    "C:\\Users\\User\\source\\SeaBattle\\SeaBattle\\SeaBattleServer\\SeaBattleServer.csproj": {}
   },
   "projects": {
-    "C:\\Users\\User\\source\\repos\\SeaBattle\\SeaBattle\\DAL\\DAL.csproj": {
+    "C:\\Users\\User\\source\\SeaBattle\\SeaBattle\\DAL\\DAL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\User\\source\\repos\\SeaBattle\\SeaBattle\\DAL\\DAL.csproj",
+        "projectUniqueName": "C:\\Users\\User\\source\\SeaBattle\\SeaBattle\\DAL\\DAL.csproj",
         "projectName": "DAL",
-        "projectPath": "C:\\Users\\User\\source\\repos\\SeaBattle\\SeaBattle\\DAL\\DAL.csproj",
+        "projectPath": "C:\\Users\\User\\source\\SeaBattle\\SeaBattle\\DAL\\DAL.csproj",
         "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\User\\source\\repos\\SeaBattle\\SeaBattle\\DAL\\obj\\",
+        "outputPath": "C:\\Users\\User\\source\\SeaBattle\\SeaBattle\\DAL\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -81,14 +81,14 @@
         }
       }
     },
-    "C:\\Users\\User\\source\\repos\\SeaBattle\\SeaBattle\\SeaBattleServer\\SeaBattleServer.csproj": {
+    "C:\\Users\\User\\source\\SeaBattle\\SeaBattle\\SeaBattleServer\\SeaBattleServer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\User\\source\\repos\\SeaBattle\\SeaBattle\\SeaBattleServer\\SeaBattleServer.csproj",
+        "projectUniqueName": "C:\\Users\\User\\source\\SeaBattle\\SeaBattle\\SeaBattleServer\\SeaBattleServer.csproj",
         "projectName": "SeaBattleServer",
-        "projectPath": "C:\\Users\\User\\source\\repos\\SeaBattle\\SeaBattle\\SeaBattleServer\\SeaBattleServer.csproj",
+        "projectPath": "C:\\Users\\User\\source\\SeaBattle\\SeaBattle\\SeaBattleServer\\SeaBattleServer.csproj",
         "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\User\\source\\repos\\SeaBattle\\SeaBattle\\SeaBattleServer\\obj\\",
+        "outputPath": "C:\\Users\\User\\source\\SeaBattle\\SeaBattle\\SeaBattleServer\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -105,11 +105,11 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\User\\source\\repos\\SeaBattle\\SeaBattle\\DAL\\DAL.csproj": {
-                "projectPath": "C:\\Users\\User\\source\\repos\\SeaBattle\\SeaBattle\\DAL\\DAL.csproj"
+              "C:\\Users\\User\\source\\SeaBattle\\SeaBattle\\DAL\\DAL.csproj": {
+                "projectPath": "C:\\Users\\User\\source\\SeaBattle\\SeaBattle\\DAL\\DAL.csproj"
               },
-              "C:\\Users\\User\\source\\repos\\SeaBattle\\SeaBattle\\ShipsClass\\ShipsClass.csproj": {
-                "projectPath": "C:\\Users\\User\\source\\repos\\SeaBattle\\SeaBattle\\ShipsClass\\ShipsClass.csproj"
+              "C:\\Users\\User\\source\\SeaBattle\\SeaBattle\\ShipsClass\\ShipsClass.csproj": {
+                "projectPath": "C:\\Users\\User\\source\\SeaBattle\\SeaBattle\\ShipsClass\\ShipsClass.csproj"
               }
             }
           }
@@ -155,11 +155,11 @@
         }
       }
     },
-    "C:\\Users\\User\\source\\repos\\SeaBattle\\SeaBattle\\ShipsClass\\ShipsClass.csproj": {
+    "C:\\Users\\User\\source\\SeaBattle\\SeaBattle\\ShipsClass\\ShipsClass.csproj": {
       "restore": {
-        "projectUniqueName": "C:\\Users\\User\\source\\repos\\SeaBattle\\SeaBattle\\ShipsClass\\ShipsClass.csproj",
+        "projectUniqueName": "C:\\Users\\User\\source\\SeaBattle\\SeaBattle\\ShipsClass\\ShipsClass.csproj",
         "projectName": "ShipsClass",
-        "projectPath": "C:\\Users\\User\\source\\repos\\SeaBattle\\SeaBattle\\ShipsClass\\ShipsClass.csproj",
+        "projectPath": "C:\\Users\\User\\source\\SeaBattle\\SeaBattle\\ShipsClass\\ShipsClass.csproj",
         "frameworks": {
           "net472": {
             "projectReferences": {}
