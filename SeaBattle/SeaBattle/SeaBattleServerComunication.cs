@@ -185,6 +185,8 @@ namespace SeaBattleServerComunication
         {
             Request request = new Request()
             {
+                Login = Settings.Login,
+                Password = Settings.Password,
                 Data = new List<string>() { friendLogin },
                 ReqType = RequestType.AddFriend
             };
@@ -195,12 +197,63 @@ namespace SeaBattleServerComunication
         {
             Request request = new Request()
             {
+                Login = Settings.Login,
+                Password = Settings.Password,
                 Data = new List<string>() { friendLogin },
                 ReqType = RequestType.RemoveFriend
             };
 
             SendRequestToServer(request);
         }
+        public static void SendRequestToBattle(string friendLogin)
+        {
+            Request request = new Request()
+            {
+                Login = Settings.Login,
+                Password = Settings.Password,
+                Data = new List<string>() { friendLogin },
+                ReqType = RequestType.BattleRequest
+            };
+
+            SendRequestToServer(request);
+        }
+        public static void SendConfirmBattle(string friendLogin)
+        {
+            Request request = new Request()
+            {
+                Login = Settings.Login,
+                Password = Settings.Password,
+                Data = new List<string>() { friendLogin },
+                ReqType = RequestType.BattleConfirm
+            };
+
+            SendRequestToServer(request);
+        }
+        public static void SendBattleCanceled(string friendLogin)
+        {
+            Request request = new Request()
+            {
+                Login = Settings.Login,
+                Password = Settings.Password,
+                Data = new List<string>() { friendLogin },
+                ReqType = RequestType.BattleCanceled
+            };
+
+            SendRequestToServer(request);
+        }
+        public static void SendPlayerReady(string fieldDataJson)
+        {
+            Request request = new Request()
+            {
+                Login = Settings.Login,
+                Password = Settings.Password,
+                Data = new List<string>() { fieldDataJson },
+                ReqType = RequestType.PlayerReady
+            };
+
+            SendRequestToServer(request);
+        }
+
         public static void SendRequestToServer(Request request)
         {
             byte[] data = Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(request));
