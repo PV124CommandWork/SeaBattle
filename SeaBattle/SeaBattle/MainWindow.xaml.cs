@@ -57,8 +57,7 @@ namespace SeaBattle
             }
             #endregion
 
-            MainGrid.Children.Add(new UC_Rewards(100, 190));
-            //MainGrid.Children.Add(new UC_AcceptBattle("Toha229"));
+            MainGrid.Children.Add(new UC_Rewards(10, 15));
         }
     }
 }
