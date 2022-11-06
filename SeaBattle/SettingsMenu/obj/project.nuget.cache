@@ -1,8 +1,15 @@
 {
   "version": 2,
-  "dgSpecHash": "PXZsM76rgcCb9drCzVkkAf4GzbCHgupwlfVcO7Rlutqit80BgqsQm8oLkt4sJNHVb/8/NhB0GvYJRoZ16XEhIA==",
+  "dgSpecHash": "U/WM75NMvevGK5AMPEPDjrRhv7xQqH1IoPik+xHWr1i58zj4bwxpV3jHewrMPELuuxirXVHK2B4YBHekeS0uRg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\seniv\\source\\repos\\SeaBattle\\SeaBattle\\SettingsMenu\\SettingsMenu.csproj",
+  "projectFilePath": "E:\\дз\\ШАГ\\!git\\SeaBattle\\SeaBattle\\SettingsMenu\\SettingsMenu.csproj",
   "expectedPackageFiles": [],
-  "logs": []
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file E:\\дз\\ШАГ\\!git\\SeaBattle\\SeaBattle\\SettingsMenu\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }

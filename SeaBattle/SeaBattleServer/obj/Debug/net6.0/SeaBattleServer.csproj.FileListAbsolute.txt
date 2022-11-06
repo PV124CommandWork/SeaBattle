@@ -139,3 +139,5 @@ E:\дз\ШАГ\!git\tmp\SeaBattle\SeaBattle\SeaBattleServer\obj\Debug\net6.0\Sea
 E:\дз\ШАГ\!git\tmp\SeaBattle\SeaBattle\SeaBattleServer\obj\Debug\net6.0\ref\SeaBattleServer.dll
 E:\дз\ШАГ\!git\tmp\SeaBattle\SeaBattle\SeaBattleServer\bin\Debug\net6.0\ShipsClass.dll
 E:\дз\ШАГ\!git\tmp\SeaBattle\SeaBattle\SeaBattleServer\bin\Debug\net6.0\ShipsClass.pdb
+E:\дз\ШАГ\!git\SeaBattle\SeaBattle\SeaBattleServer\bin\Debug\net6.0\ShipsClass.dll
+E:\дз\ШАГ\!git\SeaBattle\SeaBattle\SeaBattleServer\bin\Debug\net6.0\ShipsClass.pdb
