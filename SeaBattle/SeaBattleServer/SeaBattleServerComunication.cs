@@ -8,6 +8,8 @@ using Newtonsoft.Json;
 using SeaBattleServer;
 using RegistrationNS;
 using GameDBContext.Entities;
+using DAL;
+using Microsoft.EntityFrameworkCore;
 
 namespace SeaBattleServerComunication
 {
@@ -67,6 +69,18 @@ namespace SeaBattleServerComunication
                     }
                 case RequestType.GetRewards:
                     {
+                        Reward rewards = (from u in DataBaseAccess.DbContext.Users
+                                          join r in DataBaseAccess.DbContext.Rewards on u.Reward equals r
+                                          where u.Registration == null
+                                          && u.Login == Login
+                                          && u.Password == Password
+                                          select r).FirstOrDefault();
+                        request.ReqType = RequestType.GetRewards;
+                        if (rewards != null)
+                        {
+                            request.Data.Add(rewards.BattlesWon.ToString());
+                            request.Data.Add(rewards.BattlesPlayed.ToString());
+                        }
                         break;
                     }
                 case RequestType.BattleRequest:

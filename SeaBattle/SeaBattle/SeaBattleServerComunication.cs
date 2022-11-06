@@ -73,9 +73,10 @@ namespace SeaBattleServerComunication
                         {
                             if (request.Data[0] == true.ToString())
                             {
-                                MainWindow.MainWindowInstance.Dispatcher.Invoke(() => { 
+                                MainWindow.MainWindowInstance.Dispatcher.Invoke(() =>
+                                {
                                     MainWindow.MainWindowInstance.MainGrid.Children.Clear();
-                                    MainWindow.MainWindowInstance.MainGrid.Children.Add(new UC_FillBattlefield());
+                                    MainWindow.MainWindowInstance.MainGrid.Children.Add(new UC_Rewards());
                                 });
                             }
                             else
@@ -121,6 +122,13 @@ namespace SeaBattleServerComunication
                         }
                     case RequestType.GetRewards:
                         {
+                            MainWindow.MainWindowInstance.Dispatcher.Invoke(() =>
+                            {
+                                if (MainWindow.MainWindowInstance.MainGrid.Children[0].GetType() == new UC_Rewards().GetType())
+                                {
+                                    (MainWindow.MainWindowInstance.MainGrid.Children[0] as UC_Rewards).Init(int.Parse(request.Data[0]), int.Parse(request.Data[1]));
+                                }
+                            });
                             break;
                         }
                     case RequestType.BattleRequest:
@@ -158,12 +166,12 @@ namespace SeaBattleServerComunication
         {
             Request request = new Request()
             {
-                Login = login, 
+                Login = login,
                 Password = password,
-                Data = new List<string>() { userName, email },  
+                Data = new List<string>() { userName, email },
                 ReqType = RequestType.Register
             };
-            if(registerCode != "")
+            if (registerCode != "")
             {
                 request.Data.Add(registerCode);
             }
@@ -253,6 +261,19 @@ namespace SeaBattleServerComunication
 
             SendRequestToServer(request);
         }
+        public static void SendRewardsRequest()
+        {
+            Request request = new Request()
+            {
+                Login = Settings.Login,
+                Password = Settings.Password,
+                ReqType = RequestType.GetRewards
+            };
+
+            SendRequestToServer(request);
+        }
+
+
 
         public static void SendRequestToServer(Request request)
         {
