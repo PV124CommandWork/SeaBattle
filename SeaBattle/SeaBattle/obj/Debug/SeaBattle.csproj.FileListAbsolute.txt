@@ -112,3 +112,5 @@ E:\дз\ШАГ\!git\SeaBattle\SeaBattle\SeaBattle\obj\Debug\SeaBattle.csproj.Cor
 E:\дз\ШАГ\!git\SeaBattle\SeaBattle\SeaBattle\obj\Debug\SeaBattle.csproj.CopyComplete
 E:\дз\ШАГ\!git\SeaBattle\SeaBattle\SeaBattle\obj\Debug\UserControls\UC_Rewards.g.cs
 E:\дз\ШАГ\!git\SeaBattle\SeaBattle\SeaBattle\obj\Debug\UserControls\UC_Rewards.baml
+E:\дз\ШАГ\!git\SeaBattle\SeaBattle\SeaBattle\obj\Debug\UserControls\UC_Settings.g.cs
+E:\дз\ШАГ\!git\SeaBattle\SeaBattle\SeaBattle\obj\Debug\UserControls\UC_Settings.baml

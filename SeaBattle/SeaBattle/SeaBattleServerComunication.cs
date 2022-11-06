@@ -12,6 +12,7 @@ using System.Windows.Controls;
 using SeaBattle.UserControls;
 using System.Windows.Threading;
 using System.Runtime.CompilerServices;
+using System.Diagnostics.Contracts;
 
 namespace SeaBattleServerComunication
 {
@@ -180,6 +181,26 @@ namespace SeaBattleServerComunication
 
             SendRequestToServer(request);
         }
+        public static void SendFriendRequest(string friendLogin)
+        {
+            Request request = new Request()
+            {
+                Data = new List<string>() { friendLogin },
+                ReqType = RequestType.AddFriend
+            };
+
+            SendRequestToServer(request);
+        }
+        public static void SendDeletedFriend(string friendLogin)
+        {
+            Request request = new Request()
+            {
+                Data = new List<string>() { friendLogin },
+                ReqType = RequestType.RemoveFriend
+            };
+
+            SendRequestToServer(request);
+        }
         public static void SendRequestToServer(Request request)
         {
             byte[] data = Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(request));
@@ -198,7 +219,7 @@ namespace SeaBattleServerComunication
 
     public enum RequestType
     {
-        Register, Login, GetRewards, BattleRequest, BattleConfirm, BattleCanceled, BattleEnded, Fire, Exception, PlayerReady, AddFriend
+        Register, Login, GetRewards, BattleRequest, BattleConfirm, BattleCanceled, BattleEnded, Fire, Exception, PlayerReady, AddFriend, RemoveFriend
     }
     #endregion
 }

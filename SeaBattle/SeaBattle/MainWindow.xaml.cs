@@ -57,7 +57,9 @@ namespace SeaBattle
             }
             #endregion
 
-            MainGrid.Children.Add(new UC_Rewards(10, 15));
+            Settings.Init();
+
+            MainGrid.Children.Add(new UC_Settings());
         }
     }
 }

@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 E:\дз\ШАГ\!git\SeaBattle\SeaBattle\SeaBattle\App.xaml
-8-2088732215
+91520904172
 
-13858756648
+152146593628
 171192946413
-MainWindow.xaml;UserControls\UC_AcceptBattle.xaml;UserControls\UC_Battlefield.xaml;UserControls\UC_FillBattlefield.xaml;UserControls\UC_LoginPage.xaml;UserControls\UC_RegisterPage.xaml;UserControls\UC_Rewards.xaml;UserControls\UC_WaitForPlayer.xaml;
+MainWindow.xaml;UserControls\UC_Settings.xaml;UserControls\UC_AcceptBattle.xaml;UserControls\UC_Battlefield.xaml;UserControls\UC_FillBattlefield.xaml;UserControls\UC_LoginPage.xaml;UserControls\UC_RegisterPage.xaml;UserControls\UC_Rewards.xaml;UserControls\UC_WaitForPlayer.xaml;
 
 False
 
