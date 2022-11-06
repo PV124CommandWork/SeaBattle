@@ -93,7 +93,7 @@ namespace SeaBattleServerComunication
 
     public enum RequestType
     {
-        Register, Login, GetRewards, BattleRequest, BattleConfirm, BattleCanceled, BattleEnded, Fire, Exception, PlayerReady, AddFriend
+        Register, Login, GetRewards, BattleRequest, BattleConfirm, BattleCanceled, BattleEnded, Fire, Exception, PlayerReady, AddFriend, RemoveFriend
     }
     #endregion
 }
