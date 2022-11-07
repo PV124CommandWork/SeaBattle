@@ -81,6 +81,9 @@
     <Compile Include="UserControls\UC_FillBattlefield.xaml.cs">
       <DependentUpon>UC_FillBattlefield.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\UC_EndScreen.xaml.cs">
+      <DependentUpon>UC_EndScreen.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\UC_FriendList.xaml.cs">
       <DependentUpon>UC_FriendList.xaml</DependentUpon>
     </Compile>
@@ -121,6 +124,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="UserControls\UC_FillBattlefield.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\UC_EndScreen.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
