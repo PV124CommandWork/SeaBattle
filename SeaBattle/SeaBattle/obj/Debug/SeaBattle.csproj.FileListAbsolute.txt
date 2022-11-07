@@ -119,10 +119,7 @@ C:\Users\User\source\repos\SeaBattle\SeaBattle\SeaBattle\bin\Debug\SeaBattle.pdb
 C:\Users\User\source\repos\SeaBattle\SeaBattle\SeaBattle\bin\Debug\MaterialDesignColors.dll
 C:\Users\User\source\repos\SeaBattle\SeaBattle\SeaBattle\bin\Debug\MaterialDesignThemes.Wpf.dll
 C:\Users\User\source\repos\SeaBattle\SeaBattle\SeaBattle\bin\Debug\Newtonsoft.Json.dll
-C:\Users\User\source\repos\SeaBattle\SeaBattle\SeaBattle\bin\Debug\Register Page.exe
 C:\Users\User\source\repos\SeaBattle\SeaBattle\SeaBattle\bin\Debug\ShipsClass.dll
-C:\Users\User\source\repos\SeaBattle\SeaBattle\SeaBattle\bin\Debug\Register Page.pdb
-C:\Users\User\source\repos\SeaBattle\SeaBattle\SeaBattle\bin\Debug\Register Page.exe.config
 C:\Users\User\source\repos\SeaBattle\SeaBattle\SeaBattle\bin\Debug\ShipsClass.pdb
 C:\Users\User\source\repos\SeaBattle\SeaBattle\SeaBattle\bin\Debug\MaterialDesignColors.pdb
 C:\Users\User\source\repos\SeaBattle\SeaBattle\SeaBattle\bin\Debug\MaterialDesignThemes.Wpf.pdb
@@ -155,3 +152,17 @@ E:\дз\ШАГ\!git\SeaBattle\SeaBattle\SeaBattle\obj\Debug\UserControls\UC_Rewa
 E:\дз\ШАГ\!git\SeaBattle\SeaBattle\SeaBattle\obj\Debug\UserControls\UC_Settings.baml
 E:\дз\ШАГ\!git\SeaBattle\SeaBattle\SeaBattle\obj\Debug\UserControls\UC_FriendList.baml
 E:\дз\ШАГ\!git\SeaBattle\SeaBattle\SeaBattle\obj\Debug\UserControls\UC_Rewards.baml
+C:\Users\User\source\repos\SeaBattle\SeaBattle\SeaBattle\obj\Debug\UserControls\UC_Settings.g.cs
+C:\Users\User\source\repos\SeaBattle\SeaBattle\SeaBattle\obj\Debug\UserControls\UC_AcceptBattle.g.cs
+C:\Users\User\source\repos\SeaBattle\SeaBattle\SeaBattle\obj\Debug\UserControls\UC_FillBattlefield.g.cs
+C:\Users\User\source\repos\SeaBattle\SeaBattle\SeaBattle\obj\Debug\UserControls\UC_EndScreen.g.cs
+C:\Users\User\source\repos\SeaBattle\SeaBattle\SeaBattle\obj\Debug\UserControls\UC_RegisterPage.g.cs
+C:\Users\User\source\repos\SeaBattle\SeaBattle\SeaBattle\obj\Debug\UserControls\UC_Rewards.g.cs
+C:\Users\User\source\repos\SeaBattle\SeaBattle\SeaBattle\obj\Debug\UserControls\UC_WaitForPlayer.g.cs
+C:\Users\User\source\repos\SeaBattle\SeaBattle\SeaBattle\obj\Debug\UserControls\UC_Settings.baml
+C:\Users\User\source\repos\SeaBattle\SeaBattle\SeaBattle\obj\Debug\UserControls\UC_AcceptBattle.baml
+C:\Users\User\source\repos\SeaBattle\SeaBattle\SeaBattle\obj\Debug\UserControls\UC_FillBattlefield.baml
+C:\Users\User\source\repos\SeaBattle\SeaBattle\SeaBattle\obj\Debug\UserControls\UC_EndScreen.baml
+C:\Users\User\source\repos\SeaBattle\SeaBattle\SeaBattle\obj\Debug\UserControls\UC_RegisterPage.baml
+C:\Users\User\source\repos\SeaBattle\SeaBattle\SeaBattle\obj\Debug\UserControls\UC_Rewards.baml
+C:\Users\User\source\repos\SeaBattle\SeaBattle\SeaBattle\obj\Debug\UserControls\UC_WaitForPlayer.baml

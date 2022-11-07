@@ -20,7 +20,7 @@ namespace SeaBattleServerComunication
     class ServerConnection
     {
         private const int port = 8008;
-        private const string hostname = "127.0.0.1";
+        private const string hostname = "26.246.103.91";
 
         public static TcpClient client = null;
         public static NetworkStream NetStream = null;
