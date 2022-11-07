@@ -57,7 +57,8 @@ namespace SeaBattle
             }
             #endregion
 
-            MainGrid.Children.Add(new UC_FriendList(new List<string>() { "ivan", "andriy", "sofia"}));
+            //MainGrid.Children.Add(new UC_FriendList(new List<string>() { "ivan", "andriy", "sofia"}));
+            MainGrid.Children.Add(new UC_EndScreen(true, 30, 12));
         }
     }
 }
