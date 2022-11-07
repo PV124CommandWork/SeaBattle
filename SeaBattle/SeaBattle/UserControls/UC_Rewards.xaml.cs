@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SeaBattleServerComunication;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,14 +21,31 @@ namespace SeaBattle.UserControls
     /// </summary>
     public partial class UC_Rewards : UserControl
     {
-        public UC_Rewards(int victories, int battles)
+        public UC_Rewards()
         {
             InitializeComponent();
+        }
+
+        private void Rewards_Loaded(object sender, RoutedEventArgs e)
+        {
+            SendToServer.SendRewardsRequest();
+        }
+
+        public void Init(int victories, int battles)
+        {
             Victories.Content = victories;
-            Defeats.Content = battles-victories;
+            Defeats.Content = battles - victories;
             Battles.Content = battles;
             Victories_p.Content = $"{Math.Round(victories / (double)battles * 100, 2, MidpointRounding.ToEven)}%";
             Defeats_p.Content = $"{Math.Round((battles - victories) / (double)battles * 100, 2, MidpointRounding.ToEven)}%";
+        }
+
+        private void Close_Clicked(object sender, RoutedEventArgs e)
+        {
+            MainWindow.MainWindowInstance.Dispatcher.Invoke(() =>
+            {
+                MainWindow.MainWindowInstance.MainGrid.Children.Remove(this);
+            });
         }
     }
 }

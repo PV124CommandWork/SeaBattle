@@ -18,6 +18,7 @@ namespace GameDBContext.Data
         public virtual DbSet<Registration> Registrations { get; set; }
         public virtual DbSet<Reward> Rewards { get; set; }
         public virtual DbSet<User> Users { get; set; }
+        public virtual DbSet<Friend> Friends { get; set; }
         public virtual DbSet<CurrentBattle> CurrentBattles { get; set; }
     }
 }
