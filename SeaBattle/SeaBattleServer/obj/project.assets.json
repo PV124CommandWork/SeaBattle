@@ -2055,11 +2055,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\дз\\ШАГ\\!git\\SeaBattle\\SeaBattle\\SeaBattleServer\\SeaBattleServer.csproj",
+      "projectUniqueName": "C:\\Users\\User\\source\\repos\\SeaBattle\\SeaBattle\\SeaBattleServer\\SeaBattleServer.csproj",
       "projectName": "SeaBattleServer",
-      "projectPath": "E:\\дз\\ШАГ\\!git\\SeaBattle\\SeaBattle\\SeaBattleServer\\SeaBattleServer.csproj",
+      "projectPath": "C:\\Users\\User\\source\\repos\\SeaBattle\\SeaBattle\\SeaBattleServer\\SeaBattleServer.csproj",
       "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-      "outputPath": "E:\\дз\\ШАГ\\!git\\SeaBattle\\SeaBattle\\SeaBattleServer\\obj\\",
+      "outputPath": "C:\\Users\\User\\source\\repos\\SeaBattle\\SeaBattle\\SeaBattleServer\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -2076,11 +2076,11 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "E:\\дз\\ШАГ\\!git\\SeaBattle\\SeaBattle\\DAL\\DAL.csproj": {
-              "projectPath": "E:\\дз\\ШАГ\\!git\\SeaBattle\\SeaBattle\\DAL\\DAL.csproj"
+            "C:\\Users\\User\\source\\repos\\SeaBattle\\SeaBattle\\DAL\\DAL.csproj": {
+              "projectPath": "C:\\Users\\User\\source\\repos\\SeaBattle\\SeaBattle\\DAL\\DAL.csproj"
             },
-            "E:\\дз\\ШАГ\\!git\\SeaBattle\\SeaBattle\\ShipsClass\\ShipsClass.csproj": {
-              "projectPath": "E:\\дз\\ШАГ\\!git\\SeaBattle\\SeaBattle\\ShipsClass\\ShipsClass.csproj"
+            "C:\\Users\\User\\source\\repos\\SeaBattle\\SeaBattle\\ShipsClass\\ShipsClass.csproj": {
+              "projectPath": "C:\\Users\\User\\source\\repos\\SeaBattle\\SeaBattle\\ShipsClass\\ShipsClass.csproj"
             }
           }
         }
@@ -2125,13 +2125,5 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.402\\RuntimeIdentifierGraph.json"
       }
     }
-  },
-  "logs": [
-    {
-      "code": "Undefined",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Problem reading the cache file E:\\дз\\ШАГ\\!git\\SeaBattle\\SeaBattle\\SeaBattleServer\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
-    }
-  ]
+  }
 }
