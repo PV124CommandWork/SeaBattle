@@ -12,6 +12,7 @@ using System.Windows.Controls;
 using SeaBattle.UserControls;
 using System.Windows.Threading;
 using System.Runtime.CompilerServices;
+using System.Diagnostics.Contracts;
 
 namespace SeaBattleServerComunication
 {
@@ -72,9 +73,10 @@ namespace SeaBattleServerComunication
                         {
                             if (request.Data[0] == true.ToString())
                             {
-                                MainWindow.MainWindowInstance.Dispatcher.Invoke(() => { 
+                                MainWindow.MainWindowInstance.Dispatcher.Invoke(() =>
+                                {
                                     MainWindow.MainWindowInstance.MainGrid.Children.Clear();
-                                    MainWindow.MainWindowInstance.MainGrid.Children.Add(new UC_Battlefield());
+                                    MainWindow.MainWindowInstance.MainGrid.Children.Add(new UC_FriendList(new List<string>()));
                                 });
                             }
                             else
@@ -85,11 +87,70 @@ namespace SeaBattleServerComunication
                         }
                     case RequestType.Register:
                         {
-                            MessageBox.Show(request.Data[0]);
+                            if (request.Data[0] != true.ToString())
+                            {
+                                MessageBox.Show(request.Data[0]);
+                            }
+                            else
+                            {
+                                if (request.Data.Count != 1)
+                                {
+                                    if (request.Data[1] == true.ToString())
+                                    {
+                                        MessageBox.Show("Successfully registered!");
+                                        MainWindow.MainWindowInstance.Dispatcher.Invoke(() =>
+                                        {
+                                            MainWindow.MainWindowInstance.MainGrid.Children.Clear();
+                                            MainWindow.MainWindowInstance.MainGrid.Children.Add(new UC_LoginPage());
+                                        });
+                                    }
+                                    else
+                                    {
+                                        MessageBox.Show(request.Data[1]);
+                                    }
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Code sended on your email!");
+                                    MainWindow.MainWindowInstance.Dispatcher.Invoke(() =>
+                                    {
+                                        (MainWindow.MainWindowInstance.MainGrid.Children[0] as UC_RegisterPage).CodeTB.IsEnabled = true;
+                                    });
+                                }
+                            }
                             break;
                         }
                     case RequestType.GetRewards:
                         {
+                            MainWindow.MainWindowInstance.Dispatcher.Invoke(() =>
+                            {
+                                //if (MainWindow.MainWindowInstance.MainGrid.Children[1].GetType() == new UC_Rewards().GetType())
+                                //{
+                                (MainWindow.MainWindowInstance.MainGrid.Children[1] as UC_Rewards).Init(int.Parse(request.Data[0]), int.Parse(request.Data[1]));
+                                //}
+                            });
+                            break;
+                        }
+                    case RequestType.AddFriend:
+                        {
+                            if (request.Data[0] == "User added to friends!")
+                            {
+                                MainWindow.MainWindowInstance.Dispatcher.Invoke(() =>
+                                {
+                                    SendToServer.SendFriendsRequest();
+                                });
+                            }
+                            MessageBox.Show(request.Data[0]);
+                            break;
+                        }
+                    case RequestType.GetFriends:
+                        {
+                            MainWindow.MainWindowInstance.Dispatcher.Invoke(() =>
+                            {
+                                UC_FriendList.Friends.Clear();
+                                UC_FriendList.Friends.AddRange(JsonConvert.DeserializeObject<IEnumerable<string>>(request.Data[0]));
+                                (MainWindow.MainWindowInstance.MainGrid.Children[0] as UC_FriendList).LoadFriends();
+                            });
                             break;
                         }
                     case RequestType.BattleRequest:
@@ -127,12 +188,12 @@ namespace SeaBattleServerComunication
         {
             Request request = new Request()
             {
-                Login = login, 
+                Login = login,
                 Password = password,
-                Data = new List<string>() { userName, email },  
+                Data = new List<string>() { userName, email },
                 ReqType = RequestType.Register
             };
-            if(registerCode != "")
+            if (registerCode != "")
             {
                 request.Data.Add(registerCode);
             }
@@ -150,6 +211,103 @@ namespace SeaBattleServerComunication
 
             SendRequestToServer(request);
         }
+        public static void SendFriendRequest(string friendLogin)
+        {
+            Request request = new Request()
+            {
+                Login = Settings.Login,
+                Password = Settings.Password,
+                Data = new List<string>() { friendLogin },
+                ReqType = RequestType.AddFriend
+            };
+
+            SendRequestToServer(request);
+        }
+        public static void SendDeletedFriend(string friendLogin)
+        {
+            Request request = new Request()
+            {
+                Login = Settings.Login,
+                Password = Settings.Password,
+                Data = new List<string>() { friendLogin },
+                ReqType = RequestType.RemoveFriend
+            };
+
+            SendRequestToServer(request);
+        }
+        public static void SendRequestToBattle(string friendLogin)
+        {
+            Request request = new Request()
+            {
+                Login = Settings.Login,
+                Password = Settings.Password,
+                Data = new List<string>() { friendLogin },
+                ReqType = RequestType.BattleRequest
+            };
+
+            SendRequestToServer(request);
+        }
+        public static void SendConfirmBattle(string friendLogin)
+        {
+            Request request = new Request()
+            {
+                Login = Settings.Login,
+                Password = Settings.Password,
+                Data = new List<string>() { friendLogin },
+                ReqType = RequestType.BattleConfirm
+            };
+
+            SendRequestToServer(request);
+        }
+        public static void SendBattleCanceled(string friendLogin)
+        {
+            Request request = new Request()
+            {
+                Login = Settings.Login,
+                Password = Settings.Password,
+                Data = new List<string>() { friendLogin },
+                ReqType = RequestType.BattleCanceled
+            };
+
+            SendRequestToServer(request);
+        }
+        public static void SendPlayerReady(string fieldDataJson)
+        {
+            Request request = new Request()
+            {
+                Login = Settings.Login,
+                Password = Settings.Password,
+                Data = new List<string>() { fieldDataJson },
+                ReqType = RequestType.PlayerReady
+            };
+
+            SendRequestToServer(request);
+        }
+        public static void SendRewardsRequest()
+        {
+            Request request = new Request()
+            {
+                Login = Settings.Login,
+                Password = Settings.Password,
+                ReqType = RequestType.GetRewards
+            };
+
+            SendRequestToServer(request);
+        }
+        public static void SendFriendsRequest()
+        {
+            Request request = new Request()
+            {
+                Login = Settings.Login,
+                Password = Settings.Password,
+                ReqType = RequestType.GetFriends
+            };
+
+            SendRequestToServer(request);
+        }
+
+
+
         public static void SendRequestToServer(Request request)
         {
             byte[] data = Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(request));
@@ -168,7 +326,7 @@ namespace SeaBattleServerComunication
 
     public enum RequestType
     {
-        Register, Login, GetRewards, BattleRequest, BattleConfirm, BattleEnded, Fire, Exception
+        Register, Login, GetRewards, BattleRequest, BattleConfirm, BattleCanceled, BattleEnded, Fire, Exception, PlayerReady, AddFriend, RemoveFriend, GetFriends
     }
     #endregion
 }

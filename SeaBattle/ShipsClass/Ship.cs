@@ -7,6 +7,10 @@ using System.Drawing;
 
 namespace ShipsClass
 {
+    public abstract class Cell
+    {
+        public Coords<int> Coords;
+    }
     public class Ship
     {
         public List<Deck> Decks;
@@ -38,9 +42,9 @@ namespace ShipsClass
         }
     }
 
-    public class Deck
+    public class Deck 
+        : Cell
     {
-        public Coords<int> Coords;
         public bool IsDamaged;
         public Deck(int x, int y)
         {
