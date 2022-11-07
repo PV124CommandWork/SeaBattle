@@ -44,7 +44,7 @@ namespace SeaBattleServerComunication
                         {
                             bool isLoginExist = (from u in DAL.DataBaseAccess.DbContext.Users
                                                  where u.Login == Login && u.Registration == null
-                                                 select u).FirstOrDefault() == null;
+                                                 select u).FirstOrDefault() != null;
                             if (isLoginExist)
                             {
                                 request.Data.Add("This login already exists!");
@@ -111,6 +111,16 @@ namespace SeaBattleServerComunication
                         }
                         break;
                     }
+                case RequestType.GetFriends:
+                    {
+                        request.ReqType = RequestType.GetFriends;
+                        IQueryable<string> friends = (from f in DataBaseAccess.DbContext.Friends
+                                                      where f.User1.Login == Login
+                                                      && f.User1.Registration == null
+                                                      select f.User2.Login);
+                        request.Data.Add(JsonConvert.SerializeObject(friends));
+                        break;
+                    }
                 case RequestType.BattleRequest:
                     {
                         BattleManagement.createBattle(Login, Data[0], "", "");
@@ -141,7 +151,7 @@ namespace SeaBattleServerComunication
 
     public enum RequestType
     {
-        Register, Login, GetRewards, BattleRequest, BattleConfirm, BattleCanceled, BattleEnded, Fire, Exception, PlayerReady, AddFriend, RemoveFriend
+        Register, Login, GetRewards, BattleRequest, BattleConfirm, BattleCanceled, BattleEnded, Fire, Exception, PlayerReady, AddFriend, RemoveFriend, GetFriends
     }
     #endregion
 }

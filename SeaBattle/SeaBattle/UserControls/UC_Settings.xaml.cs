@@ -37,6 +37,11 @@ namespace SeaBattle.UserControls
             }
             Settings.WriteInFile();
             Settings.Init();
+            MainWindow.MainWindowInstance.Dispatcher.Invoke(() =>
+            {
+                MainWindow.MainWindowInstance.MainGrid.Children.Remove(this);
+            });
+
         }
     }
 }

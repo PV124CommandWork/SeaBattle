@@ -42,7 +42,5 @@ namespace GameDBContext.Entities
         public int? CurrentBattleId { get; set; }
         [ForeignKey("CurrentBattleId")]
         public virtual CurrentBattle? CurrentBattle { get; set; }
-
-        public virtual IList<User> Friends { get; set; } // TODO : check not to add yourself
     }
 }

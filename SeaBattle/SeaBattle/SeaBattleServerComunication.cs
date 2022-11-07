@@ -76,7 +76,7 @@ namespace SeaBattleServerComunication
                                 MainWindow.MainWindowInstance.Dispatcher.Invoke(() =>
                                 {
                                     MainWindow.MainWindowInstance.MainGrid.Children.Clear();
-                                    MainWindow.MainWindowInstance.MainGrid.Children.Add(new UC_FillBattlefield());
+                                    MainWindow.MainWindowInstance.MainGrid.Children.Add(new UC_FriendList(new List<string>()));
                                 });
                             }
                             else
@@ -124,10 +124,32 @@ namespace SeaBattleServerComunication
                         {
                             MainWindow.MainWindowInstance.Dispatcher.Invoke(() =>
                             {
-                                if (MainWindow.MainWindowInstance.MainGrid.Children[0].GetType() == new UC_Rewards().GetType())
+                                //if (MainWindow.MainWindowInstance.MainGrid.Children[1].GetType() == new UC_Rewards().GetType())
+                                //{
+                                (MainWindow.MainWindowInstance.MainGrid.Children[1] as UC_Rewards).Init(int.Parse(request.Data[0]), int.Parse(request.Data[1]));
+                                //}
+                            });
+                            break;
+                        }
+                    case RequestType.AddFriend:
+                        {
+                            if (request.Data[0] == "User added to friends!")
+                            {
+                                MainWindow.MainWindowInstance.Dispatcher.Invoke(() =>
                                 {
-                                    (MainWindow.MainWindowInstance.MainGrid.Children[0] as UC_Rewards).Init(int.Parse(request.Data[0]), int.Parse(request.Data[1]));
-                                }
+                                    SendToServer.SendFriendsRequest();
+                                });
+                            }
+                            MessageBox.Show(request.Data[0]);
+                            break;
+                        }
+                    case RequestType.GetFriends:
+                        {
+                            MainWindow.MainWindowInstance.Dispatcher.Invoke(() =>
+                            {
+                                UC_FriendList.Friends.Clear();
+                                UC_FriendList.Friends.AddRange(JsonConvert.DeserializeObject<IEnumerable<string>>(request.Data[0]));
+                                (MainWindow.MainWindowInstance.MainGrid.Children[0] as UC_FriendList).LoadFriends();
                             });
                             break;
                         }
@@ -272,6 +294,17 @@ namespace SeaBattleServerComunication
 
             SendRequestToServer(request);
         }
+        public static void SendFriendsRequest()
+        {
+            Request request = new Request()
+            {
+                Login = Settings.Login,
+                Password = Settings.Password,
+                ReqType = RequestType.GetFriends
+            };
+
+            SendRequestToServer(request);
+        }
 
 
 
@@ -293,7 +326,7 @@ namespace SeaBattleServerComunication
 
     public enum RequestType
     {
-        Register, Login, GetRewards, BattleRequest, BattleConfirm, BattleCanceled, BattleEnded, Fire, Exception, PlayerReady, AddFriend, RemoveFriend
+        Register, Login, GetRewards, BattleRequest, BattleConfirm, BattleCanceled, BattleEnded, Fire, Exception, PlayerReady, AddFriend, RemoveFriend, GetFriends
     }
     #endregion
 }

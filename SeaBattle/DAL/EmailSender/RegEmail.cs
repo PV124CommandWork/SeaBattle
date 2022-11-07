@@ -67,7 +67,6 @@ namespace RegistrationNS
             if (Player != null)
             {
                 Player.RegistrationId = null;
-                Player.Friends = new List<User>();
                 Reward rewards = new Reward(0, 0);
                 Db.Add(rewards);
                 Db.SaveChanges();
