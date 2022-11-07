@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using Newtonsoft.Json;
 using SeaBattleServer;
 using RegistrationNS;
+using GameDBContext.Entities;
 
 namespace SeaBattleServerComunication
 {
@@ -38,18 +39,27 @@ namespace SeaBattleServerComunication
                         RegEmail regEmail = new RegEmail(DAL.DataBaseAccess.DbContext, Data[0]/*NickName*/, Data[1]/*Email*/, Login, Password);
                         if (Data.Count == 2) //2 це нікнейм і пошта, 3 це код
                         {
+                            bool isLoginExist = (from u in DAL.DataBaseAccess.DbContext.Users
+                                                 where u.Login == Login && u.Registration == null
+                                                 select u) == null;
+                            if (isLoginExist)
+                            {
+                                request.Data.Add("This login already exists!");
+                                break;
+                            }
                             regEmail.sendCode();
-                            request.Data.Add("Code was sended!");
+                            request.Data.Add(true.ToString());
                         }
                         else
                         {
+                            request.Data.Add(true.ToString());
                             if (regEmail.checkCode(Data[2]))//code
                             {
-                                request.Data.Add("Successfully registered!");
+                                request.Data.Add(true.ToString());
                             }
                             else
                             {
-                                request.Data.Add("Something wet wrong!");
+                                request.Data.Add("Wrong code!");
                             }
                         }
                         break;
@@ -83,7 +93,7 @@ namespace SeaBattleServerComunication
 
     public enum RequestType
     {
-        Register, Login, GetRewards, BattleRequest, BattleConfirm, BattleEnded, Fire, Exception
+        Register, Login, GetRewards, BattleRequest, BattleConfirm, BattleCanceled, BattleEnded, Fire, Exception, PlayerReady, AddFriend, RemoveFriend
     }
     #endregion
 }

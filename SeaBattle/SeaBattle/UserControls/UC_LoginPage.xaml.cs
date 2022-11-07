@@ -56,6 +56,8 @@ namespace SeaBattle.UserControls
         private void Login_Click(object sender, RoutedEventArgs e)
         {
             SeaBattleServerComunication.SendToServer.SendLoginData(Username_TB.Text, Password_PB.Password);
+            Settings.Login = Username_TB.Text;
+            Settings.Password = Password_PB.Password;
         }
         public void ShowException(string ex)
         {
@@ -75,10 +77,10 @@ namespace SeaBattle.UserControls
 
         private void Register_Click(object sender, RoutedEventArgs e)
         {
-            //MainWindow.MainWindowInstance.Dispatcher.Invoke(() => {
-            //    MainWindow.MainWindowInstance.MainGrid.Children.Clear();
-            //    MainWindow.MainWindowInstance.MainGrid.Children.Add(new Register.MainWindow());
-            //});
+            MainWindow.MainWindowInstance.Dispatcher.Invoke(() => {
+                MainWindow.MainWindowInstance.MainGrid.Children.Clear();
+                MainWindow.MainWindowInstance.MainGrid.Children.Add(new UC_RegisterPage());
+            });
         }
     }
 }

@@ -50,7 +50,7 @@ namespace SeaBattle
             {
                 ServerConnection.Connect();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
                 Application.Current.Shutdown();

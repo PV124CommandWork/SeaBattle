@@ -68,14 +68,33 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="SeaBattleServerComunication.cs" />
+    <Compile Include="Settings.cs" />
+    <Compile Include="UserControls\UC_Settings.xaml.cs">
+      <DependentUpon>UC_Settings.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\UC_AcceptBattle.xaml.cs">
+      <DependentUpon>UC_AcceptBattle.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\UC_Battlefield.xaml.cs">
       <DependentUpon>UC_Battlefield.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\UC_FillBattlefield.xaml.cs">
+      <DependentUpon>UC_FillBattlefield.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControls\UC_FriendList.xaml.cs">
       <DependentUpon>UC_FriendList.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControls\UC_LoginPage.xaml.cs">
       <DependentUpon>UC_LoginPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\UC_RegisterPage.xaml.cs">
+      <DependentUpon>UC_RegisterPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\UC_Rewards.xaml.cs">
+      <DependentUpon>UC_Rewards.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\UC_WaitForPlayer.xaml.cs">
+      <DependentUpon>UC_WaitForPlayer.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -89,15 +108,39 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="UserControls\UC_Settings.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\UC_AcceptBattle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UserControls\UC_Battlefield.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\UC_FillBattlefield.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControls\UC_FriendList.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControls\UC_LoginPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\UC_RegisterPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\UC_Rewards.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\UC_WaitForPlayer.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -133,10 +176,6 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Register Page\Register Page.csproj">
-      <Project>{366f962c-44d2-48c4-9cbe-e17e9b8f0ce6}</Project>
-      <Name>Register Page</Name>
-    </ProjectReference>
     <ProjectReference Include="..\ShipsClass\ShipsClass.csproj">
       <Project>{a1f99842-9377-45ca-ab3d-1713ee011e67}</Project>
       <Name>ShipsClass</Name>
