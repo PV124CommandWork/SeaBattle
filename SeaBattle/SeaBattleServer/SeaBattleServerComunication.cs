@@ -30,11 +30,11 @@ namespace SeaBattleServerComunication
                     {
                         request.ReqType = RequestType.Login;
                         request.Data.Add(
-                            ((from users in DAL.DataBaseAccess.DbContext.Users 
-                             where users.Login == Login 
-                             && users.Password == Password 
-                             && users.Registration == null
-                             select users).FirstOrDefault() != null).ToString());
+                            ((from users in DAL.DataBaseAccess.DbContext.Users
+                              where users.Login == Login
+                              && users.Password == Password
+                              && users.Registration == null
+                              select users).FirstOrDefault() != null).ToString());
                         break;
                     }
                 case RequestType.Register:
@@ -83,8 +83,37 @@ namespace SeaBattleServerComunication
                         }
                         break;
                     }
+                case RequestType.AddFriend:
+                    {
+                        request.ReqType = RequestType.AddFriend;
+                        try
+                        {
+                            FriendsManagement.AddFriend(Login, Data[0]);
+                            request.Data.Add("User added to friends!");
+                        }
+                        catch
+                        {
+                            request.Data.Add("User not found!");
+                        }
+                        break;
+                    }
+                case RequestType.RemoveFriend:
+                    {
+                        request.ReqType = RequestType.RemoveFriend;
+                        try
+                        {
+                            FriendsManagement.RemoveFriend(Login, Data[0]);
+                            request.Data.Add("User removed from friends!");
+                        }
+                        catch
+                        {
+                            request.Data.Add("Something went wrong!");
+                        }
+                        break;
+                    }
                 case RequestType.BattleRequest:
                     {
+                        BattleManagement.createBattle(Login, Data[0], "", "");
                         break;
                     }
                 case RequestType.BattleConfirm:
@@ -93,6 +122,10 @@ namespace SeaBattleServerComunication
                     }
                 case RequestType.BattleEnded:
                     {
+                        BattleManagement.deleteBattle((from u in DataBaseAccess.DbContext.Users
+                                                       join b in DataBaseAccess.DbContext.CurrentBattles on u.CurrentBattle equals b
+                                                       where u.Login == Login
+                                                       select u.Id).FirstOrDefault());
                         break;
                     }
                 case RequestType.Fire:

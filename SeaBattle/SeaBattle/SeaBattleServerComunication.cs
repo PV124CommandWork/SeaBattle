@@ -76,7 +76,7 @@ namespace SeaBattleServerComunication
                                 MainWindow.MainWindowInstance.Dispatcher.Invoke(() =>
                                 {
                                     MainWindow.MainWindowInstance.MainGrid.Children.Clear();
-                                    MainWindow.MainWindowInstance.MainGrid.Children.Add(new UC_Rewards());
+                                    MainWindow.MainWindowInstance.MainGrid.Children.Add(new UC_FillBattlefield());
                                 });
                             }
                             else
