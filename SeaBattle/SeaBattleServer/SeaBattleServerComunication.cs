@@ -123,12 +123,60 @@ namespace SeaBattleServerComunication
                     }
                 case RequestType.BattleRequest:
                     {
-                        BattleManagement.createBattle(Login, Data[0], "", "");
+                        request.ReqType = RequestType.BattleRequest;
+                        try
+                        {
+                            BattleManagement.createBattle(Login, Data[0], "", "");//створюємо бій
+                        }
+                        catch (Exception ex)
+                        {
+                            request.Data.Add(ex.Message);//якзо юзер вже в бою
+                            break;
+                        }
+                        User user = (from u in DataBaseAccess.DbContext.Users
+                                     where u.Login == Login && u.RegistrationId == null
+                                     select u).FirstOrDefault(); //гравець кинувший реквест
+                        Request friendNotify = new Request()
+                        {
+                            Login = user.Login,
+                            ReqType = RequestType.BattleRequest,
+                            Data = new List<string>() { user.Nickname }
+                        };
+                        if (!ServerObj.SendToClientByLogin(Data[0], friendNotify))//якщо юзер офлайн
+                        {
+                            var bId = (from u in DataBaseAccess.DbContext.Users
+                                       where u.Login == Login && u.RegistrationId == null
+                                       select u.CurrentBattleId).FirstOrDefault();
+                            BattleManagement.deleteBattle(bId);
+                            request.Data.Add("User is offline");
+                        }
+                        else//успіх
+                        {
+                            return;
+                        }
                         break;
                     }
                 case RequestType.BattleConfirm:
                     {
                         break;
+                    }
+                case RequestType.BattleCanceled:
+                    {
+                        request.ReqType = RequestType.BattleCanceled;
+
+                        var bId = (from u in DataBaseAccess.DbContext.Users
+                                   where u.Login == Login && u.RegistrationId == null
+                                   select u.CurrentBattleId).FirstOrDefault();
+                        BattleManagement.deleteBattle(bId);
+
+                        Request friendNotify = new Request()
+                        {
+                            ReqType = RequestType.BattleCanceled,
+                            Login = Login
+                        };
+                        ServerObj.SendToClientByLogin(Data[0], friendNotify);
+
+                        return;
                     }
                 case RequestType.BattleEnded:
                     {

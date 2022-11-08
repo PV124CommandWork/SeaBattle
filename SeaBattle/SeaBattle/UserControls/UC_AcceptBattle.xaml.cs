@@ -20,10 +20,12 @@ namespace SeaBattle.UserControls
     /// </summary>
     public partial class UC_AcceptBattle : UserControl
     {
-        public UC_AcceptBattle(string Login)
+        public string Login;
+        public UC_AcceptBattle(string name, string login)
         {
             InitializeComponent();
-            ViklikLB.Content = $"{Login} викликає вас на бій!" ;
+            ViklikLB.Content = $"{name} викликає вас на бій!" ;
+            Login = login;
         }
 
         private void Accept_Click(object sender, RoutedEventArgs e)
@@ -33,6 +35,7 @@ namespace SeaBattle.UserControls
 
         private void Deny_Click(object sender, RoutedEventArgs e)
         {
+            SeaBattleServerComunication.SendToServer.SendBattleCanceled(Login);
             MainWindow.MainWindowInstance.Dispatcher.Invoke(() =>
             {
                 MainWindow.MainWindowInstance.MainGrid.Children.Remove(this);

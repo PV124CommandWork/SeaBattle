@@ -155,6 +155,25 @@ namespace SeaBattleServerComunication
                         }
                     case RequestType.BattleRequest:
                         {
+                            if (request.Login == null)
+                            {
+                                MessageBox.Show(request.Data[0]);
+                            }
+                            else
+                            {
+                                MainWindow.MainWindowInstance.Dispatcher.Invoke(() =>
+                                {
+                                    MainWindow.MainWindowInstance.MainGrid.Children.Add(new UC_AcceptBattle(request.Data[0], request.Login));
+                                });
+                            }
+                            break;
+                        }
+                    case RequestType.BattleCanceled:
+                        {
+                                MainWindow.MainWindowInstance.Dispatcher.Invoke(() =>
+                                {
+                                    MainWindow.MainWindowInstance.MainGrid.Children.RemoveAt(1);
+                                });
                             break;
                         }
                     case RequestType.BattleConfirm:
