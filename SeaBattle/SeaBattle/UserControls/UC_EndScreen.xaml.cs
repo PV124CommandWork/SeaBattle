@@ -34,8 +34,8 @@ namespace SeaBattle.UserControls {
 
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e) {
-
+        private void ContinueButton_Click(object sender, RoutedEventArgs e) {
+            ChangeUserControler.ToFriends();
         }
     }
 }

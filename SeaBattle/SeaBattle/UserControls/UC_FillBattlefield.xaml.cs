@@ -65,7 +65,7 @@ namespace SeaBattle.UserControls
             }
         }
         #region Events for ships
-        private void Border_MouseDown(object sender, MouseButtonEventArgs e)        //Подія для сітки, яка ставить корабеь на поле
+        private void Border_MouseDown(object sender, MouseButtonEventArgs e)        //Подія для сітки, яка ставить корабель на поле
         {
             if (selectedShip != 0)
             {

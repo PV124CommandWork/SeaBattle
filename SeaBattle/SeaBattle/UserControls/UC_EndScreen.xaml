@@ -74,11 +74,12 @@
                    DockPanel.Dock="Top"
                    ></Label>
 
-            <Button Width="200"
+            <Button x:Name="ContinueButton" 
+                    Width="200"
                     Height="50"
                     FontSize="25"
                     Background="#FF4D4D4D"
-                    Foreground="DarkCyan" Click="Button_Click"
+                    Foreground="DarkCyan" Click="ContinueButton_Click"
                     
                     >Продовжити</Button>
         </DockPanel>
