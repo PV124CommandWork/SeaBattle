@@ -67,6 +67,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ChangeUserControler.cs" />
     <Compile Include="SeaBattleServerComunication.cs" />
     <Compile Include="Settings.cs" />
     <Compile Include="UserControls\UC_Settings.xaml.cs">

@@ -42,10 +42,7 @@ namespace SeaBattle.UserControls
 
         private void Close_Clicked(object sender, RoutedEventArgs e)
         {
-            MainWindow.MainWindowInstance.Dispatcher.Invoke(() =>
-            {
-                MainWindow.MainWindowInstance.MainGrid.Children.Remove(this);
-            });
+            ChangeUserControler.CloseUserControler(this);
         }
     }
 }

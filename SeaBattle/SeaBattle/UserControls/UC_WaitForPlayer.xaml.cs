@@ -27,10 +27,7 @@ namespace SeaBattle.UserControls
 
         private void Deny_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow.MainWindowInstance.Dispatcher.Invoke(() =>
-            {
-                MainWindow.MainWindowInstance.MainGrid.Children.Remove(this);
-            });
+            ChangeUserControler.CloseUserControler(this);
         }
     }
 }
