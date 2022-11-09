@@ -11,11 +11,50 @@ namespace ShipsClass
     {
         public Coords<int> Coords;
     }
+    public class Shoot
+        : Cell
+    {
+        public int ReturnedValue;
+        Shoot(int x, int y)
+        {
+            Coords.X = x;
+            Coords.Y = y;
+        }
+        /// <summary>
+        /// Returns -1 when missed, 0 when damaged but still alive, 1 when successfully destroyed.
+        /// </summary>
+        public int Damage(ref List<Ship> ships)
+        {
+            for (int i = 0; i < ships.Count; i++)
+            {
+                for (int j = 0; j < ships[i].DecksCount; j++)
+                {
+                    if (ships[i].Decks[j].Coords.X == Coords.X && ships[i].Decks[j].Coords.Y == Coords.Y)
+                    {
+                        ships[i].Decks[j].IsDamaged = true;
+                        foreach (var deck in ships[i].Decks)
+                        {
+                            if (!deck.IsDamaged)
+                            {
+                                ReturnedValue = 0;
+                                return 0;//If damaged but NOT detsroyed
+                            }
+                        }
+                        ReturnedValue = 1;
+                        return 1;//If destroyed
+                    }
+                }
+            }
+            ReturnedValue = -1;
+            return -1;//If miss
+        }
+    }
     public class Ship
     {
         public List<Deck> Decks;
         public int DecksCount { get { return Decks.Count; } }
         public bool IsHorisontal;
+        public Ship() { }
         public Ship(List<Deck> decks)
         {
             Decks = decks;
@@ -33,16 +72,16 @@ namespace ShipsClass
             for (int i = 1; i < palubes; i++)
             {
                 Decks.Add(
-                    new Deck((isHorisontal == false ? 
-                    deck.Coords.X : deck.Coords.X + i), 
-                    (isHorisontal == true ? 
+                    new Deck((isHorisontal == false ?
+                    deck.Coords.X : deck.Coords.X + i),
+                    (isHorisontal == true ?
                     deck.Coords.Y : deck.Coords.Y + i))
                     );
             }
         }
     }
 
-    public class Deck 
+    public class Deck
         : Cell
     {
         public bool IsDamaged;

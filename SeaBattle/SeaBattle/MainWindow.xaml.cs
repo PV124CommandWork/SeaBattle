@@ -66,5 +66,10 @@ namespace SeaBattle
             ServerConnection.NetStream?.Close();
             ServerConnection.client?.Close();
         }
+
+        private void MainWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+
+        }
     }
 }

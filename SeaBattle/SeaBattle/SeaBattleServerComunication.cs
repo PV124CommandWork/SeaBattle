@@ -150,10 +150,21 @@ namespace SeaBattleServerComunication
                         }
                     case RequestType.BattleConfirm:
                         {
+                            ChangeUserControler.ToFillBattlefield();
+                            break;
+                        }
+                    case RequestType.BattleStarted:
+                        {
+                            ChangeUserControler.ToBattleField(JsonConvert.DeserializeObject<List<ShipsClass.Ship>>(request.Data[0]), request.Data[1] == true.ToString());
                             break;
                         }
                     case RequestType.BattleEnded:
                         {
+                            break;
+                        }
+                    case RequestType.PlayerReady:
+                        {
+                            ChangeUserControler.PlayerReady();
                             break;
                         }
                     case RequestType.Fire:
@@ -325,7 +336,7 @@ namespace SeaBattleServerComunication
 
     public enum RequestType
     {
-        Register, Login, GetRewards, BattleRequest, BattleConfirm, BattleCanceled, BattleEnded, Fire, Exception, PlayerReady, AddFriend, RemoveFriend, GetFriends
+        Register, Login, GetRewards, BattleRequest, BattleConfirm, BattleCanceled, BattleStarted, BattleEnded, Fire, Exception, PlayerReady, AddFriend, RemoveFriend, GetFriends
     }
     #endregion
 }

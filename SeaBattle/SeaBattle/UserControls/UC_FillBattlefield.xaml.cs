@@ -1,5 +1,6 @@
 ﻿using MaterialDesignColors.Recommended;
 using MaterialDesignThemes.Wpf;
+using Newtonsoft.Json;
 using ShipsClass;
 using System;
 using System.Collections.Generic;
@@ -133,7 +134,7 @@ namespace SeaBattle.UserControls
 
             StackShip(palubes);
         }
-#endregion
+        #endregion
         #region Ship images management
         public void AddShip(Ship ship)      //Ставить корабель на поле
         {
@@ -175,5 +176,10 @@ namespace SeaBattle.UserControls
             ShipsList_SP.Children.Add(shipImg);
         }
         #endregion
+
+        private void Ready_Click(object sender, RoutedEventArgs e)
+        {
+            SeaBattleServerComunication.SendToServer.SendPlayerReady(JsonConvert.SerializeObject(Ships));
+        }
     }
 }

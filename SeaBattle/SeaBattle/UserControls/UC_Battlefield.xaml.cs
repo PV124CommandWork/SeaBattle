@@ -1,4 +1,5 @@
 ﻿using System;
+using System.CodeDom;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -25,6 +26,7 @@ namespace SeaBattle.UserControls
     public partial class UC_Battlefield : UserControl
     {
         public static List<Ship> Ships;
+        public static bool Move { get; private set; } = false;
         public UC_Battlefield()
         {
             InitializeComponent();
@@ -71,36 +73,35 @@ namespace SeaBattle.UserControls
 
         private void Attack_Click(object sender, RoutedEventArgs e)
         {
-            Thread th = new Thread(() =>
-            {
-                for (int i = 1, col = 0; i <= 4; i++, col += i - 1)
-                {
-                    Ships.Add(new Ship(new Deck(col, 0), i));
-                    Dispatcher.Invoke(() => AddShip(Ships[Ships.Count - 1]));
-                    Thread.Sleep(200);
-                }
-            });
-            th.Start();
-            Thread th2 = new Thread(() =>
-            {
-                th.Join();
-                for (int i = 1; i <= 4; i++)
-                {
-                    Ships.Add(new Ship(new Deck(0, i), i));
-                    Dispatcher.Invoke(() => AddShip(Ships[Ships.Count - 1]));
-                    Thread.Sleep(200);
-                }
-            });
-            th2.Start();
-            //AddShip(5, 5, 3, true);
-            //AddShip(6, 5, 4, true);
-            //AddShip(7, 5, 1, true);
-            //AddShip(8, 5, 2, true);
+
         }
 
-        private void Cacel_Click(object sender, RoutedEventArgs e)
+        public void ShowShips(List<Ship> ships)
         {
+            Ships = ships;
+            foreach (var ship in Ships)
+            {
+                AddShip(ship);
+            }
+        }
 
+        public void ChangeMove(bool move)
+        {
+            Move = move;
+            if (Move)
+            {
+                MoveLabel.Content = "Your move!";
+                MoveLabel.Foreground = Brushes.Lime;
+                AttackButton.IsEnabled = true;
+                AttackButton.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                MoveLabel.Content = "Waiting for enemys move...";
+                MoveLabel.Foreground = Brushes.Black;
+                AttackButton.Visibility = Visibility.Hidden;
+                AttackButton.IsEnabled = false;
+            }
         }
 
         public void AddShip(Ship ship)
