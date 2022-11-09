@@ -104,6 +104,7 @@ namespace SeaBattle.UserControls
         {
             if (SelectedFriend != -1)
             {
+                SendToServer.SendDeletedFriend(Friends[SelectedFriend]);
                 FriendList.Children.RemoveAt(SelectedFriend);
                 SelectedFriend = -1;
                 FriendsManagementDP.Opacity = 0;
@@ -112,7 +113,6 @@ namespace SeaBattle.UserControls
                     (item as Button).IsEnabled = false;
                 }
             }
-            SendToServer.SendDeletedFriend(textBoxLogin.Text);
         }
 
     }

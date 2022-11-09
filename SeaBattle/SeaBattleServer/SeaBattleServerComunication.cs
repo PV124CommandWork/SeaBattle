@@ -67,13 +67,25 @@ namespace SeaBattleServerComunication
                         }
                         break;
                     }
+            }
+
+            if ((from u in DataBaseAccess.DbContext.Users
+                 where u.Registration == null
+                       && u.Login == Login
+                       && u.Password == Password
+                 select u).FirstOrDefault() == null)
+            {
+                return;
+            }
+
+            switch (ReqType)
+            {
                 case RequestType.GetRewards:
                     {
                         Reward rewards = (from u in DataBaseAccess.DbContext.Users
                                           join r in DataBaseAccess.DbContext.Rewards on u.Reward equals r
                                           where u.Registration == null
                                           && u.Login == Login
-                                          && u.Password == Password
                                           select r).FirstOrDefault();
                         request.ReqType = RequestType.GetRewards;
                         if (rewards != null)
@@ -190,7 +202,6 @@ namespace SeaBattleServerComunication
                     {
                         break;
                     }
-                default: return;
             }
             ServerObj.SendToClientByLogin(Login, request);
         }
