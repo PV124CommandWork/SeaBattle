@@ -5,44 +5,157 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:SeaBattle.UserControls"
              mc:Ignorable="d" 
-             Background="White"
+             Background="#FF272727"
              d:DesignHeight="450" d:DesignWidth="800">
-    <StackPanel Margin="15,5">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
 
-        <Label HorizontalAlignment="Center"   Content="Sea Battle" VerticalAlignment="Center" Width="790" FontSize="24" FontWeight="Heavy" RenderTransformOrigin="0.873,0.435" HorizontalContentAlignment="Center"  />
-        <DockPanel Margin="0,10" LastChildFill="False">
+        <Label HorizontalAlignment="Center"   
+               VerticalAlignment="Center" 
+               FontSize="25" 
+               FontWeight="Heavy" 
+               HorizontalContentAlignment="Center"
+               Grid.Column="1"
+               Grid.RowSpan="2"
+               Foreground="DarkCyan"
+               >Реєстрація</Label>
 
+        <Button DockPanel.Dock="Right"  
+                Background="#FF4D4D4D" 
+                Foreground="DarkCyan"
+                Content="Повернутися"  
+                Width="200" 
+                FontWeight="DemiBold" 
+                Height="45" 
+                FontSize="25" 
+                Grid.RowSpan="2"
+                Click="Login_Click"/>
 
-            <Label  Background ="BlueViolet" Content="Registration" FontWeight="DemiBold" FontSize="22"
-                 RenderTransformOrigin="0.931,0.552"  Height="45"  />
+        <!-- UserName -->
+        <Label Content ="Ім'я користувача:" 
+               FontSize="25"  
+               Grid.Row="2"
+               HorizontalAlignment="Center"
+               VerticalAlignment="Center"
+               Foreground="DarkCyan"/>
+        
+        <TextBox x:Name="UserNameTB"
+                 TextWrapping="Wrap"  
+                 VerticalContentAlignment="Center"  
+                 VerticalAlignment="Center"
+                 Grid.Row="2"
+                 Grid.Column="1"
+                 Grid.ColumnSpan="2"
+                 Margin="50, 0, 50, 0"
+                 FontSize="20"/>
+        
+        <!-- Login -->
+        <Label Content ="Логін:" 
+               FontSize="25"  
+               Grid.Row="3"
+               Foreground="DarkCyan"
+               HorizontalAlignment="Center"
+               HorizontalContentAlignment="Center"/>
+        
+        <TextBox x:Name="LoginTB"    
+                 Grid.Column="1"
+                 Grid.ColumnSpan="2"
+                 Grid.Row="3"
+                 VerticalAlignment="Center"
+                 Margin="50, 0, 50, 0"
+                 FontSize="20"/>
 
-            <Button DockPanel.Dock="Right"  Background="BlueViolet" Content="Login"  Width="123" FontWeight="DemiBold" Height="45" FontSize="22" Click="Login_Click"/>
-        </DockPanel>
-        <DockPanel>
-            <Label Content ="UserName: " FontSize="15"  Width="150"/>
-            <TextBox x:Name="UserNameTB"    TextWrapping="Wrap"  VerticalContentAlignment="Center"  FontSize="15"/>
-        </DockPanel>
-        <DockPanel  Margin="0,6">
-            <Label Content ="Login: " FontSize="15"  Width="150"/>
-            <TextBox x:Name="LoginTB"    TextWrapping="Wrap"    RenderTransformOrigin="0.496,4.013" FontSize="15"/>
-        </DockPanel>
-        <DockPanel  Margin="0,6">
-            <Label Content ="Password: " FontSize="15"  Width="150"/>
-            <PasswordBox x:Name="PasswordPB"       RenderTransformOrigin="0.497,5.726" FontSize="15"/>
-        </DockPanel>
-        <DockPanel Margin="0,6">
-            <Label Content ="Confirm Password:" FontSize="15" Width="150"/>
-            <PasswordBox x:Name="ConfirmPasswordPB"   FontSize="15" DockPanel.Dock="Right"/>
-        </DockPanel>
-        <DockPanel  Margin="0,6">
-            <Label Content ="Email: " FontSize="15"  Width="150"/>
-            <TextBox x:Name="EmailTB"    TextWrapping="Wrap"   FontSize="15"/>
-        </DockPanel>
-        <DockPanel  Margin="0,6" LastChildFill="False">
-            <Label  Content ="Code: " FontSize="15"  Width="150"/>
-            <TextBox x:Name="CodeTB"  IsEnabled="False"  TextWrapping="Wrap"   FontSize="15" Width="200" DockPanel.Dock="Left"/>
-        </DockPanel>
-        <Button  Click="Register_Click" Background ="BlueViolet" FontWeight="DemiBold" Content="Register" FontSize="25" HorizontalAlignment="Center"   Width="250" Height="50" RenderTransformOrigin="-0.032,0.085" />
+        <!-- Password -->
+        <Label Content ="Пароль:" 
+               Grid.Row="4"
+               Foreground="DarkCyan"
+               HorizontalAlignment="Center"
+               HorizontalContentAlignment="Center"
+               FontSize="25"/>
+        
+        <PasswordBox x:Name="PasswordPB"  
+                     Grid.Column="1"
+                     Grid.ColumnSpan="2"
+                     Grid.Row="4"
+                     VerticalAlignment="Center"
+                     Margin="50, 0, 50, 0"
+                     FontSize="20"/>
 
-    </StackPanel>
+        <!-- Confirm password -->
+        <Label Content ="Підтвердіть пароль:" 
+               Grid.Row="5"
+               Foreground="DarkCyan"
+               HorizontalAlignment="Center"
+               HorizontalContentAlignment="Center"
+               FontSize="25"/>
+        
+        <PasswordBox x:Name="ConfirmPasswordPB" 
+                     Grid.Column="1"
+                     Grid.ColumnSpan="2"
+                     Grid.Row="5"
+                     VerticalAlignment="Center"
+                     Margin="50, 0, 50, 0"
+                     FontSize="20"/>
+
+        <!-- Email -->
+        <Label Content ="Пошта:" 
+               Grid.Row="6"
+               Foreground="DarkCyan"
+               HorizontalAlignment="Center"
+               HorizontalContentAlignment="Center"
+               FontSize="25"/>
+        
+        <TextBox x:Name="EmailTB"    
+                 Grid.Column="1"
+                 Grid.ColumnSpan="2"
+                 Grid.Row="6"
+                 VerticalAlignment="Center"
+                 Margin="50, 0, 50, 0"
+                 FontSize="20"/>
+
+        <!-- Code -->
+        <Label Content ="Код:" 
+               Grid.Row="7"
+               Foreground="DarkCyan"
+               HorizontalAlignment="Center"
+               HorizontalContentAlignment="Center"
+               FontSize="25"/>
+        
+        <TextBox x:Name="CodeTB"  
+                 IsEnabled="False"  
+                 Grid.Column="1"
+                 Grid.Row="7"
+                 VerticalAlignment="Center"
+                 Margin="50, 0, 0, 0"
+                 FontSize="20"/>
+
+        <Button  Click="Register_Click" 
+                 Background ="#FF4D4D4D" 
+                 Foreground="DarkCyan"
+                 FontWeight="DemiBold" 
+                 Content="Зареєструватися" 
+                 FontSize="25" 
+                 HorizontalAlignment="Center"   
+                 Width="220" 
+                 Grid.Column="2"
+                 Grid.Row="7"
+                 Grid.RowSpan="2"
+                 Height="50"/>
+
+    </Grid>
 </UserControl>
