@@ -24,7 +24,7 @@ namespace SeaBattle.UserControls
         public UC_AcceptBattle(string name, string login)
         {
             InitializeComponent();
-            ViklikLB.Content = $"{name} викликає вас на бій!" ;
+            ViklikLB.Content = $"{name} викликає вас на бій!";
             Login = login;
         }
 
@@ -36,10 +36,7 @@ namespace SeaBattle.UserControls
         private void Deny_Click(object sender, RoutedEventArgs e)
         {
             SeaBattleServerComunication.SendToServer.SendBattleCanceled(Login);
-            MainWindow.MainWindowInstance.Dispatcher.Invoke(() =>
-            {
-                MainWindow.MainWindowInstance.MainGrid.Children.Remove(this);
-            });
+            ChangeUserControler.CloseUserControler(this);
         }
     }
 }

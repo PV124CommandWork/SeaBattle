@@ -31,10 +31,7 @@ namespace SeaBattle.UserControls
         private void Deny_Click(object sender, RoutedEventArgs e)
         {
             SendToServer.SendBattleCanceled(User);
-            MainWindow.MainWindowInstance.Dispatcher.Invoke(() =>
-            {
-                MainWindow.MainWindowInstance.MainGrid.Children.Remove(this);
-            });
+            ChangeUserControler.CloseUserControler(this);
         }
     }
 }

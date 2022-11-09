@@ -82,17 +82,11 @@ namespace SeaBattle.UserControls
         }
         private void SettingsButton_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow.MainWindowInstance.Dispatcher.Invoke(() =>
-            {
-                MainWindow.MainWindowInstance.MainGrid.Children.Add(new UC_Settings());
-            });
+            ChangeUserControler.ToSettings();
         }
         private void StatisticsButton_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow.MainWindowInstance.Dispatcher.Invoke(() =>
-            {
-                MainWindow.MainWindowInstance.MainGrid.Children.Add(new UC_Rewards());
-            });
+            ChangeUserControler.ToStatisticts();
         }
         private void InviteToBattle_Click(object sender, RoutedEventArgs e)
         {
@@ -118,6 +112,7 @@ namespace SeaBattle.UserControls
                     (item as Button).IsEnabled = false;
                 }
             }
+            SendToServer.SendDeletedFriend(textBoxLogin.Text);
         }
 
     }

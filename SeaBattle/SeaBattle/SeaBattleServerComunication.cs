@@ -21,6 +21,7 @@ namespace SeaBattleServerComunication
     {
         private const int port = 8008;
         private const string hostname = "127.0.0.1";
+        //26.246.103.91
 
         public static TcpClient client = null;
         public static NetworkStream NetStream = null;
@@ -73,11 +74,7 @@ namespace SeaBattleServerComunication
                         {
                             if (request.Data[0] == true.ToString())
                             {
-                                MainWindow.MainWindowInstance.Dispatcher.Invoke(() =>
-                                {
-                                    MainWindow.MainWindowInstance.MainGrid.Children.Clear();
-                                    MainWindow.MainWindowInstance.MainGrid.Children.Add(new UC_FriendList(new List<string>()));
-                                });
+                                ChangeUserControler.ToFriends();
                             }
                             else
                             {
@@ -98,11 +95,8 @@ namespace SeaBattleServerComunication
                                     if (request.Data[1] == true.ToString())
                                     {
                                         MessageBox.Show("Successfully registered!");
-                                        MainWindow.MainWindowInstance.Dispatcher.Invoke(() =>
-                                        {
-                                            MainWindow.MainWindowInstance.MainGrid.Children.Clear();
-                                            MainWindow.MainWindowInstance.MainGrid.Children.Add(new UC_LoginPage());
-                                        });
+                                        ChangeUserControler.ToLoginPage();
+
                                     }
                                     else
                                     {
@@ -112,68 +106,46 @@ namespace SeaBattleServerComunication
                                 else
                                 {
                                     MessageBox.Show("Code sended on your email!");
-                                    MainWindow.MainWindowInstance.Dispatcher.Invoke(() =>
-                                    {
-                                        (MainWindow.MainWindowInstance.MainGrid.Children[0] as UC_RegisterPage).CodeTB.IsEnabled = true;
-                                    });
+                                    ChangeUserControler.EnableCodeTextBox();
                                 }
                             }
                             break;
                         }
                     case RequestType.GetRewards:
                         {
-                            MainWindow.MainWindowInstance.Dispatcher.Invoke(() =>
-                            {
-                                //if (MainWindow.MainWindowInstance.MainGrid.Children[1].GetType() == new UC_Rewards().GetType())
-                                //{
-                                (MainWindow.MainWindowInstance.MainGrid.Children[1] as UC_Rewards).Init(int.Parse(request.Data[0]), int.Parse(request.Data[1]));
-                                //}
-                            });
+                            ChangeUserControler.ShowRewards(request);
                             break;
                         }
                     case RequestType.AddFriend:
                         {
                             if (request.Data[0] == "User added to friends!")
                             {
-                                MainWindow.MainWindowInstance.Dispatcher.Invoke(() =>
-                                {
-                                    SendToServer.SendFriendsRequest();
-                                });
+                                SendToServer.SendFriendsRequest();
                             }
                             MessageBox.Show(request.Data[0]);
                             break;
                         }
                     case RequestType.GetFriends:
                         {
-                            MainWindow.MainWindowInstance.Dispatcher.Invoke(() =>
-                            {
-                                UC_FriendList.Friends.Clear();
-                                UC_FriendList.Friends.AddRange(JsonConvert.DeserializeObject<IEnumerable<string>>(request.Data[0]));
-                                (MainWindow.MainWindowInstance.MainGrid.Children[0] as UC_FriendList).LoadFriends();
-                            });
+                            ChangeUserControler.ShowFriends(request);
                             break;
                         }
                     case RequestType.BattleRequest:
                         {
                             if (request.Login == null)
                             {
+                                ChangeUserControler.CancelBattle();
                                 MessageBox.Show(request.Data[0]);
                             }
                             else
                             {
-                                MainWindow.MainWindowInstance.Dispatcher.Invoke(() =>
-                                {
-                                    MainWindow.MainWindowInstance.MainGrid.Children.Add(new UC_AcceptBattle(request.Data[0], request.Login));
-                                });
+                                ChangeUserControler.ToAcceptBattle(request);
                             }
                             break;
                         }
                     case RequestType.BattleCanceled:
                         {
-                                MainWindow.MainWindowInstance.Dispatcher.Invoke(() =>
-                                {
-                                    MainWindow.MainWindowInstance.MainGrid.Children.RemoveAt(1);
-                                });
+                            ChangeUserControler.CancelBattle();
                             break;
                         }
                     case RequestType.BattleConfirm:
