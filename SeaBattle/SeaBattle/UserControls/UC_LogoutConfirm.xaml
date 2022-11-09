@@ -1,0 +1,64 @@
+﻿<UserControl x:Class="SeaBattle.UserControls.UC_LogoutConfirm"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:SeaBattle.UserControls"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition Width="400"></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="200"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Column="1" Grid.Row="1" Background="#FF3C3C3C">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition Height="70"/>
+            </Grid.RowDefinitions>
+
+            <StackPanel Margin="0,10" >
+                <Label x:Name="ViklikLB" 
+                       HorizontalAlignment="Center" 
+                       Content="Ви дійсно хочете" 
+                       FontSize="24" 
+                       FontWeight="Heavy" 
+                       HorizontalContentAlignment="Center" 
+                       Foreground="DarkCyan"/>
+                
+                <Label HorizontalAlignment="Center" 
+                       Content="Вийти з аккаунту?"  
+                       FontSize="24" 
+                       FontWeight="Heavy" 
+                       HorizontalContentAlignment="Center" 
+                       Foreground="DarkCyan"/>
+            </StackPanel>
+
+            <DockPanel Grid.Row="1" Margin="20,0" LastChildFill="False" >
+                <Button Background="LimeGreen" 
+                        Content="Так" 
+                        FontWeight="DemiBold" 
+                        FontSize="22" 
+                        Click="Yes_Click"
+                        Height="45" 
+                        Width="150"/>
+                
+                <Button DockPanel.Dock="Right" 
+                        Background="Brown" 
+                        Content="Відмінити" 
+                        Width="150" 
+                        FontWeight="DemiBold" 
+                        Height="45" 
+                        FontSize="22" 
+                        Click="Decline_Click"/>
+            </DockPanel>
+        </Grid>
+    </Grid>
+</UserControl>
