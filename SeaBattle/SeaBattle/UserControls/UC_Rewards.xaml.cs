@@ -36,12 +36,17 @@ namespace SeaBattle.UserControls
             Victories.Content = victories;
             Defeats.Content = battles - victories;
             Battles.Content = battles;
-            Victories_p.Content = $"{Math.Round(victories / (double)battles * 100, 2, MidpointRounding.ToEven)}%";
-            Defeats_p.Content = $"{Math.Round((battles - victories) / (double)battles * 100, 2, MidpointRounding.ToEven)}%";
+            if(victories == 0 && battles == 0) {
+                Victories_p.Content = "--";
+                Defeats_p.Content = "--";
+            }
+            else {
+                Victories_p.Content = $"{Math.Round(victories / (double)battles * 100, 2, MidpointRounding.ToEven)}%";
+                Defeats_p.Content = $"{Math.Round((battles - victories) / (double)battles * 100, 2, MidpointRounding.ToEven)}%";
+            }
         }
 
-        private void Close_Clicked(object sender, RoutedEventArgs e)
-        {
+        private void ExitButton_Click(object sender, RoutedEventArgs e) {
             ChangeUserControler.CloseUserControler(this);
         }
     }

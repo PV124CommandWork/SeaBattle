@@ -79,6 +79,7 @@ namespace SeaBattle.UserControls
         private void AddFriendButton_Click(object sender, RoutedEventArgs e)
         {
             SendToServer.SendFriendRequest(textBoxLogin.Text);
+            textBoxLogin.Text = "";
         }
         private void SettingsButton_Click(object sender, RoutedEventArgs e)
         {
