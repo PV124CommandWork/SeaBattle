@@ -26,11 +26,6 @@ namespace SeaBattle.UserControls
             InitializeComponent();
         }
 
-        private void Rewards_Loaded(object sender, RoutedEventArgs e)
-        {
-            SendToServer.SendRewardsRequest();
-        }
-
         public void Init(int victories, int battles)
         {
             Victories.Content = victories;
