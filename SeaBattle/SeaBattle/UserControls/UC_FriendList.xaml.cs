@@ -90,7 +90,11 @@ namespace SeaBattle.UserControls
         }
         private void InviteToBattle_Click(object sender, RoutedEventArgs e)
         {
-
+            MainWindow.MainWindowInstance.Dispatcher.Invoke(() =>
+            {
+                MainWindow.MainWindowInstance.MainGrid.Children.Add(new UC_WaitForPlayer(Friends[SelectedFriend]));
+            });
+            SeaBattleServerComunication.SendToServer.SendRequestToBattle(Friends[SelectedFriend]);
         }
         private void ShowRewards_Click(object sender, RoutedEventArgs e)
         {

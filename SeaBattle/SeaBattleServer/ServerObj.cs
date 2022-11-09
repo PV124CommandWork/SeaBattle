@@ -59,7 +59,7 @@ namespace SeaBattleServer
             }
         }
 
-        public static void SendToClientByLogin(string login, SeaBattleServerComunication.Request request)
+        public static bool SendToClientByLogin(string login, SeaBattleServerComunication.Request request)
         {
             foreach (var user in clients)
             {
@@ -67,9 +67,10 @@ namespace SeaBattleServer
                 {
                     byte[] data = Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(request));
                     user.Stream.Write(data, 0, data.Length);
-                    break;
+                    return true;
                 }
             }
+            return false;
         }
 
         public void Disconnect()

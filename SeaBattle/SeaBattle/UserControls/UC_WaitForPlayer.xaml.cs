@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SeaBattleServerComunication;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,13 +21,16 @@ namespace SeaBattle.UserControls
     /// </summary>
     public partial class UC_WaitForPlayer : UserControl
     {
-        public UC_WaitForPlayer()
+        public string User;
+        public UC_WaitForPlayer(string user)
         {
             InitializeComponent();
+            User = user;
         }
 
         private void Deny_Click(object sender, RoutedEventArgs e)
         {
+            SendToServer.SendBattleCanceled(User);
             ChangeUserControler.CloseUserControler(this);
         }
     }

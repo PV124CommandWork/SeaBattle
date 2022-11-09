@@ -62,6 +62,26 @@ namespace SeaBattle {
                 MainWindow.MainWindowInstance.MainGrid.Children.Add(new UC_Rewards());
             });
         }
-        
+        public static void EnableCodeTextBox()
+        {
+            MainWindow.MainWindowInstance.Dispatcher.Invoke(() =>
+            {
+                (MainWindow.MainWindowInstance.MainGrid.Children[0] as UC_RegisterPage).CodeTB.IsEnabled = true;
+            });
+        }
+        public static void ToAcceptBattle(Request request)
+        {
+            MainWindow.MainWindowInstance.Dispatcher.Invoke(() =>
+            {
+                MainWindow.MainWindowInstance.MainGrid.Children.Add(new UC_AcceptBattle(request.Data[0], request.Login));
+            });
+        }
+        public static void CancelBattle()
+        {
+            MainWindow.MainWindowInstance.Dispatcher.Invoke(() =>
+            {
+                MainWindow.MainWindowInstance.MainGrid.Children.RemoveAt(1);
+            });
+        }
     }
 }

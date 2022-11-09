@@ -36,7 +36,7 @@
             </StackPanel>
 
             <Button x:Name="ConfirmButton" Grid.Row="1" MaxHeight="75" MaxWidth="300" FontSize="30" IsEnabled="False">Confirm Field</Button>
-            <CheckBox x:Name="IsHorisontalCB" Grid.Row="1" Grid.Column="1" IsChecked="True" FontSize="20" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Center">Horisotal ships</CheckBox>
+            <CheckBox x:Name="IsHorisontalCB" Grid.Row="1" Grid.Column="1" IsChecked="True" FontSize="20" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Center">Horizontal ships</CheckBox>
         </Grid>
     </Grid>
 </UserControl>
