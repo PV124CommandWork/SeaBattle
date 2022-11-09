@@ -62,6 +62,11 @@ namespace SeaBattle {
                 MainWindow.MainWindowInstance.MainGrid.Children.Add(new UC_Rewards());
             });
         }
+        public static void ToLogoutConfirm() {
+            MainWindow.MainWindowInstance.Dispatcher.Invoke(() => {
+                MainWindow.MainWindowInstance.MainGrid.Children.Add(new UC_LogoutConfirm());
+            });
+        }
         public static void EnableCodeTextBox()
         {
             MainWindow.MainWindowInstance.Dispatcher.Invoke(() =>

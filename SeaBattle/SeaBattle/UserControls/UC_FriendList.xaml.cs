@@ -92,9 +92,7 @@ namespace SeaBattle.UserControls
             SendToServer.SendRewardsRequest();
         }
         private void LogoutButton_Click(object sender, RoutedEventArgs e) {
-            MainWindow.DisconnectingFromServer();
-            MainWindow.ConnectingToServer();
-            ChangeUserControler.ToLoginPage();
+            ChangeUserControler.ToLogoutConfirm();
         }
         private void InviteToBattle_Click(object sender, RoutedEventArgs e)
         {
