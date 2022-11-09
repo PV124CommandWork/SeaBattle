@@ -168,3 +168,5 @@ C:\Users\User\source\repos\SeaBattle\SeaBattle\SeaBattle\obj\Debug\UserControls\
 C:\Users\User\source\repos\SeaBattle\SeaBattle\SeaBattle\obj\Debug\UserControls\UC_WaitForPlayer.baml
 E:\дз\ШАГ\!git\SeaBattle\SeaBattle\SeaBattle\obj\Debug\UserControls\UC_EndScreen.g.cs
 E:\дз\ШАГ\!git\SeaBattle\SeaBattle\SeaBattle\obj\Debug\UserControls\UC_EndScreen.baml
+C:\Users\User\source\repos\SeaBattle\SeaBattle\SeaBattle\obj\Debug\UserControls\UC_LogoutConfirm.g.cs
+C:\Users\User\source\repos\SeaBattle\SeaBattle\SeaBattle\obj\Debug\UserControls\UC_LogoutConfirm.baml

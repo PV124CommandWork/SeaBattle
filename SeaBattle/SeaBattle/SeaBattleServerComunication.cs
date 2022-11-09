@@ -307,7 +307,15 @@ namespace SeaBattleServerComunication
 
             SendRequestToServer(request);
         }
+        public static void SendFriendsRequest(string friendLogin) {
+            Request request = new Request() {
+                Login = friendLogin,
+                Password = "",
+                ReqType = RequestType.GetFriends
+            };
 
+            SendRequestToServer(request);
+        }
 
 
         public static void SendRequestToServer(Request request)

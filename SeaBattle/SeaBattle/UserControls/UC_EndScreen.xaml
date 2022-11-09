@@ -62,7 +62,7 @@
                    HorizontalContentAlignment="Left"
                    DockPanel.Dock="Top"
                    >Всього поразок:</Label>
-            <Label Foreground="White"
+            <Label Foreground="DarkCyan"
                    FontSize="25"
                    HorizontalContentAlignment="Center"
                    DockPanel.Dock="Top"
@@ -70,7 +70,7 @@
             <Label x:Name="battlesLabel"
                    FontSize="35"
                    HorizontalContentAlignment="Center"
-                   Foreground="White"
+                   Foreground="DarkCyan"
                    DockPanel.Dock="Top"
                    ></Label>
 

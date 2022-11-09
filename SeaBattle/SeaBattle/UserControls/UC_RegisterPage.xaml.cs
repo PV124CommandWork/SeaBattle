@@ -25,31 +25,21 @@ namespace SeaBattle.UserControls
             InitializeComponent();
         }
 
-        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
-
-        private void TextBox_TextChanged_1(object sender, TextChangedEventArgs e)
-        {
-
-        }
-
         private void Register_Click(object sender, RoutedEventArgs e)
         {
-            if (UserNameTB.Text.Length < 6)
+            if (UserNameTB.Text.Length < 6 || UserNameTB.Text.Length > 16)
             {
-                MessageBox.Show("Занадто короткий нікнейм");
+                MessageBox.Show("Нікнейм повинен містити від 6 до 16 символів");
                 return;
             }
-            if (LoginTB.Text.Length < 6)
+            if (LoginTB.Text.Length < 6 || LoginTB.Text.Length > 16)
             {
-                MessageBox.Show("Занадто короткий логін");
+                MessageBox.Show("Логін повинен містити від 6 до 16");
                 return;
             }
-            if (PasswordPB.Password.Length < 6)
+            if (PasswordPB.Password.Length < 6 || PasswordPB.Password.Length > 16)
             {
-                MessageBox.Show("Занадто короткий пароль");
+                MessageBox.Show("Пароль повинен містити від 6 до 16");
                 return;
             }
             if (!EmailTB.Text.Contains("@"))

@@ -81,16 +81,22 @@
                         Margin="0, 10,10, 0" 
                         Click="SettingsButton_Click"
                         DockPanel.Dock="Right"
-                        >
-                        <Image x:Name="Settings"/>
+                        ><Image x:Name="Settings"/>
+                    </Button>
+                    <Button x:Name="LogoutButton" Width="40"
+                        Height="40"
+                        Background="#FF4D4D4D"
+                        HorizontalAlignment="Right"
+                        Margin="10, 10,10, 0" 
+                        Click="LogoutButton_Click"
+                        ><Image x:Name="Logout"/>
                     </Button>
                     <Button x:Name="StatisticsButton" Width="40"
                         Height="40"
                         Background="#FF4D4D4D"
                         HorizontalAlignment="Right"
                         Margin="0, 10,10, 0" Click="StatisticsButton_Click"
-                        >
-                        <Image x:Name="Statistics"/>
+                        ><Image x:Name="Statistics"/>
                     </Button>
                 </DockPanel>
                 <Label FontSize="25"

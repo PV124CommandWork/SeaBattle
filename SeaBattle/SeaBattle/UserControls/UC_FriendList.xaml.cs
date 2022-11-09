@@ -30,6 +30,7 @@ namespace SeaBattle.UserControls
             Friends = friends;
             Settings.Source = new BitmapImage(new Uri(Directory.GetCurrentDirectory() + @"\Images\gear_icon.png"));
             Statistics.Source = new BitmapImage(new Uri(Directory.GetCurrentDirectory() + @"\Images\statistics_icon.png"));
+            Logout.Source = new BitmapImage(new Uri(Directory.GetCurrentDirectory() + @"\Images\logout_icon.png"));
             LoadFriends();
             foreach (var item in FriendsManagementDP.Children)
             {
@@ -79,6 +80,7 @@ namespace SeaBattle.UserControls
         private void AddFriendButton_Click(object sender, RoutedEventArgs e)
         {
             SendToServer.SendFriendRequest(textBoxLogin.Text);
+            textBoxLogin.Text = "";
         }
         private void SettingsButton_Click(object sender, RoutedEventArgs e)
         {
@@ -87,6 +89,10 @@ namespace SeaBattle.UserControls
         private void StatisticsButton_Click(object sender, RoutedEventArgs e)
         {
             ChangeUserControler.ToStatisticts();
+            SendToServer.SendRewardsRequest();
+        }
+        private void LogoutButton_Click(object sender, RoutedEventArgs e) {
+            ChangeUserControler.ToLogoutConfirm();
         }
         private void InviteToBattle_Click(object sender, RoutedEventArgs e)
         {
@@ -98,7 +104,8 @@ namespace SeaBattle.UserControls
         }
         private void ShowRewards_Click(object sender, RoutedEventArgs e)
         {
-
+            ChangeUserControler.ToStatisticts();
+            SendToServer.SendFriendsRequest(Friends[SelectedFriend]);
         }
         private void DeleteFriend_Click(object sender, RoutedEventArgs e)
         {

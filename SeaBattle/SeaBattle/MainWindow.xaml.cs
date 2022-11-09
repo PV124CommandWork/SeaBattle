@@ -45,20 +45,26 @@ namespace SeaBattle
 
             //btw here should be a method to read the config
 
-            #region Connecting To The Server
-            try
+            ConnectingToServer();
+
+            MainGrid.Children.Add(new UC_LoginPage());
+            Settings.Init();
+        }
+        public static void ConnectingToServer() 
+        {
+            try 
             {
                 ServerConnection.Connect();
             }
-            catch (Exception ex)
+            catch(Exception ex) 
             {
                 MessageBox.Show(ex.Message);
                 Application.Current.Shutdown();
             }
-            #endregion
-
-            MainGrid.Children.Add(new UC_LoginPage());
-            Settings.Init();
+        }
+        public static void DisconnectingFromServer() {
+            ServerConnection.NetStream?.Close();
+            ServerConnection.client?.Close();
         }
 
         private void MainWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)

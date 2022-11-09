@@ -5,11 +5,12 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:SeaBattle.UserControls"
              mc:Ignorable="d" 
-             Background="White"
+             Background="#FF272727"
              FontFamily="Calibri"
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
         <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
@@ -19,12 +20,85 @@
             <RowDefinition/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <Label Content="Settings" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.ColumnSpan="2" FontSize="35"/>
-        <Label Grid.Row="1" Content="Width" FontSize="25" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-        <Label Grid.Row="2" Content="Height" FontSize="25" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-        <Button Grid.Row="3" Margin="50,20" Content="Reset to default" x:Name="resetButton" FontSize="25" Click="ResetButton_Click"/>
-        <TextBox Grid.Row="1" Grid.Column="1" Margin="20" FontSize="25" VerticalAlignment="Center" x:Name="WidthBox"/>
-        <TextBox Grid.Row="2" Grid.Column="1" Margin="20" FontSize="25" VerticalAlignment="Center" x:Name="HeightBox"/>
-        <Button Grid.Row="3" Grid.Column="2" Margin="50,20" Content="Save and exit" x:Name="saveButton" FontSize="25" Click="SaveButton_Click"/>
+        <!-- Labels -->
+        <Label Content="Налаштування" 
+               VerticalAlignment="Center" 
+               HorizontalAlignment="Center" 
+               Grid.ColumnSpan="3" 
+               FontSize="35" 
+               Foreground="DarkCyan"/>
+        
+        <Label Grid.Row="1" 
+               Content="Ширина вікна" 
+               FontSize="25" 
+               VerticalAlignment="Center" 
+               Foreground="DarkCyan"
+               Grid.ColumnSpan="2"
+               HorizontalAlignment="Center"/>
+        
+        <Label Grid.Row="2" 
+               Content="Висота вікна" 
+               FontSize="25" 
+               VerticalAlignment="Center"
+               Foreground="DarkCyan"
+               Grid.ColumnSpan="2"
+               HorizontalAlignment="Center"/>
+        <!-- TextBoxes -->
+        <TextBox Grid.Row="1" 
+                 Grid.Column="1" 
+                 Grid.ColumnSpan="2" 
+                 FontSize="25" 
+                 VerticalAlignment="Center" 
+                 Width="200" 
+                 x:Name="WidthBox"/>
+        
+        <TextBox Grid.Row="2" 
+                 Grid.Column="1" 
+                 Grid.ColumnSpan="2" 
+                 FontSize="25" 
+                 VerticalAlignment="Center" 
+                 Width="200" 
+                 x:Name="HeightBox"/>
+        <!-- Buttons -->
+        <Button Grid.Row="3" 
+                Width="220" 
+                Height="50" 
+                Content="За замовчуванням" 
+                x:Name="resetButton" 
+                FontSize="25" 
+                Background="#FF4D4D4D"
+                Foreground="DarkCyan"
+                Click="ResetButton_Click"/>
+        
+        <Button x:Name="ExitButton" 
+                Grid.Row="3" 
+                Grid.Column="1" 
+                Width="220" 
+                Height="50" 
+                FontSize="25" 
+                Background="#FF4D4D4D"
+                Foreground="DarkCyan" Click="ExitButton_Click"
+                >Вийти</Button>
+        
+        <Button Grid.Row="3" 
+                Grid.Column="2" 
+                Width="220" 
+                Height="50" 
+                Content="Зберегти та вийти" 
+                x:Name="saveButton" 
+                FontSize="25" 
+                Background="#FF4D4D4D"
+                Foreground="DarkCyan"
+                Click="SaveButton_Click"/>
+        <!-- Borders -->
+        <DockPanel LastChildFill="False" Grid.Row="1" Grid.ColumnSpan="3">
+            <Border BorderBrush="DarkCyan" BorderThickness="1" DockPanel.Dock="Bottom"></Border>
+            <Border BorderBrush="DarkCyan" BorderThickness="1" DockPanel.Dock="Top"></Border>
+        </DockPanel>
+
+        <DockPanel LastChildFill="False" Grid.Row="2" Grid.ColumnSpan="3">
+            <Border BorderBrush="DarkCyan" BorderThickness="1" DockPanel.Dock="Bottom"></Border>
+        </DockPanel>
+        
     </Grid>
 </UserControl>
