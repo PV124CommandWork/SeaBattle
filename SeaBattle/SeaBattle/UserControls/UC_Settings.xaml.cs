@@ -11,8 +11,19 @@ namespace SeaBattle.UserControls
         public UC_Settings()
         {
             InitializeComponent();
-            WidthBox.Text = Settings.Config.Width.ToString();
-            HeightBox.Text = Settings.Config.Height.ToString();
+            if(Settings.Config.Width < 800) {
+                WidthBox.Text = "800";
+            }
+            else {
+                WidthBox.Text = Settings.Config.Width.ToString();
+            }
+
+            if(Settings.Config.Height < 450) {
+                HeightBox.Text = "450";
+            }
+            else {
+                HeightBox.Text = Settings.Config.Height.ToString();
+            }
         }
 
         private void ResetButton_Click(object sender, RoutedEventArgs e)
@@ -39,6 +50,10 @@ namespace SeaBattle.UserControls
             Settings.Init();
             ChangeUserControler.CloseUserControler(this);
 
+        }
+
+        private void ExitButton_Click(object sender, RoutedEventArgs e) {
+            ChangeUserControler.CloseUserControler(this);
         }
     }
 }

@@ -5,48 +5,139 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:SeaBattle.UserControls"
              mc:Ignorable="d"
-             Background="LightSkyBlue"
+             Background="#FF272727"
              Loaded="Rewards_Loaded"
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition Width="50"></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
-        
-        <Label FontSize="35" VerticalAlignment="Center" HorizontalAlignment="Center">YOUR REWARDS</Label>
 
-        <Grid Grid.Row="1">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition></ColumnDefinition>
-                <ColumnDefinition></ColumnDefinition>
-            </Grid.ColumnDefinitions>
-            <Label FontSize="55" VerticalAlignment="Top" HorizontalAlignment="Center">Victories</Label>
-            <Label x:Name="Victories"  FontSize="55" VerticalAlignment="Center" HorizontalAlignment="Center">--</Label>
+        <Label FontSize="35" 
+              VerticalAlignment="Center" 
+               HorizontalAlignment="Center"
+               Grid.ColumnSpan="2"
+               Grid.Column="1"
+               Foreground="DarkCyan"
+               >Статистика</Label>
 
-            <Label Grid.Column="1" FontSize="55" VerticalAlignment="Top" HorizontalAlignment="Center">Defeats</Label>
-            <Label x:Name="Defeats" Grid.Column="1" FontSize="55" VerticalAlignment="Center" HorizontalAlignment="Center">--</Label>
-        </Grid>
+        <Label FontSize="35" 
+               VerticalAlignment="Center" 
+               HorizontalAlignment="Center"
+               Grid.ColumnSpan="2"
+               Grid.RowSpan="2"
+               Grid.Column="0"
+               Grid.Row="0"
+               Foreground="Lime"
+               >Перемоги:</Label>
         
-        <Grid Grid.Row="2">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition></ColumnDefinition>
-                <ColumnDefinition></ColumnDefinition>
-                <ColumnDefinition></ColumnDefinition>
-            </Grid.ColumnDefinitions>
-            <Label x:Name="Victories_p" FontSize="55" VerticalAlignment="Center" HorizontalAlignment="Center">--</Label>
-            <Label Grid.Column="1" FontSize="55" VerticalAlignment="Top" HorizontalAlignment="Center">Battles</Label>
-            <Label x:Name="Battles" Grid.Column="1" FontSize="55" VerticalAlignment="Center" HorizontalAlignment="Center">--</Label>
-            <Label x:Name="Defeats_p" Grid.Column="2" FontSize="55" VerticalAlignment="Center" HorizontalAlignment="Center">--</Label>
-        </Grid>
+        <Label x:Name="Victories"  
+               FontSize="35" 
+               VerticalAlignment="Center" 
+               HorizontalAlignment="Center"
+               Grid.ColumnSpan="2"
+               Grid.Column="0"
+               Grid.Row="1"
+               Foreground="Lime"
+               >--</Label>
+
+        <Label Grid.Column="2" 
+               Grid.Row="0"
+               FontSize="35" 
+               VerticalAlignment="Center" 
+               HorizontalAlignment="Center"
+               Grid.ColumnSpan="2"
+               Grid.RowSpan="2"
+               Foreground="Red"
+               >Поразки:</Label>
         
-        <Border CornerRadius="9" Background="Aqua"  Grid.Column="1">
-            <Button BorderThickness="0" Background="Transparent" Click="Close_Clicked">X</Button>
-        </Border>
+        <Label x:Name="Defeats" 
+               FontSize="35" 
+               VerticalAlignment="Center" 
+               HorizontalAlignment="Center"
+               Grid.Row="1"
+               Grid.Column="2" 
+               Grid.ColumnSpan="2"
+               Foreground="Red"
+               >--</Label>
+
+        <Label Grid.Column="1" 
+               Grid.Row="0"
+               FontSize="35" 
+               VerticalAlignment="Center" 
+               HorizontalAlignment="Center"
+               Grid.ColumnSpan="2"
+               Grid.RowSpan="2"
+               Foreground="DarkCyan"
+               >Бої:</Label>
+
+        <Label x:Name="Battles" 
+               FontSize="35" 
+               VerticalAlignment="Center" 
+               HorizontalAlignment="Center"
+               Grid.Column="1" 
+               Grid.Row="1"
+               Grid.ColumnSpan="2"
+               Foreground="DarkCyan"
+               >--</Label>
+        
+        <Label FontSize="35"
+               VerticalAlignment="Center" 
+               HorizontalAlignment="Center"
+               Grid.ColumnSpan="2"
+               Grid.Row="1"
+               Grid.RowSpan="2"
+               Foreground="Lime"
+               >Відсоток перемог:</Label>
+
+        <Label x:Name="Victories_p" 
+               FontSize="35" 
+               VerticalAlignment="Center" 
+               HorizontalAlignment="Center"
+               Grid.Row="2"
+               Grid.RowSpan="2"
+               Grid.ColumnSpan="2"
+               Foreground="Lime"
+               >--</Label>
+
+        <Label FontSize="35"
+               VerticalAlignment="Center" 
+               HorizontalAlignment="Center"
+               Grid.ColumnSpan="2"
+               Grid.Row="1"
+               Grid.Column="2" 
+               Grid.RowSpan="2"
+               Foreground="Red"
+               >Відсоток Поразок:</Label>
+
+
+        <Label x:Name="Defeats_p" 
+               FontSize="35" 
+               VerticalAlignment="Center" 
+               HorizontalAlignment="Center"
+               Grid.Column="2" 
+               Grid.Row="2"
+               Grid.RowSpan="2"
+               Grid.ColumnSpan="2"
+               Foreground="Red"
+               >--</Label>
+
+        <Button x:Name="ExitButton"
+                FontSize="25"
+                Background="#FF4D4D4D"
+                Foreground="DarkCyan"
+                Height="50"
+                Width="100"
+                Grid.Column="3"
+                Margin="60, 0, 0, 60" Click="ExitButton_Click"
+                >Вихід</Button>
     </Grid>
 </UserControl>
