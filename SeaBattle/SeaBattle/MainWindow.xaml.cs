@@ -60,5 +60,10 @@ namespace SeaBattle
             MainGrid.Children.Add(new UC_LoginPage());
             Settings.Init();
         }
+
+        private void MainWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+
+        }
     }
 }

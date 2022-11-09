@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using MaterialDesignThemes.Wpf;
+using Newtonsoft.Json;
 using SeaBattle.UserControls;
 using SeaBattleServerComunication;
 using System;
@@ -7,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
+using System.Windows.Media;
 
 namespace SeaBattle {
     public class ChangeUserControler {
@@ -81,6 +83,32 @@ namespace SeaBattle {
             MainWindow.MainWindowInstance.Dispatcher.Invoke(() =>
             {
                 MainWindow.MainWindowInstance.MainGrid.Children.RemoveAt(1);
+            });
+        }
+
+        public static void ToFillBattlefield()
+        {
+            MainWindow.MainWindowInstance.Dispatcher.Invoke(() => {
+                MainWindow.MainWindowInstance.MainGrid.Children.Clear();
+                MainWindow.MainWindowInstance.MainGrid.Children.Add(new UC_FillBattlefield());
+            });
+        }
+        public static void PlayerReady()
+        {
+            MainWindow.MainWindowInstance.Dispatcher.Invoke(() => {
+                (MainWindow.MainWindowInstance.MainGrid.Children[0] as UC_FillBattlefield).PlayerReadyLabel.Content = "Another player ready!";
+                (MainWindow.MainWindowInstance.MainGrid.Children[0] as UC_FillBattlefield).PlayerReadyLabel.Foreground = Brushes.Lime;
+                UC_FillBattlefield.IsAnotherPlayerReady = true;
+            });
+        }
+        public static void ToBattleField(List<ShipsClass.Ship> ships, bool move)
+        {
+            MainWindow.MainWindowInstance.Dispatcher.Invoke(() => {
+                UC_Battlefield bf = new UC_Battlefield();
+                bf.ShowShips(ships);
+                bf.ChangeMove(move);
+                MainWindow.MainWindowInstance.MainGrid.Children.Clear();
+                MainWindow.MainWindowInstance.MainGrid.Children.Add(bf);
             });
         }
     }

@@ -30,7 +30,8 @@ namespace SeaBattle.UserControls
 
         private void Accept_Click(object sender, RoutedEventArgs e)
         {
-
+            SeaBattleServerComunication.SendToServer.SendConfirmBattle(Login);
+            ChangeUserControler.ToFillBattlefield();
         }
 
         private void Deny_Click(object sender, RoutedEventArgs e)

@@ -170,7 +170,19 @@ namespace SeaBattleServerComunication
                     }
                 case RequestType.BattleConfirm:
                     {
-                        break;
+                        request.ReqType = RequestType.BattleConfirm;
+                        if ((from u in DataBaseAccess.DbContext.Users
+                             where u.Login == Login
+                             && u.RegistrationId == null
+                             select u.CurrentBattleId).FirstOrDefault()
+                             == (from u in DataBaseAccess.DbContext.Users
+                                 where u.Login == Data[0]
+                                 && u.RegistrationId == null
+                                 select u.CurrentBattleId).FirstOrDefault())
+                        {
+                            ServerObj.SendToClientByLogin(Data[0], request);
+                        }
+                        return;
                     }
                 case RequestType.BattleCanceled:
                     {
@@ -193,10 +205,50 @@ namespace SeaBattleServerComunication
                 case RequestType.BattleEnded:
                     {
                         BattleManagement.deleteBattle((from u in DataBaseAccess.DbContext.Users
-                                                       join b in DataBaseAccess.DbContext.CurrentBattles on u.CurrentBattle equals b
-                                                       where u.Login == Login
-                                                       select u.Id).FirstOrDefault());
+                                                       where u.Login == Login && u.RegistrationId == null
+                                                       select u.CurrentBattleId).FirstOrDefault());
                         break;
+                    }
+                case RequestType.PlayerReady:
+                    {
+                        request.ReqType = RequestType.PlayerReady;
+                        CurrentBattle battle = (from u in DataBaseAccess.DbContext.Users
+                                                join b in DataBaseAccess.DbContext.CurrentBattles on u.CurrentBattleId equals b.Id
+                                                where u.Login == Login && u.RegistrationId == null
+                                                select b).FirstOrDefault();
+                        List<User> users = (from u in DataBaseAccess.DbContext.Users
+                                            where u.CurrentBattleId == battle.Id
+                                            orderby u.Id
+                                            select u).ToList();
+                        string friendLogin;
+                        if (users[0].Login == Login)
+                        {
+                            battle.FirstFieldData = Data[0];
+                            friendLogin = users[1].Login;
+                        }
+                        else
+                        {
+                            battle.SecondFieldData = Data[0];
+                            friendLogin = users[0].Login;
+                        }
+                        DataBaseAccess.DbContext.CurrentBattles.Update(battle);
+                        DataBaseAccess.DbContext.SaveChanges();
+
+                        if (battle.FirstFieldData != "" && battle.SecondFieldData != "") // Якщо готові двоє гравців
+                        {
+                            request.ReqType = RequestType.BattleStarted;
+                            request.Data.Add(battle.FirstFieldData);
+                            request.Data.Add(battle.Move.ToString());
+                            ServerObj.SendToClientByLogin(users[0].Login, request);
+
+                            request.Data.Clear();
+                            request.Data.Add(battle.SecondFieldData);
+                            request.Data.Add((!battle.Move).ToString());
+                            ServerObj.SendToClientByLogin(users[1].Login, request);
+                            return;
+                        }
+                        ServerObj.SendToClientByLogin(friendLogin, request);
+                        return;
                     }
                 case RequestType.Fire:
                     {
@@ -210,7 +262,7 @@ namespace SeaBattleServerComunication
 
     public enum RequestType
     {
-        Register, Login, GetRewards, BattleRequest, BattleConfirm, BattleCanceled, BattleEnded, Fire, Exception, PlayerReady, AddFriend, RemoveFriend, GetFriends
+        Register, Login, GetRewards, BattleRequest, BattleConfirm, BattleCanceled, BattleStarted, BattleEnded, Fire, Exception, PlayerReady, AddFriend, RemoveFriend, GetFriends
     }
     #endregion
 }
