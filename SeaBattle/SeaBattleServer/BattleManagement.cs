@@ -9,48 +9,46 @@ namespace SeaBattleServer
 {
     public static class BattleManagement
     {
-        public static void createBattle(int firstUserId, int secondUserId, string firstFieldData, string secondFieldData)
-        {
-            CurrentBattle temp = new CurrentBattle(firstFieldData, secondFieldData);
-            DataBaseAccess.DbContext.CurrentBattles.Add(temp);
-            User firstUser = (from u in DataBaseAccess.DbContext.Users where u.Id == firstUserId select u) as User;
-            User secondUser = (from u in DataBaseAccess.DbContext.Users where u.Id == secondUserId select u) as User;
-            if(firstUser == null || secondUser == null)
-            {
-                throw new Exception();
-            }
-            firstUser.CurrentBattleId = temp.Id;
-            secondUser.CurrentBattleId = temp.Id;
-            DataBaseAccess.DbContext.Update(firstUser);
-            DataBaseAccess.DbContext.Update(secondUser);
-            DataBaseAccess.DbContext.SaveChanges();
-        }
         public static void createBattle(string firstUserLogin, string secondUserLogin, string firstFieldData, string secondFieldData)
         {
-            CurrentBattle temp = new CurrentBattle(firstFieldData, secondFieldData);
-            DataBaseAccess.DbContext.CurrentBattles.Add(temp);
-            User firstUser = (from u in DataBaseAccess.DbContext.Users where u.Login == firstUserLogin select u) as User;
-            User secondUser = (from u in DataBaseAccess.DbContext.Users where u.Login == secondUserLogin select u) as User;
+            User firstUser = (from u in DataBaseAccess.DbContext.Users where u.Login == firstUserLogin && u.Registration == null select u).FirstOrDefault();
+            User secondUser = (from u in DataBaseAccess.DbContext.Users where u.Login == secondUserLogin && u.Registration == null select u).FirstOrDefault();
             if (firstUser == null || secondUser == null)
             {
-                throw new Exception();
+                throw new Exception("User not found!");
             }
-            firstUser.CurrentBattleId = temp.Id;
-            secondUser.CurrentBattleId = temp.Id;
+            if (firstUser.CurrentBattleId != null || secondUser.CurrentBattleId != null)
+            {
+                throw new Exception("User already have a battle request!");
+            }
+            CurrentBattle temp = new CurrentBattle(firstFieldData, secondFieldData);
+            DataBaseAccess.DbContext.CurrentBattles.Add(temp);
+            firstUser.CurrentBattle = temp;
+            secondUser.CurrentBattle = temp;
             DataBaseAccess.DbContext.Update(firstUser);
             DataBaseAccess.DbContext.Update(secondUser);
             DataBaseAccess.DbContext.SaveChanges();
         }
 
-        public static void deleteBattle(int battleId)
+        public static void deleteBattle(int? battleId)
         {
-            CurrentBattle temp = (from b in DataBaseAccess.DbContext.CurrentBattles where b.Id == battleId select b) as CurrentBattle;
-            if(temp == null)
+            if (battleId != null)
             {
-                throw new Exception();
+                CurrentBattle temp = (from b in DataBaseAccess.DbContext.CurrentBattles where b.Id == battleId select b).FirstOrDefault();
+                var users = (from u in DataBaseAccess.DbContext.Users where u.CurrentBattleId == battleId select u);
+                if (temp == null)
+                {
+                    throw new Exception();
+                }
+                foreach (var item in users)
+                {
+                    item.CurrentBattle = null;
+                    item.CurrentBattleId = null;
+                }
+                DataBaseAccess.DbContext.Users.UpdateRange(users);
+                DataBaseAccess.DbContext.CurrentBattles.Remove(temp);
+                DataBaseAccess.DbContext.SaveChanges();
             }
-            DataBaseAccess.DbContext.CurrentBattles.Remove(temp);
-            DataBaseAccess.DbContext.SaveChanges();
         }
     }
 }

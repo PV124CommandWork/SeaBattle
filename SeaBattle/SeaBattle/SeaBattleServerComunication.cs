@@ -96,7 +96,7 @@ namespace SeaBattleServerComunication
                                     {
                                         MessageBox.Show("Successfully registered!");
                                         ChangeUserControler.ToLoginPage();
-                                        
+
                                     }
                                     else
                                     {
@@ -106,10 +106,7 @@ namespace SeaBattleServerComunication
                                 else
                                 {
                                     MessageBox.Show("Code sended on your email!");
-                                    MainWindow.MainWindowInstance.Dispatcher.Invoke(() =>
-                                    {
-                                        (MainWindow.MainWindowInstance.MainGrid.Children[0] as UC_RegisterPage).CodeTB.IsEnabled = true;
-                                    });
+                                    ChangeUserControler.EnableCodeTextBox();
                                 }
                             }
                             break;
@@ -123,10 +120,7 @@ namespace SeaBattleServerComunication
                         {
                             if (request.Data[0] == "User added to friends!")
                             {
-                                MainWindow.MainWindowInstance.Dispatcher.Invoke(() =>
-                                {
-                                    SendToServer.SendFriendsRequest();
-                                });
+                                SendToServer.SendFriendsRequest();
                             }
                             MessageBox.Show(request.Data[0]);
                             break;
@@ -138,6 +132,20 @@ namespace SeaBattleServerComunication
                         }
                     case RequestType.BattleRequest:
                         {
+                            if (request.Login == null)
+                            {
+                                ChangeUserControler.CancelBattle();
+                                MessageBox.Show(request.Data[0]);
+                            }
+                            else
+                            {
+                                ChangeUserControler.ToAcceptBattle(request);
+                            }
+                            break;
+                        }
+                    case RequestType.BattleCanceled:
+                        {
+                            ChangeUserControler.CancelBattle();
                             break;
                         }
                     case RequestType.BattleConfirm:
