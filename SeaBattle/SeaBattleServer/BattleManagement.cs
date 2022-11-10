@@ -72,6 +72,14 @@ namespace SeaBattleServer
             DataBaseAccess.DbContext.Users.Update(loser);
             DataBaseAccess.DbContext.SaveChanges();
         }
+        public static void switchMove(string login)
+        {
+            //User user = (from u in DataBaseAccess.DbContext.Users where u.Login == login select u).FirstOrDefault();
+            CurrentBattle battle = (from b in DataBaseAccess.DbContext.CurrentBattles where b.Users[0].Login == login || b.Users[1].Login == login select b).FirstOrDefault();
+            battle.Move = !battle.Move;
+            DataBaseAccess.DbContext.CurrentBattles.Update(battle);
+            DataBaseAccess.DbContext.SaveChanges();
+        }
     }
 }
  
