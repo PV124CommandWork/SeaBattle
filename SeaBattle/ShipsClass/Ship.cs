@@ -14,8 +14,10 @@ namespace ShipsClass
     public class Shoot
         : Cell
     {
-        public int ReturnedValue;
-        Shoot(int x, int y)
+        public int? ReturnedValue = null;
+        public int DestroyedShipIndex = -1;
+        public Shoot() { }
+        public Shoot(int x, int y)
         {
             Coords.X = x;
             Coords.Y = y;
@@ -41,6 +43,7 @@ namespace ShipsClass
                             }
                         }
                         ReturnedValue = 1;
+                        DestroyedShipIndex = i;
                         return 1;//If destroyed
                     }
                 }

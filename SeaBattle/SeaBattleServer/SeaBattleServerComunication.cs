@@ -5,13 +5,12 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
-using SeaBattleServer;
 using RegistrationNS;
 using GameDBContext.Entities;
 using DAL;
 using Microsoft.EntityFrameworkCore;
 
-namespace SeaBattleServerComunication
+namespace SeaBattleServer
 {
     #region Request Class
     public class Request
@@ -30,7 +29,7 @@ namespace SeaBattleServerComunication
                     {
                         request.ReqType = RequestType.Login;
                         request.Data.Add(
-                            ((from users in DAL.DataBaseAccess.DbContext.Users
+                            ((from users in DataBaseAccess.DbContext.Users
                               where users.Login == Login
                               && users.Password == Password
                               && users.Registration == null
@@ -39,10 +38,10 @@ namespace SeaBattleServerComunication
                     }
                 case RequestType.Register:
                     {
-                        RegEmail regEmail = new RegEmail(DAL.DataBaseAccess.DbContext, Data[0]/*NickName*/, Data[1]/*Email*/, Login, Password);
+                        RegEmail regEmail = new RegEmail(DataBaseAccess.DbContext, Data[0]/*NickName*/, Data[1]/*Email*/, Login, Password);
                         if (Data.Count == 2) //2 це нікнейм і пошта, 3 це код
                         {
-                            bool isLoginExist = (from u in DAL.DataBaseAccess.DbContext.Users
+                            bool isLoginExist = (from u in DataBaseAccess.DbContext.Users
                                                  where u.Login == Login && u.Registration == null
                                                  select u).FirstOrDefault() != null;
                             if (isLoginExist)
@@ -126,10 +125,10 @@ namespace SeaBattleServerComunication
                 case RequestType.GetFriends:
                     {
                         request.ReqType = RequestType.GetFriends;
-                        IQueryable<string> friends = (from f in DataBaseAccess.DbContext.Friends
-                                                      where f.User1.Login == Login
-                                                      && f.User1.Registration == null
-                                                      select f.User2.Login);
+                        IQueryable<string> friends = from f in DataBaseAccess.DbContext.Friends
+                                                     where f.User1.Login == Login
+                                                     && f.User1.Registration == null
+                                                     select f.User2.Login;
                         request.Data.Add(JsonConvert.SerializeObject(friends));
                         break;
                     }

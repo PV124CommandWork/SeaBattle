@@ -23,6 +23,7 @@ namespace SeaBattleServer
             }
             bool isRequested = (from fr in DataBaseAccess.DbContext.Friends
                                 where fr.User1 == user
+                                && fr.User2 == friend
                                 select fr).FirstOrDefault() != null;
             if (isRequested)
             {

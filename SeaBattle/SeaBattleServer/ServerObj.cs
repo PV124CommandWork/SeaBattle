@@ -59,7 +59,7 @@ namespace SeaBattleServer
             }
         }
 
-        public static bool SendToClientByLogin(string login, SeaBattleServerComunication.Request request)
+        public static bool SendToClientByLogin(string login, Request request)
         {
             foreach (var user in clients)
             {
