@@ -76,7 +76,28 @@ namespace SeaBattleServer
         {
             //User user = (from u in DataBaseAccess.DbContext.Users where u.Login == login select u).FirstOrDefault();
             CurrentBattle battle = (from b in DataBaseAccess.DbContext.CurrentBattles where b.Users[0].Login == login || b.Users[1].Login == login select b).FirstOrDefault();
+            if (battle == null) {
+                throw new Exception();
+            }
             battle.Move = !battle.Move;
+            DataBaseAccess.DbContext.CurrentBattles.Update(battle);
+            DataBaseAccess.DbContext.SaveChanges();
+        }
+        public static void updateField(string login, string fieldData)
+        {
+            CurrentBattle battle = (from b in DataBaseAccess.DbContext.CurrentBattles where b.Users[0].Login == login || b.Users[1].Login == login select b).FirstOrDefault();
+            if(battle == null)
+            {
+                throw new Exception();
+            }
+            if (battle.Users[0].Login == login)
+            {
+                battle.FirstFieldData = fieldData;
+            }
+            else if(battle.Users[1].Login == login)
+            {
+                battle.SecondFieldData = fieldData;
+            }
             DataBaseAccess.DbContext.CurrentBattles.Update(battle);
             DataBaseAccess.DbContext.SaveChanges();
         }
