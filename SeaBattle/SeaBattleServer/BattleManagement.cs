@@ -50,6 +50,57 @@ namespace SeaBattleServer
                 DataBaseAccess.DbContext.SaveChanges();
             }
         }
+        public static void completeBattle(string winnerLogin)
+        {
+            CurrentBattle battle = (from b in DataBaseAccess.DbContext.CurrentBattles where b.Users[0].Login == winnerLogin || b.Users[1].Login == winnerLogin select b).FirstOrDefault();
+            if(battle == null)
+            {
+                throw new Exception();
+            }
+            User winner = (from u in battle.Users where u.Login == winnerLogin select u).FirstOrDefault();
+            User loser = (from u in battle.Users where u.Login != winnerLogin select u).FirstOrDefault();
+            if (winner == null || loser == null) {
+                throw new Exception();
+            }
+            winner.Reward.BattlesPlayed++;
+            loser.Reward.BattlesPlayed++;
+            winner.Reward.BattlesWon++;
+            deleteBattle(battle.Id);
+            DataBaseAccess.DbContext.Rewards.Update(winner.Reward);
+            DataBaseAccess.DbContext.Rewards.Update(loser.Reward);
+            DataBaseAccess.DbContext.Users.Update(winner);
+            DataBaseAccess.DbContext.Users.Update(loser);
+            DataBaseAccess.DbContext.SaveChanges();
+        }
+        public static void switchMove(string login)
+        {
+            //User user = (from u in DataBaseAccess.DbContext.Users where u.Login == login select u).FirstOrDefault();
+            CurrentBattle battle = (from b in DataBaseAccess.DbContext.CurrentBattles where b.Users[0].Login == login || b.Users[1].Login == login select b).FirstOrDefault();
+            if (battle == null) {
+                throw new Exception();
+            }
+            battle.Move = !battle.Move;
+            DataBaseAccess.DbContext.CurrentBattles.Update(battle);
+            DataBaseAccess.DbContext.SaveChanges();
+        }
+        public static void updateField(string login, string fieldData)
+        {
+            CurrentBattle battle = (from b in DataBaseAccess.DbContext.CurrentBattles where b.Users[0].Login == login || b.Users[1].Login == login select b).FirstOrDefault();
+            if(battle == null)
+            {
+                throw new Exception();
+            }
+            if (battle.Users[0].Login == login)
+            {
+                battle.FirstFieldData = fieldData;
+            }
+            else if(battle.Users[1].Login == login)
+            {
+                battle.SecondFieldData = fieldData;
+            }
+            DataBaseAccess.DbContext.CurrentBattles.Update(battle);
+            DataBaseAccess.DbContext.SaveChanges();
+        }
     }
 }
  
