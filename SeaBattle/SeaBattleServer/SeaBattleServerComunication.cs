@@ -10,6 +10,7 @@ using RegistrationNS;
 using GameDBContext.Entities;
 using DAL;
 using Microsoft.EntityFrameworkCore;
+using ShipsClass;
 
 namespace SeaBattleServerComunication
 {
@@ -40,6 +41,25 @@ namespace SeaBattleServerComunication
                 case RequestType.Register:
                     {
                         RegEmail regEmail = new RegEmail(DAL.DataBaseAccess.DbContext, Data[0]/*NickName*/, Data[1]/*Email*/, Login, Password);
+
+                        if (Data[0].Length < 6 || Data[0].Length > 16)
+                        {
+                               return;
+                        }
+                        if (Login.Length < 6 || Login.Length > 16)
+                        {
+                               return;
+                        }
+                        if (Password.Length < 6 || Password.Length > 16)
+                        {                         
+                            return;
+                        }
+                        if (!Data[1].Contains("@"))
+                        {
+                            return;
+                        }
+                     
+
                         if (Data.Count == 2) //2 це нікнейм і пошта, 3 це код
                         {
                             bool isLoginExist = (from u in DAL.DataBaseAccess.DbContext.Users
@@ -220,6 +240,35 @@ namespace SeaBattleServerComunication
                                             where u.CurrentBattleId == battle.Id
                                             orderby u.Id
                                             select u).ToList();
+
+                        List<Ship> ships = JsonConvert.DeserializeObject<List<Ship>>(Data[0]);
+                        foreach (var ship in ships)
+                        {
+
+                            foreach (var decks in ship.Decks)
+                            {
+                                if (decks.Coords.X >= 10 || decks.Coords.Y >= 10)
+                                {
+                                    return;
+                                }
+                            }
+                            foreach (var placedShip in ships)
+                            {
+                                foreach (var placedDeck in placedShip.Decks)
+                                {
+                                    foreach (var decks in ship.Decks)
+                                    {
+                                        if ((decks.Coords.X >= placedDeck.Coords.X - 1 && decks.Coords.X <= placedDeck.Coords.X + 1
+                                        && decks.Coords.Y >= placedDeck.Coords.Y - 1 && decks.Coords.Y <= placedDeck.Coords.Y + 1))
+                                        {
+                                            return;
+                                        }
+                                    }
+                                }
+                            }
+                          
+                        }
+
                         string friendLogin;
                         if (users[0].Login == Login)
                         {
