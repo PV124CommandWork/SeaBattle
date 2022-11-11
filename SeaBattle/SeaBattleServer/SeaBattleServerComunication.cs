@@ -10,6 +10,7 @@ using RegistrationNS;
 using GameDBContext.Entities;
 using DAL;
 using Microsoft.EntityFrameworkCore;
+using ShipsClass;
 
 namespace SeaBattleServerComunication
 {
@@ -220,6 +221,35 @@ namespace SeaBattleServerComunication
                                             where u.CurrentBattleId == battle.Id
                                             orderby u.Id
                                             select u).ToList();
+
+                        List<Ship> ships = JsonConvert.DeserializeObject<List<Ship>>(Data[0]);
+                        foreach (var ship in ships)
+                        {
+
+                            foreach (var decks in ship.Decks)
+                            {
+                                if (decks.Coords.X >= 10 || decks.Coords.Y >= 10)
+                                {
+                                    return;
+                                }
+                            }
+                            foreach (var placedShip in ships)
+                            {
+                                foreach (var placedDeck in placedShip.Decks)
+                                {
+                                    foreach (var decks in ship.Decks)
+                                    {
+                                        if ((decks.Coords.X >= placedDeck.Coords.X - 1 && decks.Coords.X <= placedDeck.Coords.X + 1
+                                        && decks.Coords.Y >= placedDeck.Coords.Y - 1 && decks.Coords.Y <= placedDeck.Coords.Y + 1))
+                                        {
+                                            return;
+                                        }
+                                    }
+                                }
+                            }
+                          
+                        }
+
                         string friendLogin;
                         if (users[0].Login == Login)
                         {

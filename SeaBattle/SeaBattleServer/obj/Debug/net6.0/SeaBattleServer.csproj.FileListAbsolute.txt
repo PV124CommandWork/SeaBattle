@@ -204,3 +204,11 @@ C:\Users\User\source\repos\SeaBattle\SeaBattle\SeaBattleServer\obj\Debug\net6.0\
 C:\Users\User\source\repos\SeaBattle\SeaBattle\SeaBattleServer\obj\Debug\net6.0\SeaBattleServer.pdb
 C:\Users\User\source\repos\SeaBattle\SeaBattle\SeaBattleServer\obj\Debug\net6.0\SeaBattleServer.genruntimeconfig.cache
 C:\Users\User\source\repos\SeaBattle\SeaBattle\SeaBattleServer\obj\Debug\net6.0\ref\SeaBattleServer.dll
+C:\Нова папка\SeaBattle\SeaBattleServer\obj\Debug\net6.0\SeaBattleServer.csproj.AssemblyReference.cache
+C:\Нова папка\SeaBattle\SeaBattleServer\obj\Debug\net6.0\SeaBattleServer.GeneratedMSBuildEditorConfig.editorconfig
+C:\Нова папка\SeaBattle\SeaBattleServer\obj\Debug\net6.0\SeaBattleServer.AssemblyInfoInputs.cache
+C:\Нова папка\SeaBattle\SeaBattleServer\obj\Debug\net6.0\SeaBattleServer.AssemblyInfo.cs
+C:\Нова папка\SeaBattle\SeaBattleServer\obj\Debug\net6.0\SeaBattleServer.csproj.CoreCompileInputs.cache
+C:\Нова папка\SeaBattle\SeaBattleServer\obj\Debug\net6.0\SeaBattleServer.dll
+C:\Нова папка\SeaBattle\SeaBattleServer\obj\Debug\net6.0\refint\SeaBattleServer.dll
+C:\Нова папка\SeaBattle\SeaBattleServer\obj\Debug\net6.0\SeaBattleServer.pdb
