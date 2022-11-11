@@ -41,6 +41,25 @@ namespace SeaBattleServerComunication
                 case RequestType.Register:
                     {
                         RegEmail regEmail = new RegEmail(DAL.DataBaseAccess.DbContext, Data[0]/*NickName*/, Data[1]/*Email*/, Login, Password);
+
+                        if (Data[0].Length < 6 || Data[0].Length > 16)
+                        {
+                               return;
+                        }
+                        if (Login.Length < 6 || Login.Length > 16)
+                        {
+                               return;
+                        }
+                        if (Password.Length < 6 || Password.Length > 16)
+                        {                         
+                            return;
+                        }
+                        if (!Data[1].Contains("@"))
+                        {
+                            return;
+                        }
+                     
+
                         if (Data.Count == 2) //2 це нікнейм і пошта, 3 це код
                         {
                             bool isLoginExist = (from u in DAL.DataBaseAccess.DbContext.Users
