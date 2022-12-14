@@ -47,7 +47,7 @@ namespace SeaBattle
 
             ConnectingToServer();
 
-            MainGrid.Children.Add(new UC_Battlefield());
+            MainGrid.Children.Add(new UC_LoginPage());
             Settings.Init();
         }
         public static void ConnectingToServer() 

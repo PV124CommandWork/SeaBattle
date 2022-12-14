@@ -38,8 +38,8 @@ namespace SeaBattle.UserControls
 
             for (int i = 0; i < 10; i++)        //Задаємо розмір сітки
             {
-                Player1Field.ColumnDefinitions.Add(new ColumnDefinition());
-                Player1Field.RowDefinitions.Add(new RowDefinition());
+                Player1Field.ColumnDefinitions.Add(new ColumnDefinition(){ Width = new GridLength(50) });
+                Player1Field.RowDefinitions.Add(new RowDefinition() { Height = new GridLength(50) });
             }
 
             for (int i = 0; i < 10; i++)        //Вигляд сітки

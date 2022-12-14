@@ -9,6 +9,8 @@ using RegistrationNS;
 using GameDBContext.Entities;
 using DAL;
 using Microsoft.EntityFrameworkCore;
+using ShipsClass;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace SeaBattleServer
 {
@@ -72,7 +74,7 @@ namespace SeaBattleServer
                  where u.Registration == null
                        && u.Login == Login
                        && u.Password == Password
-                 select u).FirstOrDefault() == null)
+                 select u).FirstOrDefault() == null && ReqType != RequestType.Login && ReqType != RequestType.Register)
             {
                 return;
             }
@@ -125,11 +127,25 @@ namespace SeaBattleServer
                 case RequestType.GetFriends:
                     {
                         request.ReqType = RequestType.GetFriends;
-                        IQueryable<string> friends = from f in DataBaseAccess.DbContext.Friends
-                                                     where f.User1.Login == Login
-                                                     && f.User1.Registration == null
-                                                     select f.User2.Login;
+                        List<string> from = (from f in DataBaseAccess.DbContext.Friends
+                                             where f.User1.Login == Login
+                                             && f.User1.Registration == null
+                                             select f.User2.Login).ToList();
+                        List<string> to = (from f in DataBaseAccess.DbContext.Friends
+                                           where f.User2.Login == Login
+                                           && f.User2.Registration == null
+                                           select f.User1.Login).ToList();
+                        List<string> friends = new List<string>();
+                        foreach (var item in from)
+                        {
+                            if (to.FindIndex(f => f == item) != -1)
+                            {
+                                friends.Add(item);
+                            }
+                        }
+
                         request.Data.Add(JsonConvert.SerializeObject(friends));
+                        request.Data.Add(JsonConvert.SerializeObject(to));
                         break;
                     }
                 case RequestType.BattleRequest:
@@ -251,6 +267,87 @@ namespace SeaBattleServer
                     }
                 case RequestType.Fire:
                     {
+                        request.ReqType = RequestType.Fire;
+                        var battle = (from b in DataBaseAccess.DbContext.CurrentBattles
+                                      where b.Id == (from u in DataBaseAccess.DbContext.Users
+                                                     where u.Login == Login
+                                                     select u.CurrentBattleId).FirstOrDefault()
+                                      select b).FirstOrDefault(); //находить бій
+                        List<User> users = (from u in DataBaseAccess.DbContext.Users
+                                            where u.CurrentBattleId == battle.Id
+                                            orderby u.Id
+                                            select u).ToList();
+                        if ((users[0].Login == Login && !battle.Move) || (users[0].Login != Login && battle.Move))
+                        {
+                            return;
+                        }
+
+                        Request request1 = new Request()
+                        {
+                            ReqType = RequestType.Fire,
+                            Data = Data
+                        };
+                        ServerObj.SendToClientByLogin((from u in users where u.Login != Login select u.Login).FirstOrDefault(), request1);// відправляє противнику постріл
+
+                        string jsonData;
+                        if (users[0].Login == Login)//витягує поле
+                        {
+                            jsonData = battle.SecondFieldData;
+                        }
+                        else
+                        {
+                            jsonData = battle.FirstFieldData;
+                        }
+
+                        Shoot shoot = JsonConvert.DeserializeObject<Shoot>(Data[0]);
+                        List<Ship> shipList = JsonConvert.DeserializeObject<List<Ship>>(jsonData);
+
+                        shoot.Damage(ref shipList);
+                        bool isWiner = true;
+                        foreach (var item in shipList)
+                        {
+                            if (!isWiner)
+                            {
+                                break;
+                            }
+                            foreach(var deck in item.Decks)
+                            {
+                                if (deck.IsDamaged == false)
+                                {
+                                    isWiner = false;
+                                    break;
+                                }
+                            }
+                        }
+                        if (isWiner)
+                        {
+                            request.ReqType = RequestType.BattleEnded;
+                            request.Data.Add(Login);
+                            request.Data.Add(battle.FirstFieldData);
+                            request.Data.Add(battle.SecondFieldData);
+                            ServerObj.SendToClientByLogin(Login, request);
+                            ServerObj.SendToClientByLogin((from u in users where u.Login != Login select u.Login).FirstOrDefault(), request);
+                            BattleManagement.deleteBattle(battle.Id);
+                            return;
+                        }
+
+                        if (shoot.ReturnedValue == -1)
+                        {
+                            BattleManagement.switchMove(Login);
+                        }
+
+                        jsonData = JsonConvert.SerializeObject(shipList);
+                        if (users[0].Login == Login)//оновлює поле
+                        {
+                            BattleManagement.updateField(users[1].Login, jsonData);
+                        }
+                        else
+                        {
+                            BattleManagement.updateField(users[0].Login, jsonData);
+                        }
+
+                        jsonData = JsonConvert.SerializeObject(shoot);
+                        request.Data.Add(jsonData);//відправляє данні про постріл
                         break;
                     }
             }

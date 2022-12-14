@@ -13,7 +13,7 @@ namespace SeaBattleServer
     {
         static TcpListener server;
         private int portListening;
-        private IPAddress ipListening = IPAddress.Parse("127.0.0.1");
+        private IPAddress ipListening = IPAddress.Parse("26.246.103.91");
         static List<ClientObj> clients = new List<ClientObj>();//all connections
         public ServerObj(int portListening)
         {

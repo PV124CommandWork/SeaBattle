@@ -35,7 +35,11 @@
                     Background="LightGray">
                         <Viewbox Width="200"
                         Height="200"
-                        ></Viewbox>
+                        >
+                            <Grid x:Name="FirstFieldGrid">
+                                
+                            </Grid>
+                        </Viewbox>
                     </Border>
                     <Border 
                     Width="200"
@@ -43,7 +47,11 @@
                     Background="LightGray">
                         <Viewbox Width="200"
                         Height="200"
-                        ></Viewbox>
+                        >
+                            <Grid x:Name="SecondFieldGrid">
+
+                            </Grid>
+                        </Viewbox>
                     </Border>
                 </DockPanel>
 

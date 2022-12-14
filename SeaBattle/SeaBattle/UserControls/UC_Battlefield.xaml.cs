@@ -19,6 +19,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using MaterialDesignThemes.Wpf;
+using Newtonsoft.Json;
+using SeaBattleServerComunication;
 using ShipsClass;
 
 namespace SeaBattle.UserControls
@@ -30,7 +32,7 @@ namespace SeaBattle.UserControls
     {
         public static List<Ship> Ships;
         public static bool Move { get; private set; } = false;
-        public Coords<int> Target = new Coords<int>() { X = -1, Y = -1};
+        public Coords<int> Target = new Coords<int>() { X = -1, Y = -1 };
         public UC_Battlefield()
         {
             InitializeComponent();
@@ -73,31 +75,38 @@ namespace SeaBattle.UserControls
                     Player2Field.Children.Add(border);
                 }
             }
-
-
-
-
-
-
-
-
-
-            Ships.Add(new Ship(new Deck(2, 2), 4, false));
         }
 
         private void SelectCell_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            foreach(var item in Player2Field.Children)
+            foreach (var item in Player2Field.Children)
             {
-                (item as Border).BorderBrush = new SolidColorBrush(Colors.Gray);
+                try
+                {
+                    (item as Border).BorderBrush = new SolidColorBrush(Colors.Gray);
+                }
+                catch { }
             }
             (sender as Border).BorderBrush = new SolidColorBrush(Colors.Red);
-            Target = new Coords<int>() { X= Grid.GetColumn(sender as Border), Y = Grid.GetRow(sender as Border) };
+            Target = new Coords<int>() { X = Grid.GetColumn(sender as Border), Y = Grid.GetRow(sender as Border) };
         }
 
         private void Attack_Click(object sender, RoutedEventArgs e)
         {
-            ShowShoot(new Shoot(2, 5));
+            for (int i = 100; i < Player2Field.Children.Count; i++)
+            {
+                try
+                {
+                    int x = Grid.GetColumn(Player2Field.Children[i] as Image), y = Grid.GetRow(Player2Field.Children[i] as Image);
+                    if (Target.X == x && Target.Y == y)
+                    {
+                        MessageBox.Show("You alredy shooted in this place!");
+                        return;
+                    }
+                }
+                catch { }
+            }
+            SendToServer.SendShoot(JsonConvert.SerializeObject(new Shoot() { Coords = Target }));
         }
 
         public void ShowShips(List<Ship> ships)
@@ -172,6 +181,7 @@ namespace SeaBattle.UserControls
                 case -1:
                     {
                         img.Source = new BitmapImage(new Uri(Directory.GetCurrentDirectory() + @"\Images\MissIcon.png"));
+                        ChangeMove(!Move);
                         break;
                     }
                 case 0:
@@ -182,8 +192,8 @@ namespace SeaBattle.UserControls
                 case 1:
                     {
                         //int shipIndex = Ships.FindIndex(s=>s.Decks.FindIndex(d => d.Coords.X == shoot.Coords.X && d.Coords.Y == shoot.Coords.Y)!=-1);
-                        Coords<int> from = Ships[shoot.DestroyedShipIndex].Decks[0].Coords;
-                        Coords<int> to = Ships[shoot.DestroyedShipIndex].Decks[Ships[shoot.DestroyedShipIndex].Decks.Count - 1].Coords;
+                        Coords<int> from = shoot.DestroyedShip.Decks[0].Coords;
+                        Coords<int> to = shoot.DestroyedShip.Decks[shoot.DestroyedShip.Decks.Count - 1].Coords;
                         for (int x = from.X - 1; x <= to.X + 1; x++)
                         {
                             for (int y = from.Y - 1; y <= to.Y + 1; y++)
@@ -192,7 +202,26 @@ namespace SeaBattle.UserControls
                                 {
                                     continue;
                                 }
-                                ShowShoot(new Shoot(x, y));
+                                if(y < 0 || y > 9)
+                                {
+                                    continue;
+                                }
+                                if(x < 0 || x > 9)
+                                {
+                                    continue;
+                                }
+                                Image img2 = new Image();
+                                Grid.SetColumn(img2, x);
+                                Grid.SetRow(img2, y);
+                                img2.Source = new BitmapImage(new Uri(Directory.GetCurrentDirectory() + @"\Images\MissIcon.png"));
+                                if (isPlayerMove)
+                                {
+                                    Player2Field.Children.Add(img2);
+                                }
+                                else
+                                {
+                                    Player1Field.Children.Add(img2);
+                                }
                             }
                         }
                         img.Source = new BitmapImage(new Uri(Directory.GetCurrentDirectory() + @"\Images\DamagedIcon.png"));
@@ -204,7 +233,7 @@ namespace SeaBattle.UserControls
             {
                 Player2Field.Children.Add(img);
             }
-            else 
+            else
             {
                 Player1Field.Children.Add(img);
             }
