@@ -2,6 +2,7 @@
 using Newtonsoft.Json;
 using SeaBattle.UserControls;
 using SeaBattleServerComunication;
+using ShipsClass;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
 using System.Windows.Media;
+using System.Windows.Shapes;
 
 namespace SeaBattle {
     public class ChangeUserControler {
@@ -114,6 +116,22 @@ namespace SeaBattle {
                 bf.ChangeMove(move);
                 MainWindow.MainWindowInstance.MainGrid.Children.Clear();
                 MainWindow.MainWindowInstance.MainGrid.Children.Add(bf);
+            });
+        }
+        public static void ShowShootData(Shoot shoot)
+        {
+            MainWindow.MainWindowInstance.Dispatcher.Invoke(() => {
+                (MainWindow.MainWindowInstance.MainGrid.Children[0] as UC_Battlefield).ShowShoot(shoot);
+            });
+        }
+        public static void ToEndScreen(string login, string p1FieldData, string p2FieldData)
+        {
+            MainWindow.MainWindowInstance.Dispatcher.Invoke(() => {
+                MainWindow.MainWindowInstance.MainGrid.Children.Clear();
+                UC_EndScreen endScreen = new UC_EndScreen();
+                endScreen.Load(login == Settings.Login, 0, 0);
+                endScreen.LoadField(p1FieldData, p2FieldData);
+                MainWindow.MainWindowInstance.MainGrid.Children.Add(endScreen);
             });
         }
     }

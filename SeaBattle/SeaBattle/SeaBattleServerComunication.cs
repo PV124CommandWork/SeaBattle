@@ -13,6 +13,7 @@ using SeaBattle.UserControls;
 using System.Windows.Threading;
 using System.Runtime.CompilerServices;
 using System.Diagnostics.Contracts;
+using ShipsClass;
 
 namespace SeaBattleServerComunication
 {
@@ -20,7 +21,7 @@ namespace SeaBattleServerComunication
     class ServerConnection
     {
         private const int port = 8008;
-        private const string hostname = "127.0.0.1";
+        private const string hostname = "26.246.103.91";
         //26.246.103.91
 
         public static TcpClient client = null;
@@ -160,6 +161,7 @@ namespace SeaBattleServerComunication
                         }
                     case RequestType.BattleEnded:
                         {
+                            ChangeUserControler.ToEndScreen(request.Data[0], request.Data[1], request.Data[2]);
                             break;
                         }
                     case RequestType.PlayerReady:
@@ -169,6 +171,8 @@ namespace SeaBattleServerComunication
                         }
                     case RequestType.Fire:
                         {
+                            Shoot shoot = JsonConvert.DeserializeObject<Shoot>(request.Data[0]);
+                            ChangeUserControler.ShowShootData(shoot);
                             break;
                         }
                     default: throw new Exception();
@@ -312,6 +316,16 @@ namespace SeaBattleServerComunication
                 Login = friendLogin,
                 Password = "",
                 ReqType = RequestType.GetFriends
+            };
+
+            SendRequestToServer(request);
+        }
+        public static void SendShoot(string shootData) {
+            Request request = new Request() {
+                Login = Settings.Login,
+                Password = Settings.Password,
+                Data = new List<string>() { shootData },
+                ReqType = RequestType.Fire
             };
 
             SendRequestToServer(request);

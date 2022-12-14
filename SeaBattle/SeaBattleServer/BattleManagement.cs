@@ -74,8 +74,8 @@ namespace SeaBattleServer
         }
         public static void switchMove(string login)
         {
-            //User user = (from u in DataBaseAccess.DbContext.Users where u.Login == login select u).FirstOrDefault();
-            CurrentBattle battle = (from b in DataBaseAccess.DbContext.CurrentBattles where b.Users[0].Login == login || b.Users[1].Login == login select b).FirstOrDefault();
+            User user = (from u in DataBaseAccess.DbContext.Users where u.Login == login && u.Registration == null select u).FirstOrDefault();
+            CurrentBattle battle = (from b in DataBaseAccess.DbContext.CurrentBattles where b.Id == user.CurrentBattleId select b).FirstOrDefault();
             if (battle == null) {
                 throw new Exception();
             }
@@ -85,16 +85,17 @@ namespace SeaBattleServer
         }
         public static void updateField(string login, string fieldData)
         {
-            CurrentBattle battle = (from b in DataBaseAccess.DbContext.CurrentBattles where b.Users[0].Login == login || b.Users[1].Login == login select b).FirstOrDefault();
+            User user = (from u in DataBaseAccess.DbContext.Users where u.Login == login && u.Registration == null select u).FirstOrDefault();
+            CurrentBattle battle = (from b in DataBaseAccess.DbContext.CurrentBattles where b.Id == user.CurrentBattleId select b).FirstOrDefault();
             if(battle == null)
             {
                 throw new Exception();
             }
-            if (battle.Users[0].Login == login)
+            if (battle.Users[1].Login == login)
             {
                 battle.FirstFieldData = fieldData;
             }
-            else if(battle.Users[1].Login == login)
+            else if(battle.Users[0].Login == login)
             {
                 battle.SecondFieldData = fieldData;
             }
